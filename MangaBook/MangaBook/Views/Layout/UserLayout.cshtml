@@ -1,10 +1,159 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <title>@Page.Title</title>
-        @RenderSection("head", required: false)
-    </head>
-    <body>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    <link href="~/Content/HomeCss/style.css" rel="stylesheet" />
+    <link href="~/Content/HomeCss/style_form.css" rel="stylesheet" />
+    <link href="~/Content/HomeCss/style_home.css" rel="stylesheet" />
+    <link href="~/Content/HomeCss/style_menu.css" rel="stylesheet" />
+    <link href="~/Content/HomeCss/style_sanpham.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div class="icon_trai">
+        <a class="fb" rel="nofollow" target="_blank" href="https://www.facebook.com"></a>
+        <a class="gp" rel="nofollow" target="_blank" href="https://plus.google.com"></a>
+        <a class="tw" rel="nofollow" target="_blank" href="https://twitter.com"></a>
+    </div>
+
+    <style type="text/css">
+        .icon_trai {
+            position: fixed;
+            margin-top: 300px;
+        }
+
+        .fb {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background: url(../images/icon_fb.png) center no-repeat;
+            display: block;
+        }
+
+            .fb:hover {
+                transition: width .25s ease-in-out;
+                width: 65px;
+                background: url(../images/icon_fb.png) center no-repeat;
+                display: block;
+            }
+
+        .gp {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background: url(../images/icon_gp.png) center no-repeat;
+            display: block;
+        }
+
+            .gp:hover {
+                transition: width .25s ease-in-out;
+                width: 65px;
+                background: url(../images/icon_gp.png) center no-repeat;
+                display: block;
+            }
+
+        .tw {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background: url(../images/icon_tw.png) center no-repeat;
+            display: block;
+        }
+
+            .tw:hover {
+                transition: width .25s ease-in-out;
+                width: 65px;
+                background: url(../images/icon_tw.png) center no-repeat;
+                display: block;
+            }
+    </style><div class="container">
+    <style type='text/css'>
+    #dt-btt {
+        text-align: center;
+        position: fixed;
+        cursor: pointer;
+        display: none;
+        bottom: 70px;
+        right: -2px;
+    }
+            </style>
+
+            <div id='dt-btt'><img src="../images/go_top.png" /></div>
+
+            <div class="wrapper">
+                <header>
+
+                    <div class="logo">
+                        <a href="/index.php"><img src="../images/logo.png" /></a>
+    </div>
+
+    <div class="giohang-img"><img src="../images/shopping.png" /></div>
+    <div class="giohang"><a href="/index.php?page=giohang">Giỏ hàng (0)</a></div>
+
+    <div class="search">
+    <form method="post" action="">
+    <input type="text" value="Tìm kiếm..." class="s" id="s" name="tukhoa" />
+    <input type="submit" class="searchsubmit" value="" name="Submit" />
+    </form>
+    </div>
+
+    </header>
+
+    </div>
+
+            <div class="left">
+                <div class="menu">
+                    <ul class="navigation">
+                        <p id='sign-label'><a href='/index.php?page=dangnhap'>Đăng nhập</a></p>
+              <p id='sign-label'><a href='/index.php?page=dangky'>Tạo tài khoản</a></p>
+    <p class="danhmuc">Danh mục sách</p>
+    <ul>
+        @Html.Action("DanhMucPartial","Home")
+    </ul>
+    </ul>
+    </div>
+    </div>
+
+    <div class="content">
+    <div class="heading">
+    <span class="heading-label">Sản phẩm mới <img src="../images/new.gif" /></span>
+    </div>
         @RenderBody()
-    </body>
+    </div>
+    </div>
+
+    <footer>
+    <div class="contact">
+    <span class="gioithieu">GIỚI THIỆU</span>
+    <br>
+    <p id="gioithieu">MangaBook - Trang web bán sách truyện trực tuyến. Kho sách phong phú nhiều thể loại, cập nhật sách mới liên
+
+    <footer>
+        <div class="contact">
+            <span class="gioithieu">GIỚI THIỆU</span>
+            <br>
+            <p id="gioithieu">MangaBook - Trang web bán sách truyện trực tuyến. Kho sách phong phú nhiều thể loại, cập nhật sách mới liên tục mỗi ngày.</p>
+
+            <span id="contact">
+                <a href="/index.php?page=gopy">Góp ý</a>
+                <br>
+                <br>
+                <span>Liên hệ:</span>
+            </span>
+
+            <p id="lienhe">
+                285 Đội Cấn, Ba Đình, Hà Nội
+                <br>
+                xx-xxx-xx
+            </p>
+        </div>
+
+        <span style="font-weight: bold; font-size: 18px; color: #FFF;">
+            ©2015 Trang web được làm bởi Nhóm 3 lớp C1408I
+        </span>
+    </footer>
+
+
+</body>
 </html>

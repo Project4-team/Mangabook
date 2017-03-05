@@ -44,3 +44,7 @@ C:\Users\nghia\Desktop\Mangabook\MangaBook\MangaBook\bin\System.Web.Mvc.xml
 C:\Users\nghia\Desktop\Mangabook\MangaBook\MangaBook\obj\Debug\MangaBook.csprojResolveAssemblyReference.cache
 C:\Users\nghia\Desktop\Mangabook\MangaBook\MangaBook\obj\Debug\MangaBook.dll
 C:\Users\nghia\Desktop\Mangabook\MangaBook\MangaBook\obj\Debug\MangaBook.pdb
+C:\Users\nghia\Desktop\Mangabook\MangaBook\MangaBook\bin\EntityFramework.dll
+C:\Users\nghia\Desktop\Mangabook\MangaBook\MangaBook\bin\EntityFramework.SqlServer.dll
+C:\Users\nghia\Desktop\Mangabook\MangaBook\MangaBook\bin\EntityFramework.xml
+C:\Users\nghia\Desktop\Mangabook\MangaBook\MangaBook\bin\EntityFramework.SqlServer.xml
