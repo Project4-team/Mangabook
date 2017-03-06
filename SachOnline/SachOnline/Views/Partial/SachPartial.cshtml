@@ -1,0 +1,35 @@
+﻿@using SachOnline.Models;
+@model  List<Sach>
+
+
+
+
+    @{int i = 0; }
+    @{
+        foreach (var item in Model)
+        {   
+        i++;
+        <div class="col-md-4">
+            <div class="product-info">
+                <div class="product-thumb">
+                    <img src="@Url.Content("~/Content/img-sp/"+item.AnhBia)" class="img-responsive" alt="" />
+                    <div class="product-overlay">
+                        <span>
+                            <a href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                            <a href="#"><i class="fa fa-paper-plane-o"></i> Quick Checkout</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="pi-inner">
+                    <h4><a href="#">@item.TenSach</a></h4>
+                    <div class="product-price">@item.GiaBan</div>
+                </div>
+            </div>
+        </div>
+        @*if (i % 3 ==0)
+            {
+                <div style="clear:both"></div>
+            }*@
+        }
+    }
+

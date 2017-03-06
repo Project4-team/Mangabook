@@ -22,5 +22,10 @@ namespace SachOnline.Controllers.User
             var ListNhaXuatBan = db.NhaXuatBans.ToList();
             return PartialView(ListNhaXuatBan);
         }
+        public PartialViewResult SachPartial()
+        {
+            var ListSach = db.Saches.ToList();
+            return PartialView(ListSach);
+        }
     }
 }

@@ -41,7 +41,6 @@ C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Webpages.D
 C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Webpages.Razor.xml
 C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Helpers.xml
 C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Mvc.xml
-C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.csprojResolveAssemblyReference.cache
 C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.dll
 C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.pdb
 C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\EntityFramework.dll
