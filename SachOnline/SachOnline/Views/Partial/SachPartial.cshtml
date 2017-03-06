@@ -2,12 +2,10 @@
 @model  List<Sach>
 
 
-
-
-    @{int i = 0; }
-    @{
-        foreach (var item in Model)
-        {   
+@{int i = 0; }
+@{
+    foreach (var item in Model)
+    {
         i++;
         <div class="col-md-4">
             <div class="product-info">
@@ -16,7 +14,7 @@
                     <div class="product-overlay">
                         <span>
                             <a href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-                            <a href="#"><i class="fa fa-paper-plane-o"></i> Quick Checkout</a>
+                            <a href="#"><i class="fa fa-paper-plane-o"></i>Xem Chi Tiết</a>
                         </span>
                     </div>
                 </div>
@@ -30,6 +28,5 @@
             {
                 <div style="clear:both"></div>
             }*@
-        }
     }
-
+}
