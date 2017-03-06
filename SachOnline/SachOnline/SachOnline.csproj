@@ -342,6 +342,8 @@
     <Content Include="Views\Partial\TheLoaiPartial.cshtml" />
     <Content Include="Views\Partial\NhaXuatBanPartial.cshtml" />
     <Content Include="Views\Partial\SachPartial.cshtml" />
+    <Content Include="Views\Partial\ChiTietSachView.cshtml" />
+    <Content Include="Views\Partial\SachTheoTheloai.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

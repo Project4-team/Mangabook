@@ -1,0 +1,15 @@
+﻿@using SachOnline.Models;
+@model List<Sach>
+@{
+    ViewBag.Title = "SachTheoTheloai";
+}
+
+@{
+    foreach (var item in Model)
+    {
+        <div>@item.MaSach</div>
+        <div>@item.TenSach</div>
+        <div>@item.GiaBan</div>
+    }
+}
+
