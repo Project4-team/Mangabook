@@ -15,22 +15,18 @@ namespace SachOnline.Models
 using System;
     using System.Collections.Generic;
     
-public partial class ChiTietDonHang
+public partial class sysdiagram
 {
 
-    public int MaDonHang { get; set; }
+    public string name { get; set; }
 
-    public int MaSach { get; set; }
+    public int principal_id { get; set; }
 
-    public Nullable<int> SoLuong { get; set; }
+    public int diagram_id { get; set; }
 
-    public Nullable<int> DonGia { get; set; }
+    public Nullable<int> version { get; set; }
 
-
-
-    public virtual DonHang DonHang { get; set; }
-
-    public virtual Sach Sach { get; set; }
+    public byte[] definition { get; set; }
 
 }
 

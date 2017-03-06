@@ -20,6 +20,9 @@
         <AssociationConnector Association="SachOnlineModel.FK_Sach_ChuDe" ManuallyRouted="false" />
         <AssociationConnector Association="SachOnlineModel.FK_DonHang_KhachHang" ManuallyRouted="false" />
         <AssociationConnector Association="SachOnlineModel.FK_Sach_NhaXuatBan" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SachOnlineModel.GiaoHang" Width="1.5" PointX="8.375" PointY="1" />
+        <EntityTypeShape EntityType="SachOnlineModel.sysdiagram" Width="1.5" PointX="8.375" PointY="8.75" />
+        <AssociationConnector Association="SachOnlineModel.FK_DonHang_GiaoHang" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

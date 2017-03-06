@@ -36,7 +36,7 @@ namespace SachOnline.Controllers.User
             }
             return View(sach);
         }
-        public ViewResult SachTheoTheloai(int machude) {
+        public ViewResult SachTheoTheloaiView(int machude) {
             ChuDe cd = db.ChuDes.SingleOrDefault(n => n.MaChuDe == machude);
             if (cd == null)
             {

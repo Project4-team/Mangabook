@@ -3,6 +3,6 @@
   @{
       foreach (var item in Model)
       {
-        <li><a href='@Url.Action("SachTheoTheloai","Partial",new { @machude=item.MaChuDe})'>@item.TenChuDe</a></li>
+        <li><a href='@Url.Action("SachTheoTheloaiView","Partial",new { @machude=item.MaChuDe})'>@item.TenChuDe</a></li>
       }
 }  

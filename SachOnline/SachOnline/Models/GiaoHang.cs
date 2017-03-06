@@ -15,11 +15,11 @@ namespace SachOnline.Models
 using System;
     using System.Collections.Generic;
     
-public partial class KhachHang
+public partial class GiaoHang
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public KhachHang()
+    public GiaoHang()
     {
 
         this.DonHangs = new HashSet<DonHang>();
@@ -27,23 +27,19 @@ public partial class KhachHang
     }
 
 
-    public int MaKH { get; set; }
+    public int MaGiaoHang { get; set; }
 
-    public string HoTen { get; set; }
-
-    public string TaiKhoan { get; set; }
-
-    public string MaKhau { get; set; }
-
-    public string Email { get; set; }
+    public string TenNguoiNhan { get; set; }
 
     public string DiaChi { get; set; }
 
-    public string DienThoai { get; set; }
+    public string SDT { get; set; }
 
-    public string GioiTinh { get; set; }
+    public string Email { get; set; }
 
-    public Nullable<System.DateTime> NgaySinh { get; set; }
+    public Nullable<int> QuaTang { get; set; }
+
+    public string LoiNhan { get; set; }
 
 
 

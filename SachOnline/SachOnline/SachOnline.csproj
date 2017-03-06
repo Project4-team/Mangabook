@@ -297,6 +297,9 @@
     <Compile Include="Models\DonHang.cs">
       <DependentUpon>SachOnline.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GiaoHang.cs">
+      <DependentUpon>SachOnline.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\KhachHang.cs">
       <DependentUpon>SachOnline.tt</DependentUpon>
     </Compile>
@@ -324,6 +327,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SachOnline.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>SachOnline.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -343,7 +349,7 @@
     <Content Include="Views\Partial\NhaXuatBanPartial.cshtml" />
     <Content Include="Views\Partial\SachPartial.cshtml" />
     <Content Include="Views\Partial\ChiTietSachView.cshtml" />
-    <Content Include="Views\Partial\SachTheoTheloai.cshtml" />
+    <Content Include="Views\Partial\SachTheoTheloaiView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
