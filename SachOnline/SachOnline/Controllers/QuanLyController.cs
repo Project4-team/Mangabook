@@ -30,24 +30,5 @@ namespace SachOnline.Controllers
  
             return View();
         }
-        [HttpGet]
-        public ActionResult DangNhap() {
-
-            return View();
-        }
-        [HttpPost]
-        public ActionResult DangNhap(FormCollection f) {
-            string sTaiKhoan = f.Get("txtTaiKhoan").ToString();
-            string sMatKhau = f.Get("txtMaKhau").ToString();
-            KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MaKhau == sMatKhau);
-            if (kh != null)
-            {
-                ViewBag.ThongBao = "Đăng Nhập Thành Công !";
-                Session["TaiKhoan"] = kh;
-                return View();
-            }
-            ViewBag.ThongBao = "Đăng Nhập Không Thành Công!";     
-                return View();
-        }
     }
 }
