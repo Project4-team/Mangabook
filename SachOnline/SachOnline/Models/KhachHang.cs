@@ -35,6 +35,7 @@ namespace SachOnline.Models
         public string HoTen { get; set; }
         [Display(Name = "Tên Tài Khoản")]
         [Required(ErrorMessage = "{0} không đươc dể trống !")]
+        [customUserVaidator]
         public string TaiKhoan { get; set; }
         [Display(Name = "Mật Khẩu")]
         [Required(ErrorMessage = "{0} không đươc dể trống !")]
