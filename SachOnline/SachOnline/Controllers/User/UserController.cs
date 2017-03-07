@@ -12,7 +12,7 @@ namespace SachOnline.Controllers.User
     {
         SachOnlineEntities db = new SachOnlineEntities();
         public ViewResult ChiTietSach(int masach = 0)
-        {   
+        {
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == masach);
             if (sach == null)
             {
@@ -50,6 +50,10 @@ namespace SachOnline.Controllers.User
                 ViewBag.NXB = "Không có sách nào thuộc nhà xuát bản này";
             }
             return View(SachNXB);
+        }
+        public ActionResult DangKi() {
+
+            return View();
         }
     }
 }
