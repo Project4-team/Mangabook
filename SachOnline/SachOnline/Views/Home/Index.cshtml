@@ -3,49 +3,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Layout/UserLayout.cshtml";
 }
-
-<!-- SLIDER -->
-<div id="slider">
-    <div id="main-slider1" class="owl-carousel owl-theme">
-        <div class="item">
-            <img src="~/Content/User/images/slider/1.jpg" alt="">
-            <div class="container">
-                <h3>Wefit Fitness<span>Helps you get more active</span></h3>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/Content/User/images/slider/2.jpg" alt="">
-            <div class="container caption2">
-                <h3>It's not a diet<span>It's a Permanent LIFTSTYLE CHANGE</span></h3>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/Content/User/images/slider/3.jpg" alt="">
-            <div class="container">
-                <div class="caption3">
-                    <h3>It never get easier<span>You Just Get Stronger</span></h3>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- PAGE HEADER -->
-<div class="page_header1">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h5>Products</h5>
-            </div>
-            <div class="col-md-6">
-                <ul class="bcrumbs">
-                    <li><a href="#">Home</a></li>
-                    <li>Products</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+@Html.Action("SliderPartial", "Partial")
 
 <!-- SHOP CONTENT MAIN -->
 <div class="shop-main">

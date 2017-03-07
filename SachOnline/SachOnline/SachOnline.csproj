@@ -282,6 +282,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\User\PartialController.cs" />
+    <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -348,8 +349,9 @@
     <Content Include="Views\Partial\TheLoaiPartial.cshtml" />
     <Content Include="Views\Partial\NhaXuatBanPartial.cshtml" />
     <Content Include="Views\Partial\SachPartial.cshtml" />
-    <Content Include="Views\Partial\ChiTietSachView.cshtml" />
-    <Content Include="Views\Partial\SachTheoTheloaiView.cshtml" />
+    <Content Include="Views\User\ChiTietSach.cshtml" />
+    <Content Include="Views\User\SachTheoTheloai.cshtml" />
+    <Content Include="Views\Partial\SliderPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

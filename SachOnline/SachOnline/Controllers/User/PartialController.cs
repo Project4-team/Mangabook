@@ -24,31 +24,11 @@ namespace SachOnline.Controllers.User
         }
         public PartialViewResult SachPartial()
         {
-            var ListSach = db.Saches.ToList();
+            var ListSach = db.Saches.OrderByDescending(n => n.NgayCapNhat).ToList();
             return PartialView(ListSach);
         }
-        public ViewResult ChiTietSachView(int masach=0) {
-            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == masach);
-            if (sach==null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            return View(sach);
-        }
-        public ViewResult SachTheoTheloaiView(int machude) {
-            ChuDe cd = db.ChuDes.SingleOrDefault(n => n.MaChuDe == machude);
-            if (cd == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            List<Sach> SachChuDe = db.Saches.Where(n => n.MaChuDe == machude).ToList();
-            if (SachChuDe.Count ==0)
-            {
-                ViewBag.Sach = "Không có sách nào thuộc chủ đề này";
-            }
-            return View(SachChuDe);
+        public PartialViewResult SliderPartial() {
+            return PartialView();
         }
     }
 }
