@@ -19,7 +19,6 @@ namespace SachOnline.Controllers.User
                 Response.StatusCode = 404;
                 return null;
             }
-
             return View(sach);
         }
         public ViewResult SachTheoTheloai(int matheloai)
@@ -33,10 +32,24 @@ namespace SachOnline.Controllers.User
             List<Sach> SachChuDe = db.Saches.Where(n => n.MaChuDe == matheloai).ToList();
             if (SachChuDe.Count == 0)
             {
-                ViewBag.Sach = "Không có sách nào thuộc chủ đề này";
+                ViewBag.ChuDe = "Không có sách nào thuộc chủ đề này";
             }
             return View(SachChuDe);
         }
-
+        public ViewResult SachTheoNXB(int maNXB)
+        {
+            NhaXuatBan nxb = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == maNXB);
+            if (nxb == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            List<Sach> SachNXB = db.Saches.Where(n => n.MaNXB == maNXB).ToList();
+            if (SachNXB.Count == 0)
+            {
+                ViewBag.NXB = "Không có sách nào thuộc nhà xuát bản này";
+            }
+            return View(SachNXB);
+        }
     }
 }

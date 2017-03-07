@@ -358,6 +358,7 @@
     <Content Include="Views\User\ChiTietSach.cshtml" />
     <Content Include="Views\User\SachTheoTheloai.cshtml" />
     <Content Include="Views\Partial\SliderPartial.cshtml" />
+    <Content Include="Views\User\SachTheoNXB.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

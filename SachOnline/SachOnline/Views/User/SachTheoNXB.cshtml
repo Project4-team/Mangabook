@@ -1,0 +1,20 @@
+﻿@using SachOnline.Models;
+@model List<Sach>
+@{
+    ViewBag.Title = "SachTheoNXB";
+    if (Model.Count == 0)
+    {
+        ViewBag.Sach();
+    }
+}
+@{ 
+    foreach (var item in Model)
+    {
+        @item.TenSach
+        @item.TenTacGia
+        @item.MaNXB
+    }
+
+}
+
+

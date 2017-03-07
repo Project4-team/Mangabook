@@ -1,9 +1,9 @@
 ﻿@using SachOnline.Models;
 @model List<NhaXuatBan>
-@{
+@{  
     foreach (var item in Model)
     {
-        <li><a href='#'>@item.TenNXB</a></li>
+        <li><a href='@Url.Action("SachTheoNXB","User",new { @maNXB=item.MaNXB})'>@item.TenNXB</a></li>
     }
 }
   
