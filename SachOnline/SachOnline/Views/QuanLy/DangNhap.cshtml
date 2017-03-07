@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    //Layout = "~/Views/Layout/UserNoSliderLayout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    <input name="txtTaiKhoan" type="text" />
+    <input name="txtMakhau" type="password" />
+    <input type="submit" id="btnSubmit" name="btnSubmit" />
+    @ViewBag.ThongBao
+}
+

@@ -4,10 +4,14 @@
     ViewBag.Title = "ChiTietSach";
 }
 
-
+@{SachOnlineEntities db = new SachOnlineEntities();
+    NhaXuatBan nxb = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == Model.MaNXB);
+    ChuDe cd = db.ChuDes.SingleOrDefault(b => b.MaChuDe == Model.MaChuDe);
+     }
 <div>@Model.MaSach</div>
 <div>@Model.TenSach</div>
-<div>@Model.NhaXuatBan</div>
-<div>@Model.ChuDe</div>
 <div>@Model.GiaBan</div>
+<br />
+@nxb.TenNXB
+@cd.TenChuDe
 
