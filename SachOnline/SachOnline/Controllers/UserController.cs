@@ -51,9 +51,5 @@ namespace SachOnline.Controllers.User
             }
             return View(SachNXB);
         }
-        public ActionResult DangKi() {
-
-            return View();
-        }
     }
 }

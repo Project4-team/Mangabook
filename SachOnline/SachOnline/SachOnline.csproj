@@ -287,8 +287,9 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\User\PartialController.cs" />
-    <Compile Include="Controllers\User\UserController.cs" />
+    <Compile Include="Controllers\PartialController.cs" />
+    <Compile Include="Controllers\QuanLyController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -360,6 +361,7 @@
     <Content Include="Views\Partial\SliderPartial.cshtml" />
     <Content Include="Views\User\SachTheoNXB.cshtml" />
     <Content Include="Views\Layout\UserNoSliderLayout.cshtml" />
+    <Content Include="Views\QuanLy\DangKy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
