@@ -20,8 +20,9 @@ namespace SachOnline.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult DangKy() {
-
+        public ActionResult DangKy(KhachHang kh) {
+            db.KhachHangs.Add(kh);
+            db.SaveChanges(); 
             return View();
         }
     }
