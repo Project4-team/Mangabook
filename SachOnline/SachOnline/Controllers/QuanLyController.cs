@@ -20,9 +20,14 @@ namespace SachOnline.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult DangKy(KhachHang kh) {
-            db.KhachHangs.Add(kh);
-            db.SaveChanges(); 
+            if (ModelState.IsValid)
+            {
+                db.KhachHangs.Add(kh);
+                db.SaveChanges();
+            }
+ 
             return View();
         }
     }

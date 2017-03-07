@@ -27,23 +27,43 @@ namespace SachOnline.Models
 
         }
 
-        [Display(Name = "Mã Khách Hàng:")]
+        [Display(Name = "Mã Khách Hàng")]
+        [Required(ErrorMessage = "{0} không đươc dể trống !")]
         public int MaKH { get; set; }
-        [Display(Name = "Họ Tên:")]
+        [Display(Name = "Họ Tên")]
+        [Required(ErrorMessage = "{0} không đươc dể trống !")]
         public string HoTen { get; set; }
-        [Display(Name = "Tên Tài Khoản:")]
+        [Display(Name = "Tên Tài Khoản")]
+        [Required(ErrorMessage = "{0} không đươc dể trống !")]
         public string TaiKhoan { get; set; }
-        [Display(Name = "Mật Khẩu:")]
+        [Display(Name = "Mật Khẩu")]
+        [Required(ErrorMessage = "{0} không đươc dể trống !")]
+        [StringLength(100,ErrorMessage ="Mật khẩu phải nhiều hơn 6 kí tự !",MinimumLength =6)]
+        [DataType(DataType.Password)]
         public string MaKhau { get; set; }
-        [Display(Name = "Email:")]
+
+        //[Display(Name = "Nhập lại mật khẩu")]
+        //[Required(ErrorMessage = "{0} không đươc dể trống !")]
+        //[Compare("MatKhau", ErrorMessage ="Mật khẩu bạn nhập lại không đúng !")]
+        //[DataType(DataType.Password)]
+        //public string RePass { get; set; }
+
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "{0} không đươc dể trống !")]
+        [RegularExpression(@"^([\w-\.]+)@((\[[0-9]{1,3]\.)|(([\w-]+\.)+))([a-zA-Z{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Sai định dạng email!")]
         public string Email { get; set; }
-        [Display(Name = "Địa chỉ:")]
+        [Display(Name = "Địa chỉ")]
+        [Required(ErrorMessage = "{0} không đươc dể trống !")]
         public string DiaChi { get; set; }
-        [Display(Name = "Điện Thoại:")]
+        [Display(Name = "Điện Thoại")]
+        [Required(ErrorMessage = "{0} không đươc dể trống !")]
         public string DienThoai { get; set; }
-        [Display(Name = "Giới Tính:")]
+        [Display(Name = "Giới Tính")]
+        [Required(ErrorMessage = "{0} không đươc dể trống !")]
         public string GioiTinh { get; set; }
-        [Display(Name = "Ngày Sinh:")]
+        [Display(Name = "Ngày Sinh")]
+        [Required(ErrorMessage = "{0} không đươc dể trống !")]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> NgaySinh { get; set; }
 
 
