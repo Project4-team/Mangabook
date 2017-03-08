@@ -1,17 +1,143 @@
 ﻿@using SachOnline.Models;
 @model Sach
 @{
-    ViewBag.Title = "ChiTietSach";
+    ViewBag.Title = "ChiTietSachView";
+    Layout = "~/Views/Layout/UserLayout.cshtml";
 }
 
-@{SachOnlineEntities db = new SachOnlineEntities();
-    NhaXuatBan nxb = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == Model.MaNXB);
-    ChuDe cd = db.ChuDes.SingleOrDefault(b => b.MaChuDe == Model.MaChuDe);
-     }
-<div>@Model.MaSach</div>
-<div>@Model.TenSach</div>
-<div>@Model.GiaBan</div>
-<br />
-@nxb.TenNXB
-@cd.TenChuDe
+<!-- PRODUCT SINGLE INFO -->
+<div class="col-md-9 product-single">
+    <div class="ps-inner-main">
+        <h2>@Model.TenSach</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h6>Mã sách: @Model.MaSach</h6>
+                <img src="images/shop/1-big.jpg" class="ps-img img-responsive" alt="" />
+            </div>
+            <div class="col-md-6">
+                <div class="ps-price">@string.Format("{0:0,0 VNĐ}", Model.GiaBan).Replace(",", ".")</div>
+                <div class="ps-discount">Còn hàng</div>
+                <div class="clearfix space40"></div>
+                <ul class="quantity-info">
+                    <li>
+                        <div class="quantity">
+                            Số lượng<br>
+                            <div id="quantity">
+                                <input type="text" name="qty" id="qty" maxlength="10" value="1" class="input-text qty" />
+                            </div>                            
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                    </li>
+                </ul>
+                <ul class="product-features">
+                    <li>Nhà xuất bản: @Model.NhaXuatBan</li>
+                    <li>Thể loại: @Model.ChuDe</li>
+                </ul>
+                <div class="product-pin">
+                    <p>Check estimated delivery dates</p>
+                    <form>
+                        <input type="text" placeholder="Enter Your Pincode">
+                        <button>Check</button>
+                    </form>
+                    <span>(Normally delivered in 3 - 5 business days)</span>
+                </div>
+                <div class="clearfix"></div>
+                <div class="product-xtra">
+                    <p>FREE SHIPPING | Available for Cash on Delivery</p>
+                    <span>Share on</span>
+                    <ul>
+                        <li><a href="#" class="fa fa-facebook-square"></a></li>
+                        <li><a href="#" class="fa fa-twitter-square"></a></li>
+                        <li><a href="#" class="fa fa-google-plus-square"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="clearfix space50"></div>
+
+    <div class="ps-inner">
+        <h3>Product info & Care</h3>
+        <p>The BH Fitness G2375 Elliptical is a highly customisable cross-trainer that promises to make your workout regime more organised and easy to monitor and at the same time, customised to your specific needs.</p>
+        <p class="para-space">Free Delivery</p>
+        <p class="para-space">Free Installation</p>
+        <p class="para-space">Free on site demo</p>
+        <p>If you are looking for a rigorous training regime at home, the BH Fitness G2375 Elliptical is the answer to all your queries. The cross-trainer comes with 12 pre-set training profiles and 16 different intensity levels, 4 Heart Rate Control Programs to target cardiovascular zones, Steady Watts Rate Program (SWR: 10-350 watts) especially designed for rehabilitation purposes, integrated Body Fat test program, Recovery test (RT) as well as 5 Custom courses (uPrg). Besides, its elliptical movement allows non-impact cardiovascular exercise to more than 200 muscles. The BH Fitness G2375 Elliptical also comes with magnetic brake system for quiet and smooth pedaling through a range of tensions and a dual backlit monitor to make your workout focused and efficient.</p>
+        <div class="space30"></div>
+        <p>Features and Benefits</p>
+        <ul class="dot-list">
+            <li>Magnetic brake system for smooth pedaling through an extensive range of tensions</li>
+            <li>Dual backlit monitor with 12 pre-set training profiles, 16 different intensity levels, 4 HRC</li>
+            <li>Steady Watts Rate Program (SWR: 10-350 watts) for rehabilitation purposes</li>
+            <li>Integrated Body Fat test program, Recovery test (RT) and 5 Custom courses (uPrg)</li>
+            <li>Contact pulse measurement system</li>
+            <li>Wheels for easy transportation</li>
+            <li>Recommended maximum user weight: 115Kg</li>
+        </ul>
+    </div>
+
+    <div class="space80"></div>
+
+    <div class="product-main">
+        <h3>Có thể bạn thích</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product-info">
+                    <div class="product-thumb">
+                        <img src="images/shop/4.jpg" class="img-responsive" alt="" />
+                        <div class="product-overlay">
+                            <span>
+                                <a href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                                <a href="#"><i class="fa fa-paper-plane-o"></i> Quick Checkout</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="pi-inner">
+                        <h4><a href="#">Marcy Kettlebell, Black 4 kg</a></h4>
+                        <div class="price-discount"><span>$ 165</span>15% off</div>
+                        <div class="product-price">$ 125</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-info">
+                    <div class="product-thumb">
+                        <img src="images/shop/5.jpg" class="img-responsive" alt="" />
+                        <div class="product-overlay">
+                            <span>
+                                <a href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                                <a href="#"><i class="fa fa-paper-plane-o"></i> Quick Checkout</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="pi-inner">
+                        <h4><a href="#">Harbinger Training Grip WristWrap Gloves</a></h4>
+                        <div class="price-discount"><span>$ 190</span>15% off</div>
+                        <div class="product-price">$ 150</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-info">
+                    <div class="product-thumb">
+                        <img src="images/shop/6.jpg" class="img-responsive" alt="" />
+                        <div class="product-overlay">
+                            <span>
+                                <a href="#"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                <a href="#"><i class="fa fa-paper-plane-o"></i>Xem nhanh</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="pi-inner">
+                        <h4><a href="#">Bowflex Xtreme 2 SE Home Gym, Standard</a></h4>
+                        <div class="price-discount"><span>$ 1750</span>15% off</div>
+                        <div class="product-price">$ 1600</div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>

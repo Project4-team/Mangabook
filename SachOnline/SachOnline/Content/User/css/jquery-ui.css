@@ -655,7 +655,7 @@ button.ui-button::-moz-focus-inner {
 	height: 100%;
 	margin: 0px;
 	height: 3px;
-	background:#E52B50;
+	background:#2E9AFE;
 }
 .ui-slider-horizontal .ui-slider-range-min {
 	left: 0;
@@ -856,7 +856,7 @@ background-color: #efeded;
 -webkit-box-shadow: inset -1px 0 3px rgba(0,0,0,.1); 
 -moz-box-shadow: inset -1px 0 3px rgba(0,0,0,.1); 
 box-shadow: inset -1px 0 3px rgba(0,0,0,.1); 
-border: solid 5px #e52b50;
+border: solid 5px #2E9AFE;
 }
 
 .ui-state-hover a,
