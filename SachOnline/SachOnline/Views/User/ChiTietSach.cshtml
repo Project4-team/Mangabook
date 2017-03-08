@@ -7,6 +7,7 @@
 @{SachOnlineEntities db = new SachOnlineEntities();
     NhaXuatBan nxb = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == Model.MaNXB);
     ChuDe cd = db.ChuDes.SingleOrDefault(b => b.MaChuDe == Model.MaChuDe);
+    List<Sach> sach2 = db.Saches.Where(m => m.MaChuDe == Model.MaChuDe).Take(3).OrderByDescending(t=>t.NgayCapNhat).ToList();
 }
 <!-- PRODUCT SINGLE INFO -->
 <div class="col-md-9 product-single">
@@ -87,60 +88,29 @@
     <div class="product-main">
         <h3>Có thể bạn thích</h3>
         <div class="row">
-            <div class="col-md-4">
-                <div class="product-info">
-                    <div class="product-thumb">
-                        <img src="images/shop/4.jpg" class="img-responsive" alt="" />
-                        <div class="product-overlay">
-                            <span>
-                                <a href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-                                <a href="#"><i class="fa fa-paper-plane-o"></i> Quick Checkout</a>
-                            </span>
+            @{
+                foreach (var item in sach2)
+                {
+                    <div class="col-md-4">
+                        <div class="product-info">
+                            <div class="product-thumb">
+                                <img src="images/shop/4.jpg" class="img-responsive" alt="" />
+                                <div class="product-overlay">
+                                    <span>
+                                        <a href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                                        <a href="#"><i class="fa fa-paper-plane-o"></i> Quick Checkout</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="pi-inner">
+                                <h4><a href="#">@item.TenSach</a></h4>
+                                <div class="price-discount"><span>$ 165</span>15% off</div>
+                                <div class="product-price">@string.Format("{0:0,0 VNĐ}", @item.GiaBan).Replace(",", ".")</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="pi-inner">
-                        <h4><a href="#">Marcy Kettlebell, Black 4 kg</a></h4>
-                        <div class="price-discount"><span>$ 165</span>15% off</div>
-                        <div class="product-price">$ 125</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-info">
-                    <div class="product-thumb">
-                        <img src="images/shop/5.jpg" class="img-responsive" alt="" />
-                        <div class="product-overlay">
-                            <span>
-                                <a href="#"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-                                <a href="#"><i class="fa fa-paper-plane-o"></i> Quick Checkout</a>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pi-inner">
-                        <h4><a href="#">Harbinger Training Grip WristWrap Gloves</a></h4>
-                        <div class="price-discount"><span>$ 190</span>15% off</div>
-                        <div class="product-price">$ 150</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-info">
-                    <div class="product-thumb">
-                        <img src="images/shop/6.jpg" class="img-responsive" alt="" />
-                        <div class="product-overlay">
-                            <span>
-                                <a href="#"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                                <a href="#"><i class="fa fa-paper-plane-o"></i>Xem nhanh</a>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pi-inner">
-                        <h4><a href="#">Bowflex Xtreme 2 SE Home Gym, Standard</a></h4>
-                        <div class="price-discount"><span>$ 1750</span>15% off</div>
-                        <div class="product-price">$ 1600</div>
-                    </div>
-                </div>
-            </div>
+                }
+            }
         </div>        
     </div>
 </div>

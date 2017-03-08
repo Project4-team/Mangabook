@@ -19,7 +19,9 @@ namespace SachOnline.Controllers.User
                 Response.StatusCode = 404;
                 return null;
             }
+            var chude= sach.MaChuDe;
             return View(sach);
+
         }
         public ViewResult SachTheoTheloai(int matheloai)
         {
