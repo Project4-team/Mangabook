@@ -1,13 +1,16 @@
 ﻿
 @{
     ViewBag.Title = "DangNhap";
-    //Layout = "~/Views/Layout/UserLayout.cshtml";
+    Layout = "~/Views/Layout/UserLayout.cshtml";
 }
-@using (Html.BeginForm())
+@using (Html.BeginForm("DangNhap", "QuanLy"))
 {
-    <input name="txtTaiKhoan" type="text" />
-    <input name="txtMakhau" type="password" />
-    <input type="submit" id="btnSubmit" name="btnSubmit" />
+    @*<form class="login-form" method="post" action="login.php">*@
+        <input type="text" name="username" id="username" placeholder="Tên đăng nhập" required="required" />
+        <input type="password" name="password" id="password" placeholder="Mật khẩu" required="required" />
+        <button type="submit">Đăng nhập</button>
+        <div class="sign-in-text">Bạn chưa có tài khoản? <a href="#">Tạo tài khoản</a></div>
+    @*</form>*@
     @ViewBag.ThongBao
 }
 

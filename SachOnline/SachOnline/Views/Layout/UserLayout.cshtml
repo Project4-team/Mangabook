@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using SachOnline.Models;
+<!DOCTYPE html>
 <html>
 <head>
     <!-- Meta -->
@@ -121,10 +122,25 @@
                             </div>
 
                             <div id='navmenu' class="pull-right">
-                                <ul>
-                                    <li><a href="#")" class="overlayLink" data-action="login-form.html">Đăng nhập</a></li>
-                                    <li><a href='#'>Tạo tài khoản</a></li>
-                                </ul>
+                                @{  SachOnlineEntities db = new SachOnlineEntities();
+
+                                    if (Session["TaiKhoan"] != null)
+                                    {
+                                        <ul>
+                                            <li><a href='@Url.Content("~/Quanly/DangNhap")'>@Session["hoten"]</a></li>
+                                            <li><a href='@Url.Content("~/Quanly/Dangky")'>Quanly down hang</a></li>
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <ul>
+                                            <li><a href='@Url.Content("~/Quanly/DangNhap")'>Đăng nhập</a></li>
+                                            <li><a href='@Url.Content("~/Quanly/Dangky")'>Tạo tài khoản</a></li>
+                                        </ul>
+                                    }
+
+                                }
+                          
                             </div>
                         </div>
                     </div>
@@ -476,53 +492,5 @@
             </div>
         </footer>
     </div>
-
-    <!-- Login Form -->
-    <div class="overlay" style="display: none;">
-        <div class="login-wrapper">
-            <div class="login-content">
-                <div class="close"> x </div>
-                <h3>Đăng nhập</h3>
-                <form class="login-form" method="post" action="login.php">
-                    <input type="text" name="username" id="username" placeholder="Tên đăng nhập" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
-                    <input type="password" name="password" id="password" placeholder="Mật khẩu" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
-                    <button type="submit">Đăng nhập</button>
-                    <div class="sign-in-text">Bạn chưa có tài khoản? <a href="#">Tạo tài khoản</a></div>
-                </form>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#loginLink").click(function (event) {
-            event.preventDefault();
-            $(".overlay").fadeToggle("fast");
-        });
-
-        $(".overlayLink").click(function (event) {
-            event.preventDefault();
-            var action = $(this).attr('data-action');
-
-            $.get("ajax/" + action, function (data) {
-                $(".login-content").html(data);
-            });
-
-            $(".overlay").fadeToggle("fast");
-        });
-
-        $(".close").click(function () {
-            $(".overlay").fadeToggle("fast");
-        });
-
-        $(document).keyup(function (e) {
-            if (e.keyCode == 27 && $(".overlay").css("display") != "none") {
-                event.preventDefault();
-                $(".overlay").fadeToggle("fast");
-            }
-        });
-    });
-</script>

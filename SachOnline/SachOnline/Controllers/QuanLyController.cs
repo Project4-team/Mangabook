@@ -37,13 +37,14 @@ namespace SachOnline.Controllers
         }
         [HttpPost]
         public ActionResult DangNhap(FormCollection f) {
-            string sTaiKhoan = f.Get("txtTaiKhoan").ToString();
-            string sMatKhau = f.Get("txtMaKhau").ToString();
+            string sTaiKhoan = f.Get("username").ToString();
+            string sMatKhau = f.Get("password").ToString();
             KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MaKhau == sMatKhau);
             if (kh != null)
             {
                 ViewBag.ThongBao = "Đăng Nhập Thành Công !";
-                Session["TaiKhoan"] = kh;
+                Session["TaiKhoan"] = kh.MaKH;
+                Session["hoten"] = kh.HoTen;
                 return View();
             }
             ViewBag.ThongBao = "Đăng Nhập Không Thành Công!";     
