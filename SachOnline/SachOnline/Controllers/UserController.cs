@@ -29,6 +29,7 @@ namespace SachOnline.Controllers.User
                 Response.StatusCode = 404;
                 return null;
             }
+            ViewBag.cd = cd.TenChuDe;
             List<Sach> SachChuDe = db.Saches.Where(n => n.MaChuDe == matheloai).ToList();
             if (SachChuDe.Count == 0)
             {
@@ -44,6 +45,7 @@ namespace SachOnline.Controllers.User
                 Response.StatusCode = 404;
                 return null;
             }
+            ViewBag.nxb = nxb.TenNXB;
             List<Sach> SachNXB = db.Saches.Where(n => n.MaNXB == maNXB).ToList();
             if (SachNXB.Count == 0)
             {

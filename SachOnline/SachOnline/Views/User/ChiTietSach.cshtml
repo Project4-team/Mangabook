@@ -4,7 +4,10 @@
     ViewBag.Title = "ChiTietSachView";
     Layout = "~/Views/Layout/UserLayout.cshtml";
 }
-
+@{SachOnlineEntities db = new SachOnlineEntities();
+    NhaXuatBan nxb = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == Model.MaNXB);
+    ChuDe cd = db.ChuDes.SingleOrDefault(b => b.MaChuDe == Model.MaChuDe);
+}
 <!-- PRODUCT SINGLE INFO -->
 <div class="col-md-9 product-single">
     <div class="ps-inner-main">
@@ -12,7 +15,7 @@
         <div class="row">
             <div class="col-md-6">
                 <h6>Mã sách: @Model.MaSach</h6>
-                <img src="images/shop/1-big.jpg" class="ps-img img-responsive" alt="" />
+                <img src="@Url.Content("~/Content/img-sp/"+Model.AnhBia)" class="ps-img img-responsive" alt="" />
             </div>
             <div class="col-md-6">
                 <div class="ps-price">@string.Format("{0:0,0 VNĐ}", Model.GiaBan).Replace(",", ".")</div>
@@ -32,8 +35,8 @@
                     </li>
                 </ul>
                 <ul class="product-features">
-                    <li>Nhà xuất bản: @Model.NhaXuatBan</li>
-                    <li>Thể loại: @Model.ChuDe</li>
+                    <li>Nhà xuất bản: @nxb.TenNXB</li>
+                    <li>Thể loại: @cd.TenChuDe</li>
                 </ul>
                 <div class="product-pin">
                     <p>Check estimated delivery dates</p>
@@ -61,8 +64,8 @@
 
     <div class="ps-inner">
         <h3>Product info & Care</h3>
-        <p>The BH Fitness G2375 Elliptical is a highly customisable cross-trainer that promises to make your workout regime more organised and easy to monitor and at the same time, customised to your specific needs.</p>
-        <p class="para-space">Free Delivery</p>
+        <p>@Model.MoTa</p>
+        @*<p class="para-space">Free Delivery</p>
         <p class="para-space">Free Installation</p>
         <p class="para-space">Free on site demo</p>
         <p>If you are looking for a rigorous training regime at home, the BH Fitness G2375 Elliptical is the answer to all your queries. The cross-trainer comes with 12 pre-set training profiles and 16 different intensity levels, 4 Heart Rate Control Programs to target cardiovascular zones, Steady Watts Rate Program (SWR: 10-350 watts) especially designed for rehabilitation purposes, integrated Body Fat test program, Recovery test (RT) as well as 5 Custom courses (uPrg). Besides, its elliptical movement allows non-impact cardiovascular exercise to more than 200 muscles. The BH Fitness G2375 Elliptical also comes with magnetic brake system for quiet and smooth pedaling through a range of tensions and a dual backlit monitor to make your workout focused and efficient.</p>
@@ -76,7 +79,7 @@
             <li>Contact pulse measurement system</li>
             <li>Wheels for easy transportation</li>
             <li>Recommended maximum user weight: 115Kg</li>
-        </ul>
+        </ul>*@
     </div>
 
     <div class="space80"></div>
