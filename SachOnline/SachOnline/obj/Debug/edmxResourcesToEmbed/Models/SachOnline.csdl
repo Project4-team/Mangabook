@@ -46,11 +46,24 @@
     <Property Name="NgayGiao" Type="DateTime" Precision="3" />
     <Property Name="MaKH" Type="Int32" />
     <Property Name="MaAdmin" Type="Int32" />
+    <Property Name="MaGiaoHang" Type="Int32" />
     <NavigationProperty Name="Admin" Relationship="Self.FK_DonHang_Admin" FromRole="DonHang" ToRole="Admin" />
     <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK_ChiTietDonHang_DonHang" FromRole="DonHang" ToRole="ChiTietDonHang" />
+    <NavigationProperty Name="GiaoHang1" Relationship="Self.FK_DonHang_GiaoHang" FromRole="DonHang" ToRole="GiaoHang" />
     <NavigationProperty Name="KhachHang" Relationship="Self.FK_DonHang_KhachHang" FromRole="DonHang" ToRole="KhachHang" />
-    <Property Name="MaGiaoHang" Type="Int32" />
-    <NavigationProperty Name="GiaoHang1" Relationship="SachOnlineModel.FK_DonHang_GiaoHang" FromRole="DonHang" ToRole="GiaoHang" />
+  </EntityType>
+  <EntityType Name="GiaoHang">
+    <Key>
+      <PropertyRef Name="MaGiaoHang" />
+    </Key>
+    <Property Name="MaGiaoHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNguoiNhan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="QuaTang" Type="Int32" />
+    <Property Name="LoiNhan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DonHangs" Relationship="Self.FK_DonHang_GiaoHang" FromRole="GiaoHang" ToRole="DonHang" />
   </EntityType>
   <EntityType Name="KhachHang">
     <Key>
@@ -59,7 +72,7 @@
     <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="TaiKhoan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="MaKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
@@ -166,6 +179,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_DonHang_GiaoHang">
+    <End Role="GiaoHang" Type="Self.GiaoHang" Multiplicity="0..1" />
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiaoHang">
+        <PropertyRef Name="MaGiaoHang" />
+      </Principal>
+      <Dependent Role="DonHang">
+        <PropertyRef Name="MaGiaoHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_DonHang_KhachHang">
     <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
     <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
@@ -195,6 +220,7 @@
     <EntitySet Name="ChiTietDonHangs" EntityType="Self.ChiTietDonHang" />
     <EntitySet Name="ChuDes" EntityType="Self.ChuDe" />
     <EntitySet Name="DonHangs" EntityType="Self.DonHang" />
+    <EntitySet Name="GiaoHangs" EntityType="Self.GiaoHang" />
     <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
     <EntitySet Name="NhaXuatBans" EntityType="Self.NhaXuatBan" />
     <EntitySet Name="PhanHois" EntityType="Self.PhanHoi" />
@@ -219,6 +245,10 @@
       <End Role="ChuDe" EntitySet="ChuDes" />
       <End Role="Sach" EntitySet="Saches" />
     </AssociationSet>
+    <AssociationSet Name="FK_DonHang_GiaoHang" Association="Self.FK_DonHang_GiaoHang">
+      <End Role="GiaoHang" EntitySet="GiaoHangs" />
+      <End Role="DonHang" EntitySet="DonHangs" />
+    </AssociationSet>
     <AssociationSet Name="FK_DonHang_KhachHang" Association="Self.FK_DonHang_KhachHang">
       <End Role="KhachHang" EntitySet="KhachHangs" />
       <End Role="DonHang" EntitySet="DonHangs" />
@@ -227,46 +257,5 @@
       <End Role="NhaXuatBan" EntitySet="NhaXuatBans" />
       <End Role="Sach" EntitySet="Saches" />
     </AssociationSet>
-    <EntitySet Name="GiaoHangs" EntityType="SachOnlineModel.GiaoHang" />
-    <EntitySet Name="sysdiagrams" EntityType="SachOnlineModel.sysdiagram" />
-    <AssociationSet Name="FK_DonHang_GiaoHang" Association="SachOnlineModel.FK_DonHang_GiaoHang">
-      <End Role="GiaoHang" EntitySet="GiaoHangs" />
-      <End Role="DonHang" EntitySet="DonHangs" />
-    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="GiaoHang">
-    <Key>
-      <PropertyRef Name="MaGiaoHang" />
-    </Key>
-    <Property Name="MaGiaoHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenNguoiNhan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="QuaTang" Type="Int32" />
-    <Property Name="LoiNhan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="DonHangs" Relationship="SachOnlineModel.FK_DonHang_GiaoHang" FromRole="GiaoHang" ToRole="DonHang" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <Association Name="FK_DonHang_GiaoHang">
-    <End Type="SachOnlineModel.GiaoHang" Role="GiaoHang" Multiplicity="0..1" />
-    <End Type="SachOnlineModel.DonHang" Role="DonHang" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="GiaoHang">
-        <PropertyRef Name="MaGiaoHang" />
-      </Principal>
-      <Dependent Role="DonHang">
-        <PropertyRef Name="MaGiaoHang" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

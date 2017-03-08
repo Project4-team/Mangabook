@@ -264,6 +264,10 @@
     <Content Include="Content\User\js\vendor\slick\config.rb" />
     <Content Include="Content\User\js\vendor\slick\slick.css.map" />
     <Content Include="Content\User\js\vendor\slick\slick.scss" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <EntityDeploy Include="Models\SachOnline.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SachOnline.Designer.cs</LastGenOutput>
@@ -271,10 +275,6 @@
     <Content Include="Models\SachOnline.edmx.diagram">
       <DependentUpon>SachOnline.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -335,9 +335,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SachOnline.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>SachOnline.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

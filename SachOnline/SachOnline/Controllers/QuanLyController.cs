@@ -39,7 +39,7 @@ namespace SachOnline.Controllers
         public ActionResult DangNhap(FormCollection f) {
             string sTaiKhoan = f.Get("username").ToString();
             string sMatKhau = f.Get("password").ToString();
-            KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MaKhau == sMatKhau);
+            KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MatKhau == sMatKhau);
             if (kh != null)
             {
                 ViewBag.ThongBao = "Đăng Nhập Thành Công !";
