@@ -56,7 +56,7 @@ namespace SachOnline.Models
 
         [Display(Name = "Số Điện Thoại")]
         [Required(ErrorMessage = "{0} không được để trống !")]
-        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^(09|012|04)[0-9]{8}$", ErrorMessage = "Số điện thoại không đúng !")]
         public string DienThoai { get; set; }
 
         [Display(Name = "Giới tính")]
@@ -66,6 +66,7 @@ namespace SachOnline.Models
         [Display(Name = "Ngày Sinh")]
         [Required(ErrorMessage = "{0} không được để trống !")]
         [DataType(DataType.Date)]
+        [customDateTimeVaid]
         public Nullable<System.DateTime> NgaySinh { get; set; }
         
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

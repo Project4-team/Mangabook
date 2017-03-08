@@ -302,6 +302,7 @@
     <Compile Include="Models\ChuDe.cs">
       <DependentUpon>SachOnline.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\customDateTimeVaid.cs" />
     <Compile Include="Models\customUserVaidator.cs" />
     <Compile Include="Models\DonHang.cs">
       <DependentUpon>SachOnline.tt</DependentUpon>
