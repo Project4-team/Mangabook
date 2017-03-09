@@ -49,7 +49,14 @@ namespace SachOnline.Controllers
             }
             else
             {
-                gh.iSoLuong++;
+                if (f["Soluong"] != null)
+                {
+                    gh.iSoLuong = gh.iSoLuong+int.Parse(f["Soluong"]);
+                }
+                else {
+                    gh.iSoLuong++;
+                }
+                
                 return Redirect(strurl);
             }
 
