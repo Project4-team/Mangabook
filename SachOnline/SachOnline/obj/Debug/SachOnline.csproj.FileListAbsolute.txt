@@ -148,3 +148,7 @@ C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.csp
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.dll
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.pdb
 C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.csprojResolveAssemblyReference.cache
+C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.dll
+C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.Mvc.dll
+C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.xml
+C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.Mvc.xml

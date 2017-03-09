@@ -1,13 +1,13 @@
-﻿
+﻿@using SachOnline.Models;
+@using PagedList.Mvc;
+@model  PagedList.IPagedList<Sach>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Layout/UserLayout.cshtml";
 }
 
-
 <!-- FILTER -->
 <div class="col-md-9">
-
     <!-- SLIDER -->
     <div id="slider">
         <div id="main-slider1" class="owl-carousel owl-theme">
@@ -33,7 +33,6 @@
             </div>
         </div>
     </div>
-
     <!-- PAGE HEADER -->
     <div class="page_header1">
         <div class="container">
@@ -44,26 +43,58 @@
             </div>
         </div>
     </div>
-
     <div class="clearfix"></div>
-
     <!-- SHOP CONTENT -->
     <div class="product-main">
         <div class="row">
-            @Html.Action("SachPartial", "Partial")
+            @{int i = 0; }
+            @{
+                foreach (var item in Model)
+                {
+                    i++;
+                    <div class="col-md-4">
+                        <div class="product-info">
+                            <div class="product-thumb">
+                                <img src="@Url.Content("~/Content/img-sp/"+item.AnhBia)" class="img-responsive" alt="" />
+                                <div class="product-overlay">
+                                    <span>
+                                        <a href="@Url.Action("ThemGioHang","GioHang",new {@MaSach=item.MaSach, @strurl = Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                        <a href="@Url.Action("ChiTietSach","User",new { @masach=item.MaSach})"><i class="fa fa-paper-plane-o"></i>Xem Chi Tiết</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="pi-inner">
+                                <h4><a href="#">@item.TenSach</a></h4>
+                                <div class="product-price">@string.Format("{0:0,0 VNĐ}", item.GiaBan).Replace(",", ".")</div>
+                            </div>
+                        </div>
+                    </div>
+                        @*if (i % 3 ==0)
+                            {
+                                <div style="clear:both"></div>
+                            }*@
+                }
+            }
+        </div>
+        <div>
+
         </div>
         <!-- PAGE NAV -->
         <div class="page-nav2">
+            @*new PagedListRenderOptions() { LiElementClasses = new List<string>{ "myClass", "yourClass" }})*@
             <ul>
-                <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">6</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page}))
             </ul>
+            @*<ul>
+                    <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                </ul>*@
         </div>
     </div>
 </div>

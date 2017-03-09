@@ -23,6 +23,7 @@ namespace SachOnline.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DangKy(KhachHang kh) {
+
             if (ModelState.IsValid)
             {
                 
@@ -50,9 +51,10 @@ namespace SachOnline.Controllers
                 ViewBag.ThongBao = "Đăng Nhập Thành Công !";
                 Session["TaiKhoan"] = kh.MaKH;
                 Session["hoten"] = kh.HoTen;
-               
+                
                 return Redirect(Url.Action("Index","Home"));
             }
+
             ViewBag.ThongBao = "Đăng Nhập Không Thành Công!";     
             return View();
         }
