@@ -28,6 +28,9 @@ namespace SachOnline.Controllers
                 
                 db.KhachHangs.Add(kh);
                 db.SaveChanges();
+                Session["TaiKhoan"] = kh.MaKH;
+                Session["hoten"] = kh.HoTen;
+                return Redirect(Url.Action("Index", "Home"));
             }
  
             return View();
@@ -47,10 +50,11 @@ namespace SachOnline.Controllers
                 ViewBag.ThongBao = "Đăng Nhập Thành Công !";
                 Session["TaiKhoan"] = kh.MaKH;
                 Session["hoten"] = kh.HoTen;
-                return View();
+               
+                return Redirect(Url.Action("Index","Home"));
             }
             ViewBag.ThongBao = "Đăng Nhập Không Thành Công!";     
-                return View();
+            return View();
         }
         public string GetMD5(string chuoi)
         {

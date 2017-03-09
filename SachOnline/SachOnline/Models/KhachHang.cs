@@ -36,6 +36,7 @@ namespace SachOnline.Models
 
         [Display(Name = "Mật Khẩu")]
         [Required(ErrorMessage = "{0} không được để trống !")]
+        [StringLength(100,ErrorMessage ="Mật khẩu không đươc ít hơn 6 kí tự!", MinimumLength =6 )]
         [DataType(DataType.Password)]
         public string MatKhau { get; set; }
 
