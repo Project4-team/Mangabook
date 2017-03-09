@@ -363,6 +363,7 @@
     <Content Include="Views\User\SachTheoNXB.cshtml" />
     <Content Include="Views\QuanLy\DangKy.cshtml" />
     <Content Include="Views\QuanLy\DangNhap.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -373,7 +374,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Views\GioHang\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

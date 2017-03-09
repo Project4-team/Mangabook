@@ -21,7 +21,7 @@ namespace SachOnline.Models
         //        iMaSach = value;
         //    }
         //}
-        SachOnlineEntities db = new SachOnlineEntities;
+        SachOnlineEntities db = new SachOnlineEntities();
          public int iMaSach { get; set; }
         public string iTenSach { get; set; }
         public string iHinhAnh { get; set; }

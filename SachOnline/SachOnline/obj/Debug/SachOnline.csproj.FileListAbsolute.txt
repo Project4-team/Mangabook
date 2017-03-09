@@ -97,7 +97,6 @@ C:\Users\nghia\Desktop\Mangabook-master\SachOnline\SachOnline\bin\System.Web.Mvc
 C:\Users\nghia\Desktop\Mangabook-master\SachOnline\SachOnline\obj\Debug\SachOnline.csprojResolveAssemblyReference.cache
 C:\Users\nghia\Desktop\Mangabook-master\SachOnline\SachOnline\obj\Debug\SachOnline.dll
 C:\Users\nghia\Desktop\Mangabook-master\SachOnline\SachOnline\obj\Debug\SachOnline.pdb
-C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.csprojResolveAssemblyReference.cache
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\ApplicationInsights.config
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\roslyn\csc.exe
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll

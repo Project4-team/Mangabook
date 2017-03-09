@@ -22,19 +22,24 @@
                 <div class="ps-price">@string.Format("{0:0,0 VNĐ}", Model.GiaBan).Replace(",", ".")</div>
                 <div class="ps-discount">Còn hàng</div>
                 <div class="clearfix space40"></div>
-                <ul class="quantity-info">
-                    <li>
-                        <div class="quantity">
-                            Số lượng<br>
-                            <div id="quantity">
-                                <input type="text" name="qty" id="qty" maxlength="10" value="1" class="input-text qty" />
-                            </div>                            
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                    </li>
-                </ul>
+
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaSach = Model.MaSach, @strurl = Request.Url.ToString() }))
+                {
+                    <ul class="quantity-info">
+                        <li>
+                            <div class="quantity">
+                                Số lượng<br>
+                                <div id="quantity">
+                                    <input type="text" name="Soluong" id="qty" maxlength="10" value="1" class="input-text qty" />
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            @*<a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>*@
+                            <i class="fa fa-shopping-cart"></i><input id="btnAdd" type="submit" value="Thêm vào giỏ" class="btn btn-default" />
+                        </li>
+                    </ul>
+                }
                 <ul class="product-features">
                     <li>Nhà xuất bản: @nxb.TenNXB</li>
                     <li>Thể loại: @cd.TenChuDe</li>

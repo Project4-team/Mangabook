@@ -13,7 +13,7 @@
                     <img src="@Url.Content("~/Content/img-sp/"+item.AnhBia)" class="img-responsive" alt="" />
                     <div class="product-overlay">
                         <span>
-                            <a href="#"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                            <a href="@Url.Action("ThemGioHang","GioHang",new {@MaSach=item.MaSach, @strurl = Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
                             <a href="@Url.Action("ChiTietSach","User",new { @masach=item.MaSach})"><i class="fa fa-paper-plane-o"></i>Xem Chi Tiết</a>
                         </span>
                     </div>
