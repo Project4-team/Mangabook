@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SachOnline.Models;
-
+using PagedList;
 
 namespace SachOnline.Controllers.User
 {
@@ -23,7 +23,7 @@ namespace SachOnline.Controllers.User
             return View(sach);
 
         }
-        public ViewResult SachTheoTheloai(int matheloai)
+        public ViewResult SachTheoTheloai(int matheloai,int? page)
         {
             ChuDe cd = db.ChuDes.SingleOrDefault(n => n.MaChuDe == matheloai);
             if (cd == null)
@@ -35,11 +35,14 @@ namespace SachOnline.Controllers.User
             List<Sach> SachChuDe = db.Saches.Where(n => n.MaChuDe == matheloai).ToList();
             if (SachChuDe.Count == 0)
             {
-                ViewBag.ChuDe = "Không có sách nào thuộc chủ đề này";
+                ViewBag.ThongBao = "Không có sách nào thuộc thể loại này!";
             }
-            return View(SachChuDe);
+            int pageSize = 1;
+            int pageNumber = (page ?? 1);
+            return View(SachChuDe.ToPagedList(pageNumber, pageSize));
+            //return View(SachChuDe);
         }
-        public ViewResult SachTheoNXB(int maNXB)
+        public ViewResult SachTheoNXB(int maNXB,int? page)
         {
             NhaXuatBan nxb = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == maNXB);
             if (nxb == null)
@@ -51,9 +54,11 @@ namespace SachOnline.Controllers.User
             List<Sach> SachNXB = db.Saches.Where(n => n.MaNXB == maNXB).ToList();
             if (SachNXB.Count == 0)
             {
-                ViewBag.NXB = "Không có sách nào thuộc nhà xuát bản này";
+                ViewBag.ThongBao = "Không có sách nào thuộc nhà xuát bản này!";
             }
-            return View(SachNXB);
+            int pageSize = 1;
+            int pageNumber = (page ?? 1);
+            return View(SachNXB.ToPagedList(pageNumber, pageSize));
         }
     }
 }
