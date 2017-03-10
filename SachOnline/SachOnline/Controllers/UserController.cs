@@ -31,7 +31,8 @@ namespace SachOnline.Controllers
                 kh.MatKhau = Encryptor.MD5Hash(kh.MatKhau);
                 db.KhachHangs.Add(kh);
                 db.SaveChanges();
-                Session["TaiKhoan"] = kh.MaKH;
+                Session["TaiKhoan"] = kh;
+                Session["id"]=kh.maKH;
                 Session["hoten"] = kh.HoTen;
                 return Redirect(Url.Action("Index", "Home"));
             }
@@ -54,6 +55,7 @@ namespace SachOnline.Controllers
             {
                 ViewBag.ThongBao = "Đăng Nhập Thành Công !";
                 Session["TaiKhoan"] = kh;
+                Session["id"]=kh.maKH;
                 Session["hoten"] = kh.HoTen;
 
                 return Redirect(Url.Action("Index", "Home"));
