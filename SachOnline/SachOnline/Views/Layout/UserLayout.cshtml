@@ -108,7 +108,7 @@
                                                 <a href="#">@Session["hoten"]</a>
                                                 <ul>
                                                     <li><a href='@Url.Content("~/User/Dangky")'>Quản lý đơn hàng</a></li>
-                                                    <li><a href='@Url.Action("Edit","User",new { @maKH=Session["TaiKhoan"]})'>Thông tin tài khoản</a></li>
+                                                    <li><a href='@Url.Action("Edit","User",new { @maKH=Session["id"]})'>Thông tin tài khoản</a></li>
                                                     <li><a href='#'>Đổi mật khẩu</a></li>
                                                     <li><a href='#'>Thoát</a></li>
                                                 </ul>
