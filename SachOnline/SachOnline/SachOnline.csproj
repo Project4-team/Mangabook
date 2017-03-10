@@ -372,6 +372,7 @@
     <Content Include="Views\QuanLy\DangKy.cshtml" />
     <Content Include="Views\QuanLy\DangNhap.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\TongSachPar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

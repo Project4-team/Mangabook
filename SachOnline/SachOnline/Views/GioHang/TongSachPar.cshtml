@@ -1,0 +1,10 @@
+﻿<a href="@Url.Content("~/GioHang/GioHang")"><i class="fa fa-shopping-cart"></i>
+    @{ 
+        if (Session["SessionGioHang"]!=null)
+        {
+            <span>
+                @ViewBag.TongSoSach
+            </span>
+        }
+    }
+    </a>

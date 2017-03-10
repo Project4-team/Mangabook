@@ -127,5 +127,13 @@ namespace SachOnline.Controllers
             return iTongTien;
 
         }
+        public PartialViewResult TongSachPar() {
+            if (TongSoLuong()==0)
+            {
+                return PartialView();
+            }
+            ViewBag.TongSoSach = TongSoLuong().ToString();
+            return PartialView();
+        }
     }
 }
