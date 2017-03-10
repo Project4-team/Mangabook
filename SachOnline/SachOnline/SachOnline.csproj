@@ -375,6 +375,7 @@
     <Content Include="Views\Sach\ChiTietSach.cshtml" />
     <Content Include="Views\Sach\SachTheoTheloai.cshtml" />
     <Content Include="Views\Sach\SachTheoNXB.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

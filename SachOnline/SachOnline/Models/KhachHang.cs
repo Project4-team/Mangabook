@@ -21,8 +21,6 @@ namespace SachOnline.Models
         {
             this.DonHangs = new HashSet<DonHang>();
         }
-        [Display(Name = "Mã Khách Hàng")]
-        [Required(ErrorMessage = "{0} không được để trống !")]
         public int MaKH { get; set; }
 
         [Display(Name = "Họ Tên")]
@@ -30,21 +28,15 @@ namespace SachOnline.Models
         public string HoTen { get; set; }
 
         [Display(Name = "Tài Khoản")]
-        [Required(ErrorMessage = "{0} không được để trống !")]
-        [customUserVaidator]
+        //[Required(ErrorMessage = "{0} không được để trống !")]
+        //[customUserVaidator]
         public string TaiKhoan { get; set; }
 
         [Display(Name = "Mật Khẩu")]
-        [Required(ErrorMessage = "{0} không được để trống !")]
-        [StringLength(100,ErrorMessage ="Mật khẩu không đươc ít hơn 6 kí tự!", MinimumLength =6 )]
+        //[Required(ErrorMessage = "{0} không được để trống !")]
+        //[StringLength(100,ErrorMessage ="{0} không được nhỏ hơn 6 kí tự",MinimumLength =6)]
         [DataType(DataType.Password)]
         public string MatKhau { get; set; }
-
-        [Display(Name = "Nhâp Lại Mật Khẩu")]
-        [Required(ErrorMessage = "{0} không được để trống !")]
-        [Compare("MatKhau", ErrorMessage ="Mật khẩu không trùng nhau !")]
-        [DataType(DataType.Password)]
-        public string ReMatkhau { get; set; }
 
         [Display(Name = "Email")]
         [Required(ErrorMessage = "{0} không được để trống !")]
