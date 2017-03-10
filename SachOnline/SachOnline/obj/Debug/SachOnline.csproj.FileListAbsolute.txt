@@ -97,6 +97,11 @@ C:\Users\nghia\Desktop\Mangabook-master\SachOnline\SachOnline\bin\System.Web.Mvc
 C:\Users\nghia\Desktop\Mangabook-master\SachOnline\SachOnline\obj\Debug\SachOnline.csprojResolveAssemblyReference.cache
 C:\Users\nghia\Desktop\Mangabook-master\SachOnline\SachOnline\obj\Debug\SachOnline.dll
 C:\Users\nghia\Desktop\Mangabook-master\SachOnline\SachOnline\obj\Debug\SachOnline.pdb
+C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.csprojResolveAssemblyReference.cache
+C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.dll
+C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.Mvc.dll
+C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.xml
+C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.Mvc.xml
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\ApplicationInsights.config
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\roslyn\csc.exe
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -124,6 +129,8 @@ C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\Microsoft.AI.Windows
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\Microsoft.ApplicationInsights.dll
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.dll
+C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.Mvc.dll
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Helpers.dll
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Mvc.dll
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Razor.dll
@@ -138,6 +145,8 @@ C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\Microsoft.AI.Web.xml
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\Microsoft.ApplicationInsights.xml
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.xml
+C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.Mvc.xml
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Razor.xml
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Webpages.xml
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Webpages.Deployment.xml
@@ -147,8 +156,3 @@ C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Mvc.xml
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.csprojResolveAssemblyReference.cache
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.dll
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.pdb
-C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.csprojResolveAssemblyReference.cache
-C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.dll
-C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.Mvc.dll
-C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.xml
-C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\PagedList.Mvc.xml

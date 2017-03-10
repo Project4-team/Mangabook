@@ -88,37 +88,14 @@
 
                         <div class="col-md-6">
                             <form class="search-menu">
-                                <input type="text" placeholder="Search">
+                                <input type="text" placeholder="Nhập tên sách cần tìm...">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
                         </div>
 
                         <div class="col-md-9">
                             <div class="shop-cart pull-right">
-                                <i class="fa fa-shopping-cart"></i> <span>2</span>
-                                <div class="scart-wrap">
-                                    <ul>
-                                        <li>
-                                            <img src="~/Content/User/images/xtra/6.jpg" alt="" />
-                                            <div class="scw-inner">
-                                                <h5><a href="#">BH Fitness G2375 Elliptical</a></h5>
-                                                <p>1 X $470.00</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <img src="~/Content/User/images/xtra/7.jpg" alt="" />
-                                            <div class="scw-inner">
-                                                <h5><a href="#">Ecowellness Toning Ball</a></h5>
-                                                <p>1 X $150.00</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="scw-total">Subtotal: <em>$620.00</em></div>
-                                    <div class="scw-btns">
-                                        <a href="#">View Cart</a>
-                                        <a href="#">Checkout</a>
-                                    </div>
-                                </div>
+                                <a href="@Url.Content("~/GioHang/GioHang")"><i class="fa fa-shopping-cart"></i></a>
                             </div>
 
                             <div id='navmenu' class="pull-right">
@@ -128,7 +105,7 @@
                                     {
                                         <ul>
                                             <li><a href='@Url.Content("~/Quanly/DangNhap")'>@Session["hoten"]</a></li>
-                                            <li><a href='@Url.Content("~/Quanly/Dangky")'>Quanly down hang</a></li>
+                                            <li><a href='@Url.Content("~/Quanly/Dangky")'>Quản lý đơn hàng</a></li>
                                         </ul>
                                     }
                                     else
@@ -140,7 +117,7 @@
                                     }
 
                                 }
-                          
+
                             </div>
                         </div>
                     </div>
@@ -157,7 +134,7 @@
                     <div class="col-md-3 sidebar">
                         <div class="sbar-widget no-border">
                             <form class="sbar-search">
-                                <input type="text" placeholder="Search">
+                                <input type="text" placeholder="Tìm kiếm...">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
                             <div class="space10"></div>
@@ -476,12 +453,12 @@
 
                         <div class="col-md-6 footer-widget">
                             <ul class="f-social">
-                                <li><a href="#" class="fa fa-facebook"></a></li>
-                                <li><a href="#" class="fa fa-twitter"></a></li>
-                                <li><a href="#" class="fa fa-google-plus"></a></li>
-                                <li><a href="#" class="fa fa-linkedin"></a></li>
-                                <li><a href="#" class="fa fa-youtube"></a></li>
-                                <li><a href="#" class="fa fa-vimeo-square"></a></li>
+                                <li><a href="https://www.facebook.com/" class="fa fa-facebook"></a></li>
+                                <li><a href="https://twitter.com/" class="fa fa-twitter"></a></li>
+                                <li><a href="https://plus.google.com/" class="fa fa-google-plus"></a></li>
+                                <li><a href="https://www.linkedin.com/" class="fa fa-linkedin"></a></li>
+                                <li><a href="https://www.youtube.com/" class="fa fa-youtube"></a></li>
+                                <li><a href="https://vimeo.com/" class="fa fa-vimeo-square"></a></li>
                             </ul>
                         </div>
                         <div class="col-md-6">

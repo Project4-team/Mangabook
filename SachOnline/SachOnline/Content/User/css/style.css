@@ -136,7 +136,6 @@ ul {
 }
 
 header {
-    background: #132438;
     height: 100px;
     transition: .4s;
 }
@@ -173,6 +172,10 @@ header {
     transition: .4s;
 }
 
+    #navmenu > ul > li > a:hover {
+        color: #1aff00;
+    }
+
 /* 3.1. Logo */
 
 .logo a {
@@ -205,7 +208,7 @@ header {
     }
 
     .shop-cart:hover i {
-        color: #2E9AFE;
+        color: #1aff00;
         transition: .4s;
     }
 
@@ -4590,11 +4593,11 @@ footer {
     padding: 170px 0 50px 0;
 }
 
-.toggle, .toggle1 {
+.toggle1 {
     margin-bottom: 5px;
 }
 
-    .toggle a.toggle-trigger, .toggle1 a.toggle-trigger1 {
+    .toggle1 a.toggle-trigger1 {
         display: block;
         padding: 10px 20px 0;
         position: relative;
@@ -4606,35 +4609,17 @@ footer {
         color: #222;
     }
 
-        .toggle a.toggle-trigger:hover, .toggle1 a.toggle-trigger:hover {
+        .toggle1 a.toggle-trigger1:hover {
             opacity: .8;
             text-decoration: none;
         }
 
-    .toggle a.active, .toggle1 a.active {
+    .toggle1 a.active {
         text-decoration: none;
         color: #000;
     }
 
-    .toggle a.toggle-trigger:after {
-        content: "";
-        font-size: 1.3em;
-        position: relative;
-        display: table;
-        background: url(../images/plus.png) no-repeat;
-        width: 8px;
-        height: 7px;
-        float: right;
-        margin-left: 15px;
-        position: relative;
-        top: 8px;
-    }
 
-    .toggle a.active.toggle-trigger:after {
-        content: "";
-        background: url(../images/minus.png) no-repeat !important;
-        top: 9px;
-    }
 
     .toggle1 a.toggle-trigger1:after {
         content: "";
@@ -4655,20 +4640,20 @@ footer {
         top: 4px;
     }
 
-    .toggle .toggle-content, .toggle1 .toggle-content1 {
+    .toggle1 .toggle-content1 {
         padding-bottom: 10px;
     }
 
-.toggle-content, .toggle-content1 {
+.toggle-content1 {
     display: block;
 }
 
-.toggle1 ul, .toggle ul {
+.toggle1 ul {
     padding: 0px 0px 0px 25px;
     margin-bottom: -15px;
 }
 
-    .toggle1 ul li, .toggle ul li {
+    .toggle1 ul li {
         list-style: none;
         font-weight: 400;
         margin: 5px 6px 8px;
@@ -4676,16 +4661,16 @@ footer {
         color: #222;
     }
 
-        .toggle1 ul li a, .toggle ul li a {
+        .toggle1 ul li a {
             color: #222;
         }
 
-            .toggle1 ul li a:hover, .toggle ul li a:hover {
+            .toggle1 ul li a:hover {
                 color: #2E2EFE;
             }
 
 .sbar-widget {
-    margin: 0 0 15px;
+    margin-bottom: 15px;
     border-bottom: 1px solid #2E9AFE;
     padding-bottom: 25px;
 }
@@ -4717,35 +4702,6 @@ footer {
         margin: 0;
         font-weight: 400;
         padding: 25px 0;
-    }
-
-.s_range {
-    margin: 12px 0px 0px;
-    padding-left: 0;
-}
-
-.range_v {
-    margin-top: 13px;
-    margin: 13px 0px 35px;
-}
-
-    .range_v span {
-        font-size: 14px;
-        color: #000;
-        float: left;
-        margin-right: 5px;
-        line-height: 23px;
-    }
-
-    .range_v input {
-        border: medium none;
-        display: table;
-        float: left;
-        width: 50px;
-        font-size: 14px;
-        color: #000;
-        background: transparent;
-        padding: 0;
     }
 
 #price2 {
@@ -5213,26 +5169,12 @@ span.selected {
     border-bottom: 1px solid rgba(19,36,56,0.3);
     padding-left: 4px;
     margin: 9px 0 20px;
-    width: 170px;
+    text-align: right;
 }
 
 .product-thumb {
     position: relative;
 }
-
-    .product-thumb:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        border: 1px solid #89919b;
-        opacity: 1;
-        visiblity: visible;
-        transition: .4s;
-    }
 
     .product-thumb img {
         width: 100%;
@@ -5304,35 +5246,29 @@ span.selected {
             transition: .4s;
         }
 
-.page-nav2 ul {
-    display: table;
-    background: #f7f4f4;
-    margin: 25px auto 0;
-    padding: 10px;
-    border-radius: 6px;
+.product-info {
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: .4s;
+    margin-bottom: 65px;
 }
 
-    .page-nav2 ul li {
-        float: left;
-        margin: 0 1px;
+    .product-info:hover {
+        border: 1px solid #2E9AFE;
+        transition: .4s;
     }
 
-        .page-nav2 ul li a {
-            width: 34px;
-            height: 34px;
-            background: transparent;
-            border-radius: 50%;
-            line-height: 34px;
-            color: #0e2a36;
-            display: table;
-            text-align: center;
+        .product-info:hover .product-overlay {
+            bottom: 10px;
+            opacity: 1;
+            transition: .4s;
         }
 
-            .page-nav2 ul li.active a,
-            .page-nav2 ul li a:hover {
-                color: #fff;
-                background: #2E9AFE;
-            }
+        .product-info:hover .product-thumb:after {
+            opacity: 0;
+            visiblity: hidden;
+            transition: .4s;
+        }
 
 .product-single h3 {
     font-size: 20px;
@@ -5375,36 +5311,17 @@ span.selected {
     font-size: 40px;
     font-weight: bold;
     color: #222;
-    margin: 30px 0 0;
+    margin: 10px 0 0;
 }
 
 .ps-discount {
-    font-size: 14px;
-    color: #888888;
-    padding-right: 5px;
+    font-size: 16px;
+    color: #04B404;
+    padding: 5px 15px;
     border-top: 1px solid rgba(19,36,56,0.3);
     border-bottom: 1px solid rgba(19,36,56,0.3);
     display: table;
 }
-
-    .ps-discount span {
-        position: relative;
-        padding-right: 10px;
-        text-decoration: line-through;
-        margin: 3px 0;
-        margin-right: 9px;
-        display: inline-block;
-    }
-
-        .ps-discount span:after {
-            content: "";
-            width: 1px;
-            background: #888888;
-            position: absolute;
-            top: 4px;
-            right: 0;
-            height: 11px;
-        }
 
 .quantity-info li {
     float: left;
@@ -7543,6 +7460,9 @@ span.selected {
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 
+    .sbar-search {
+        display: none;
+    }
 
     #index_3 header {
         height: 100px !important;
@@ -7577,27 +7497,25 @@ span.selected {
     }
 
     #navmenu {
-        width: 89%;
-        margin-top: 24px;
+        width: 30%;
     }
+
+        #navmenu > ul {
+            margin-top: 16px;
+        }
+
+            #navmenu > ul > li > a {
+                padding: 10px 20px !important;
+            }
 
     .shop-cart {
         margin-top: 36px;
         margin-left: 6px;
-        margin-right: 9px;
     }
 
-    #navmenu {
-        width: 82%;
-        margin-top: 24px;
-        position: absolute;
-        z-index: 9999;
-        background: #132438;
+    .toggle1 {
+        margin-left: -20px;
     }
-
-        #navmenu > ul > li > a {
-            padding: 20px 20px !important;
-        }
 
     .home-stats h4 {
         font-size: 18px;
@@ -7765,25 +7683,8 @@ span.selected {
 
 @media only screen and (max-width: 767px) {
 
-    #index_3 #navmenu {
-        width: 100%;
-        margin-top: 28px;
-        margin-bottom: 10px;
-        position: fixed;
-        top: 3px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        z-index: 999;
-    }
-
-        #index_3 #navmenu > ul {
-            background: #132438;
-            margin-top: 35px;
-        }
-
-    #index_3 header {
-        height: 100px !important;
+    .search-menu, #slider {
+        display: none;
     }
 
     .time-pack {
@@ -7838,14 +7739,17 @@ span.selected {
         display: none;
     }
 
-    #menu-button {
-        font-size: 0px !important;
-    }
-
     #navmenu {
+        background-color: #000000;
         width: 100%;
         margin-top: 20px !important;
         margin-bottom: 10px;
+        margin-right: -10px !important;
+    }
+
+    #menu-button {
+        padding-right: 100px !important;
+        padding-left: 10px !important;
     }
 
     #main-slider1 h3 {
@@ -7860,33 +7764,6 @@ span.selected {
         height: 84px !important;
         margin-top: -12px;
     }
-
-    .header-sticky .logo a {
-        margin-top: 30px;
-    }
-
-    .trans-header #navmenu ul {
-        margin: 0px;
-        background: #132438;
-        position: fixed;
-        top: 72px;
-    }
-
-    #navmenu > ul > li > a {
-        padding: 14px 10px !important;
-        font-size: 11px;
-    }
-
-    #navmenu .submenu-button {
-        width: 40px;
-        height: 40px;
-    }
-
-        #navmenu .submenu-button:before {
-            content: "";
-            right: 16.5px;
-            top: 18.5px;
-        }
 
     .studio-filter {
         text-align: center;
@@ -8161,11 +8038,6 @@ span.selected {
         display: table;
     }
 
-    .logo a {
-        display: table;
-        margin: 30px auto 0;
-    }
-
     #navmenu {
         width: 100%;
         margin-top: 28px;
@@ -8257,8 +8129,10 @@ span.selected {
 
     .f-social {
         display: table;
+        clear: both;
         float: none;
         margin: 0 auto;
+        padding-top: 20px;
     }
 
     .footer-bottom #c-info li {
@@ -8363,132 +8237,6 @@ header {
         line-height: 28px;
         background: transparent;
     }
-/*
-*	Login Box
-*/
-div.overlay {
-    display: flex;
-    position: fixed;
-    width: 100%;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 9999;
-}
-
-    div.overlay > div.login-wrapper {
-        background-color: rgba(0,0,0,0.4);
-        align-self: center;
-        border-radius: 2px;
-        padding: 6px;
-        width: 450px;
-    }
-
-        div.overlay > div.login-wrapper > div.login-content {
-            background-color: #FAFAFA;
-            border-radius: 2px;
-            padding: 24px;
-            position: relative;
-        }
-
-            div.overlay > div.login-wrapper > div.login-content > h3 {
-                font-family: 'Varela Round', sans-serif;
-                font-size: 1.8em;
-                color: #000000;
-                margin: 0 0 1.25em;
-                padding: 0;
-            }
-
-.close {
-    background-color: #000000;
-    color: #FFFFFF;
-    padding: 2px 6px;
-    border-radius: 12px;
-    font-size: 18px;
-}
-
-.login-content {
-    text-align: center;
-    margin: 0;
-}
-
-.sign-in-text {
-    color: #000000;
-    font-size: 15px;
-    margin-top: 10px;
-}
-
-    .sign-in-text a {
-        color: #0040FF;
-    }
-
-        .sign-in-text a:hover {
-            text-decoration: underline;
-        }
-
-/*
-*	Login Form
-*/
-.login-form input[type="text"],
-.login-form input[type="email"],
-.login-form input[type="number"],
-.login-form input[type="search"],
-.login-form input[type="password"],
-.login-form textarea {
-    display: block;
-    background-color: rgb(255,255,255);
-    color: rgb(0,0,0);
-    border: 1px solid rgb( 186, 186, 186 );
-    border-radius: 1px;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
-    display: block;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 1em;
-    margin: 15px auto;
-    padding: .6em .55em;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 1);
-    transition: all 400ms ease;
-    width: 90%;
-}
-
-    .login-form input[type="text"]:focus,
-    .login-form input[type="email"]:focus,
-    .login-form input[type="number"]:focus,
-    .login-form input[type="search"]:focus,
-    .login-form input[type="password"]:focus,
-    .login-form textarea:focus,
-    .login-form select:focus {
-        border-color: #4195fc;
-        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px #4195fc;
-    }
-
-    .login-form input[type="text"]:invalid:focus,
-    .login-form input[type="email"]:invalid:focus,
-    .login-form input[type="number"]:invalid:focus,
-    .login-form input[type="search"]:invalid:focus,
-    .login-form input[type="password"]:invalid:focus,
-    .login-form textarea:invalid:focus,
-    .login-form select:invalid:focus {
-        border-color: rgb(248,66,66);
-        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px rgb(248,66,66);
-    }
-
-.login-form button {
-    background-color: #2E2E2E;
-    border: 1px solid rgba(0,0,0,.1);
-    color: rgb(255,255,255);
-    font-family: 'Varela Round', sans-serif;
-    font-size: 1em;
-    margin: 0 auto;
-    padding: .55em .9em;
-    transition: all 400ms ease;
-}
-
-    .login-form button:hover {
-        background-color: #0080FF;
-        cursor: pointer;
-    }
 
 .copy-right {
     float: right;
@@ -8523,3 +8271,148 @@ div.overlay {
         background-color: #0080FF;
         cursor: pointer;
     }
+
+
+/* 5. Login / Register */
+
+.reginfo {
+    padding-top: 50px;
+}
+
+    .reginfo form input, .form-control {
+        padding: 5px 15px;
+        height: 40px;
+        background-color: #ececec;
+        border: solid 1px #132438;
+        width: 100%;
+        max-width: 650px;
+        margin-bottom: 8px;
+        border-radius: 1px;
+        color: #555;
+        font-weight: 400;
+        margin: 0 auto;
+    }
+
+#btnCreate {
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    background: #2E2E2E;
+    border: none;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #fefefe;
+    padding: 0 20px;
+    text-transform: uppercase;
+}
+
+.reginfo form button:hover {
+    color: #fff;
+    background: #2E9AFE;
+}
+
+.loginfo h4 {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #222;
+    font-weight: 400;
+    margin: 0 0 50px;
+}
+
+.loginfo form input {
+    padding: 5px 50px 5px 15px;
+    height: 40px;
+    background-color: #F2F2F2;
+    border: solid 1px #132438;
+    width: 100%;
+    margin-bottom: 17px;
+    border-radius: 1px;
+    color: #555;
+    font-weight: 400;
+}
+
+.loginfo form button {
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    background: #2E2E2E;
+    border: none;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #fefefe;
+    padding: 0 20px;
+    text-transform: uppercase;
+}
+
+    .loginfo form button:hover {
+        color: #fff;
+        background: #2E64FE;
+    }
+
+.loginfo .col-md-6 {
+    padding: 45px 115px;
+}
+
+.input-field-ico {
+    position: relative;
+}
+
+    .input-field-ico i {
+        color: #959595;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        font-size: 16px;
+    }
+
+.loginfo {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+    .loginfo form {
+        text-align: center;
+    }
+
+        .loginfo form span {
+            display: block;
+            clear: both;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+            .loginfo form span a {
+                color: #2E2EFE;
+                padding-left: 5px;
+            }
+
+        .loginfo form a:hover {
+            text-decoration: underline;
+        }
+
+/* Phân trang */
+.page-nav {
+    text-align: center;
+}
+
+    .page-nav ul li {
+        float: left;
+        margin: 0 1px;
+    }
+
+        .page-nav ul li a {
+            background-color: #2E2E2E;
+        }
+
+            .page-nav ul li.active a,
+            .page-nav ul li a:hover {
+                color: #FFFFFF;
+                background: #2E9AFE;
+            }
