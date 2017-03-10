@@ -317,6 +317,7 @@
     <Compile Include="Models\DonHang.cs">
       <DependentUpon>SachOnline.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Encryptor.cs" />
     <Compile Include="Models\GiaoHang.cs">
       <DependentUpon>SachOnline.tt</DependentUpon>
     </Compile>
@@ -348,6 +349,7 @@
       <DependentUpon>SachOnline.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\SessionGioHang.cs" />
+    <Compile Include="Models\UserDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

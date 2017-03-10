@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using SachOnline.Models;
 
+
 namespace SachOnline.Controllers
 {
     public class UserController : Controller
@@ -24,14 +25,11 @@ namespace SachOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DangKy(KhachHang kh)
         {
-
+            
             if (ModelState.IsValid)
             {
-
                 db.KhachHangs.Add(kh);
                 db.SaveChanges();
-                Session["TaiKhoan"] = kh.MaKH;
-                Session["hoten"] = kh.HoTen;
                 return Redirect(Url.Action("Index", "Home"));
             }
 
