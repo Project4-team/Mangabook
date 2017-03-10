@@ -15,11 +15,18 @@
         <h2>@Model.TenSach</h2>
         <div class="row">
             <div class="col-md-6">
-                <img src="@Url.Content("~/Content/img-sp/"+Model.AnhBia)" class="ps-img img-responsive" alt="" />
+                <img src="@Url.Content("~/Content/img-sp/" + Model.AnhBia)" class="ps-img img-responsive" alt="" />
             </div>
             <div class="col-md-6">
                 <div class="ps-price">@string.Format("{0:0,0 VNĐ}", Model.GiaBan).Replace(",", ".")</div>
-                <div class="ps-discount">Còn hàng</div>
+                @if (Model.SoLuong <= 0)
+                {
+                    <div class="ps-discount">Hết Hàng</div>
+                }
+                else
+                {
+                    <div class="ps-discount">Còn hàng</div>
+                }
                 <div class="clearfix space40"></div>
                 <ul class="quantity-info">
                     @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaSach = Model.MaSach, @strurl = Request.Url.ToString() }))
@@ -71,8 +78,8 @@
                                 <img src="@Url.Content("~/Content/img-sp/"+item.AnhBia)" class="img-responsive" alt="" />
                                 <div class="product-overlay">
                                     <span>
-                                        <a href="#"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                                        <a href="#"><i class="fa fa-paper-plane-o"></i>Xem chi tiết</a>
+                                        <a href="@Url.Action("ThemGioHang","GioHang",new {@MaSach=item.MaSach, @strurl = Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                        <a href="@Url.Action("ChiTietSach","Sach",new { @masach=item.MaSach})"><i class="fa fa-paper-plane-o"></i>Xem chi tiết</a>
                                     </span>
                                 </div>
                             </div>

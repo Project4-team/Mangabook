@@ -2,7 +2,7 @@
 @using PagedList.Mvc;
 @model  PagedList.IPagedList<Sach>
 @{
-    ViewBag.Title = "SachTheoTheloai";
+    ViewBag.Title = "SachTheoNXB";
     Layout = "~/Views/Layout/UserLayout.cshtml";
 }
 
@@ -14,13 +14,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>Thể Loại: @ViewBag.cd</h5>
+                    <h5>Nhà Xuất Bản: @ViewBag.nxb</h5>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="clearfix"></div>
+
 
     <!-- SHOP CONTENT -->
     <div class="product-main">
@@ -42,7 +43,7 @@
                                 <div class="product-overlay">
                                     <span>
                                         <a href="@Url.Action("ThemGioHang","GioHang",new {@MaSach=item.MaSach, @strurl = Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                                        <a href="@Url.Action("ChiTietSach","User",new { @masach=item.MaSach})"><i class="fa fa-paper-plane-o"></i>Xem Chi Tiết</a>
+                                        <a href="@Url.Action("ChiTietSach","Sach",new { @masach=item.MaSach})"><i class="fa fa-paper-plane-o"></i>Xem Chi Tiết</a>
                                     </span>
                                 </div>
                             </div>
@@ -61,7 +62,7 @@
                 <!-- PAGE NAV -->
                 <div class="page-nav">
                     <ul>
-                        @Html.PagedListPager(Model, page => Url.Action("SachTheoTheloai", "User", new { @matheloai = item.MaChuDe, page = page }))
+                        @Html.PagedListPager(Model, page => Url.Action("SachTheoNXB", "Sach", new { @maNXB = item.MaNXB, page = page }))
                     </ul>
                 </div>
             }

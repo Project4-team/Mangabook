@@ -298,7 +298,7 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
-    <Compile Include="Controllers\QuanLyController.cs" />
+    <Compile Include="Controllers\SachController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -365,14 +365,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Partial\TheLoaiPartial.cshtml" />
     <Content Include="Views\Partial\NhaXuatBanPartial.cshtml" />
-    <Content Include="Views\User\ChiTietSach.cshtml" />
-    <Content Include="Views\User\SachTheoTheloai.cshtml" />
     <Content Include="Views\Partial\SliderPartial.cshtml" />
-    <Content Include="Views\User\SachTheoNXB.cshtml" />
-    <Content Include="Views\QuanLy\DangKy.cshtml" />
-    <Content Include="Views\QuanLy\DangNhap.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\GioHang\TongSachPar.cshtml" />
+    <Content Include="Views\User\DangKy.cshtml" />
+    <Content Include="Views\User\DangNhap.cshtml" />
+    <Content Include="Views\Sach\ChiTietSach.cshtml" />
+    <Content Include="Views\Sach\SachTheoTheloai.cshtml" />
+    <Content Include="Views\Sach\SachTheoNXB.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

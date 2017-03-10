@@ -4,61 +4,62 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SachOnline.Models;
-using PagedList;
 
-namespace SachOnline.Controllers.User
+namespace SachOnline.Controllers
 {
     public class UserController : Controller
     {
         SachOnlineEntities db = new SachOnlineEntities();
-        public ViewResult ChiTietSach(int masach = 0)
+        // GET: User
+        public ActionResult Index()
         {
-            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == masach);
-            if (sach == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            var chude= sach.MaChuDe;
-            return View(sach);
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Dangky()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DangKy(KhachHang kh)
+        {
 
+            if (ModelState.IsValid)
+            {
+
+                db.KhachHangs.Add(kh);
+                db.SaveChanges();
+                Session["TaiKhoan"] = kh.MaKH;
+                Session["hoten"] = kh.HoTen;
+                return Redirect(Url.Action("Index", "Home"));
+            }
+
+            return View();
         }
-        public ViewResult SachTheoTheloai(int matheloai,int? page)
+        [HttpGet]
+        public ActionResult DangNhap()
         {
-            ChuDe cd = db.ChuDes.SingleOrDefault(n => n.MaChuDe == matheloai);
-            if (cd == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            ViewBag.cd = cd.TenChuDe;
-            List<Sach> SachChuDe = db.Saches.Where(n => n.MaChuDe == matheloai).ToList();
-            if (SachChuDe.Count == 0)
-            {
-                ViewBag.ThongBao = "Không có sách nào thuộc thể loại này!";
-            }
-            int pageSize = 1;
-            int pageNumber = (page ?? 1);
-            return View(SachChuDe.ToPagedList(pageNumber, pageSize));
-            //return View(SachChuDe);
+
+            return View();
         }
-        public ViewResult SachTheoNXB(int maNXB,int? page)
+        [HttpPost]
+        public ActionResult DangNhap(FormCollection f)
         {
-            NhaXuatBan nxb = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == maNXB);
-            if (nxb == null)
+            string sTaiKhoan = f.Get("username").ToString();
+            string sMatKhau = f.Get("password").ToString();
+            KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MatKhau == sMatKhau);
+            if (kh != null)
             {
-                Response.StatusCode = 404;
-                return null;
+                ViewBag.ThongBao = "Đăng Nhập Thành Công !";
+                Session["TaiKhoan"] = kh.MaKH;
+                Session["hoten"] = kh.HoTen;
+
+                return Redirect(Url.Action("Index", "Home"));
             }
-            ViewBag.nxb = nxb.TenNXB;
-            List<Sach> SachNXB = db.Saches.Where(n => n.MaNXB == maNXB).ToList();
-            if (SachNXB.Count == 0)
-            {
-                ViewBag.ThongBao = "Không có sách nào thuộc nhà xuát bản này!";
-            }
-            int pageSize = 1;
-            int pageNumber = (page ?? 1);
-            return View(SachNXB.ToPagedList(pageNumber, pageSize));
+
+            ViewBag.ThongBao = "Đăng Nhập Không Thành Công!";
+            return View();
         }
     }
 }
