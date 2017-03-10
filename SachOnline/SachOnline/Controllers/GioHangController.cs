@@ -99,7 +99,9 @@ namespace SachOnline.Controllers
         public ActionResult GioHang() {
             if (Session["SessionGioHang"]==null)
             {
-                return RedirectToAction("Index", "Home");
+                //return RedirectToAction("Index", "Home");
+                ViewBag.Thongbao = "Giỏ Hàng bạn không có gì :p !";
+                return View();
             }
             List<SessionGioHang> listHang = ktGioHang();
             return View(listHang);

@@ -6,45 +6,32 @@
 }
 
 <h2>GioHang</h2>
-<table>
-    <tr>
-        <td>Tensach</td>
-    </tr>
-    <tr>
-        <td>Gia</td>
-    </tr>
-    <tr>
-        <td>Soluong</td>
-    </tr>
-    <tr>
-        <td>don gia</td>
-    </tr>
-    <tr>
-        <td>Tongtien</td>
-    </tr>
-    <tr>
-        <td>tongsosach</td>
-    </tr>
-
-
-
-@foreach (var item in Model)
-{
-    <tr>
-        <td>@item.iTenSach</td>
-    </tr>
-    <tr>
-        <td>@item.iDonGia</td>
-    </tr>
-    <tr>
-        <td>@item.iSoLuong</td>
-    </tr>
-    <tr>
-        <td>@item.iDonGia</td>
-    </tr>
-    <tr>
-        <td>@item.iTongGia</td>
-    </tr>
+@{
+    if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.iTenSach</td>
+            </tr>
+            <tr>
+                <td>@item.iDonGia</td>
+            </tr>
+            <tr>
+                <td>@item.iSoLuong</td>
+            </tr>
+            <tr>
+                <td>@item.iDonGia</td>
+            </tr>
+            <tr>
+                <td>@item.iTongGia</td>
+            </tr>
+        }
+    }
+    else
+    {
+       <h1>@ViewBag.Thongbao</h1>
+    }
 }
-    </table>
+
 
