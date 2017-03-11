@@ -32,7 +32,7 @@ namespace SachOnline.Controllers
                 db.KhachHangs.Add(kh);
                 db.SaveChanges();
                 Session["TaiKhoan"] = kh;
-                Session["id"]=kh.maKH;
+                Session["id"]=kh.MaKH;
                 Session["hoten"] = kh.HoTen;
                 return Redirect(Url.Action("Index", "Home"));
             }
@@ -55,7 +55,7 @@ namespace SachOnline.Controllers
             {
                 ViewBag.ThongBao = "Đăng Nhập Thành Công !";
                 Session["TaiKhoan"] = kh;
-                Session["id"]=kh.maKH;
+                Session["id"]=kh.MaKH.ToString();
                 Session["hoten"] = kh.HoTen;
 
                 return Redirect(Url.Action("Index", "Home"));
@@ -66,22 +66,20 @@ namespace SachOnline.Controllers
         }
         [HttpGet]
         public ActionResult Edit(int maKH)
-        {
-            KhachHang kh = new KhachHang();
-            kh = db.KhachHangs.Find(maKH);
-            if (kh != null)
-            {
-                if (Session["TaiKhoan"] == kh)
+        {           
+                if (Session["id"] == maKH.ToString())
                 {
-                    return View(kh);
+                KhachHang kh = new KhachHang();
+                kh = db.KhachHangs.Find(maKH);
+                return View(kh);
                 }
                 else
                 {
                     Response.StatusCode = 404;
                     return Redirect(Url.Action("Index", "Home"));
                 }
-            }
-            return Redirect(Url.Action("Index", "Home"));
+            
+
 
 
         }
