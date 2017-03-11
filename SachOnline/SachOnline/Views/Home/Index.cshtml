@@ -82,7 +82,7 @@
 
         </div>
         <!-- PAGE NAV -->
-        <div class="page-nav">
+        <div id="pagination">
             @*new PagedListRenderOptions() { LiElementClasses = new List<string>{ "myClass", "yourClass" }})*@
             <ul>
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

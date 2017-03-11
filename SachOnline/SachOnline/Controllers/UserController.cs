@@ -32,7 +32,7 @@ namespace SachOnline.Controllers
                 db.KhachHangs.Add(kh);
                 db.SaveChanges();
                 Session["TaiKhoan"] = kh;
-                Session["id"]=kh.MaKH;
+                Session["id"] = kh.MaKH;
                 Session["hoten"] = kh.HoTen;
                 return Redirect(Url.Action("Index", "Home"));
             }
@@ -55,7 +55,7 @@ namespace SachOnline.Controllers
             {
                 ViewBag.ThongBao = "Đăng Nhập Thành Công !";
                 Session["TaiKhoan"] = kh;
-                Session["id"]=kh.MaKH.ToString();
+                Session["id"] = kh.MaKH;
                 Session["hoten"] = kh.HoTen;
 
                 return Redirect(Url.Action("Index", "Home"));
@@ -66,19 +66,24 @@ namespace SachOnline.Controllers
         }
         [HttpGet]
         public ActionResult Edit(int maKH)
-        {           
-                if (Session["id"] == maKH.ToString())
+        {
+            if (Session["id"] != null)
+            {
+                int m = int.Parse(Session["id"].ToString());
+                if (m == maKH)
                 {
-                KhachHang kh = new KhachHang();
-                kh = db.KhachHangs.Find(maKH);
-                return View(kh);
+                    KhachHang kh = new KhachHang();
+                    kh = db.KhachHangs.Find(maKH);
+                    return View(kh);
                 }
-                else
-                {
-                    Response.StatusCode = 404;
-                    return Redirect(Url.Action("Index", "Home"));
-                }
-            
+                return Redirect(Url.Action("Index", "Home"));
+            }
+            else
+            {
+                Response.StatusCode = 404;
+                return Redirect(Url.Action("Index", "Home"));
+            }
+
 
 
 
@@ -97,6 +102,17 @@ namespace SachOnline.Controllers
             db.SaveChanges();
             return Redirect(Url.Action("Index", "Home"));
 
+        }
+        public ActionResult Logout() {
+
+
+            if(Session["id"] != null) {
+                Session.Remove("id");
+                Session.Remove("TaiKhoan");
+                Session.Remove("hoten");
+            }
+            
+            return Redirect(Url.Action("Index", "Home"));
         }
 
     }

@@ -4391,6 +4391,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   background-color: #18bc9c;
   border: 1px solid transparent;
   margin-left: -1px;
+  border-radius: 50%;
 }
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {

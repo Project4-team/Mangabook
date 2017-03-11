@@ -170,10 +170,11 @@ header {
 
 #navmenu > ul > li > a {
     transition: .4s;
+    color: #FF8000;
 }
 
     #navmenu > ul > li > a:hover {
-        color: #1aff00;
+        color: #00FF00;
     }
 
 /* 3.1. Logo */
@@ -8189,7 +8190,7 @@ span.selected {
 *	Header Color
 */
 header {
-    background-color: #2E9AFE;
+    background-color: #848484;
 }
 
 /*
@@ -8416,3 +8417,8 @@ header {
                 color: #FFFFFF;
                 background: #2E9AFE;
             }
+            
+#pagination{
+    border-radius: 50%;
+    color: red;
+}
