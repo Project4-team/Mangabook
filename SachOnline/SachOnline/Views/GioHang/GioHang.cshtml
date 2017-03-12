@@ -2,36 +2,92 @@
 @model List<SessionGioHang>
 @{
     ViewBag.Title = "GioHang";
-    Layout = "~/Views/Layout/UserLayout.cshtml";
+    Layout = "~/Views/Layout/NoSideBarLayout.cshtml";
 }
 
-<h2>GioHang</h2>
-@{
-    if (Model != null)
-    {
-        foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.iTenSach</td>
-            </tr>
-            <tr>
-                <td>@item.iDonGia</td>
-            </tr>
-            <tr>
-                <td>@item.iSoLuong</td>
-            </tr>
-            <tr>
-                <td>@item.iDonGia</td>
-            </tr>
-            <tr>
-                <td>@item.iTongGia</td>
-            </tr>
-        }
-    }
-    else
-    {
-       <h1>@ViewBag.Thongbao</h1>
-    }
-}
+<!-- PAGE HEADER -->
+<div class="page_header1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Giỏ hàng</h5>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- CART TABLE CONTENT -->
+<div class="col-md-12">
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Thông tin sách</th>
+                <th>Số lượng</th>
+                <th>Giá tiền</th>
+                <th>Xoá</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@Url.Content("~/Content/img-sp/"+item.iHinhAnh)" alt="" />
+                                <h4><a href="@Url.Action("ChiTietSach","Sach",new { @masach=item.iMaSach})">@item.iTenSach</a></h4>
+                                <div class="clearfix space20"></div>
+                            </td>
+                            <td>
+                                <form>
+                                    <input type="text" value="@item.iSoLuong">
+                                </form>
+                            </td>
+                            <td>
+                                <div class="ps-price">@string.Format("{0:0,0 VNĐ}", item.iDonGia).Replace(",", ".")</div>
+                            </td>
+                            <td>
+                                <i class="fa fa-times close1"></i>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <h1>@ViewBag.Thongbao</h1>
+                }
+            }
+        </tbody>
+    </table>
 
+    <div class="space90"></div>
+
+    <div class="shop-cart-sub">
+        <div class="scs-promo">
+            <h5>Promo Code Offer</h5>
+            <div class="clearfix space30"></div>
+            <form>
+                <input type="text" placeholder="Enter Your Promo Code">
+                <button>Check</button>
+            </form>
+        </div>
+        <div class="scs-checkout">
+            <h5>Thông tin thanh toán</h5>
+            <ul>
+                <li>Tổng tiền <span></span></li>
+                <li>Wefit Cost <span>$720</span></li>
+                <li>Mã giảm giá <span>$0</span></li>
+                <li>Phí vận chuyển <span>Miễn phí</span></li>
+                <li>Tổng tiền<span></span></li>
+            </ul>
+            <p>(Đã bao gồm toàn bộ các chi phí khác.)</p>
+        </div>
+        <div class="scs-cart">
+            <h5>Thanh toán</h5>
+            <div class="scs-total">Số tiền thanh toán <span></span></div>
+            <div class="ps-discount"><span>$925</span> You Save $205</div>
+            <a href="#">Gửi đơn hàng</a>
+        </div>
+    </div>
+</div>

@@ -94,7 +94,7 @@ ul {
 
 .topbar {
     height: 42px;
-    background: #2E2E2E;
+    background: #0080FF;
     transition: .4s;
 }
 
@@ -170,11 +170,11 @@ header {
 
 #navmenu > ul > li > a {
     transition: .4s;
-    color: #FF8000;
+    color: #FA8258;
 }
 
     #navmenu > ul > li > a:hover {
-        color: #00FF00;
+        color: #2ECCFA;
     }
 
 /* 3.1. Logo */
@@ -196,7 +196,6 @@ header {
 
 .shop-cart {
     margin-top: 36px;
-    margin-left: 5px;
     position: relative;
     transition: .4s;
     cursor: pointer;
@@ -206,22 +205,21 @@ header {
         color: #fff;
         font-size: 24px;
         transition: .4s;
+        padding-right: 2px;
     }
 
     .shop-cart:hover i {
-        color: #1aff00;
+        color: #2ECCFA;
         transition: .4s;
     }
 
     .shop-cart span {
-        width: 15px;
-        height: 15px;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
         background-color: #f4f6f6;
         border: solid 1px #2E9AFE;
-        font-size: 10px;
+        font-size: 12px;
         text-transform: uppercase;
         color: #222;
         line-height: 12px;
@@ -229,7 +227,7 @@ header {
         display: inline-block;
         position: relative;
         top: -16px;
-        margin-left: 4px;
+        padding: 5px;
     }
 
 .scart-wrap {
@@ -4608,19 +4606,8 @@ footer {
         text-rendering: optimizelegibility;
         font-size: 16px;
         color: #222;
+        cursor: pointer;
     }
-
-        .toggle1 a.toggle-trigger1:hover {
-            opacity: .8;
-            text-decoration: none;
-        }
-
-    .toggle1 a.active {
-        text-decoration: none;
-        color: #000;
-    }
-
-
 
     .toggle1 a.toggle-trigger1:after {
         content: "";
@@ -4668,41 +4655,25 @@ footer {
 
             .toggle1 ul li a:hover {
                 color: #2E2EFE;
+                margin-left: 10px;
+                text-decoration: underline;
             }
 
 .sbar-widget {
-    margin-bottom: 15px;
-    border-bottom: 1px solid #2E9AFE;
+    margin-bottom: 15px;    
     padding-bottom: 25px;
+    box-shadow: 0 5px 5px #888888;
 }
 
     .sbar-widget h5 {
+        background-color: #2E9AFE;
         font-size: 20px;
         text-transform: uppercase;
-        color: #0e2a36;
+        color: #FFFFFF;
         font-weight: 400;
-        margin: 0 0 5px;
-        border-bottom: 1px solid #2E9AFE;
-        padding-bottom: 18px;
-    }
-
-        .sbar-widget h5 span {
-            float: right;
-        }
-
-            .sbar-widget h5 span a {
-                font-size: 14px;
-                color: #999;
-                text-transform: none;
-            }
-
-    .sbar-widget h6 {
-        font-size: 16px;
-        text-transform: uppercase;
-        color: #444;
-        margin: 0;
-        font-weight: 400;
-        padding: 25px 0;
+        text-align: center;
+        margin: 0 0 5px;        
+        padding: 10px 0;
     }
 
 #price2 {
@@ -5283,10 +5254,6 @@ span.selected {
     display: table;
 }
 
-.sidebar {
-    padding-right: 65px;
-}
-
 .ps-inner p {
     margin: 0;
     font-size: 14px;
@@ -5535,12 +5502,12 @@ span.selected {
             color: #222;
             margin-left: 30px;
             font-weight: 400;
-            margin: 40px 0 0;
+            margin: 0 auto;            
             line-height: 26px;
         }
 
             .cart-table tbody tr td:nth-child(1) h4 a {
-                color: #222;
+                color: #000000;
                 text-decoration: none;
             }
 
@@ -5577,7 +5544,7 @@ span.selected {
 
     .cart-table tbody tr td form input {
         width: 46px;
-        height: 25px;
+        height: 36px;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
@@ -5587,20 +5554,20 @@ span.selected {
         text-align: center;
         color: #222222;
         font-weight: 400;
-        margin: 56px auto 0;
+        margin: 35px auto 0;
         display: table;
     }
 
 .close1 {
     width: 35px;
-    height: 32px;
+    height: 33px;
     border: 1px solid #002D04;
     background: #eee;
     color: #222;
     font-size: 18px !important;
     line-height: 29px !important;
     text-align: center;
-    margin: 54px auto 0;
+    margin: 35px auto 0;
     display: table !important;
     border-radius: 3px;
     transition: .4s;
@@ -8190,7 +8157,7 @@ span.selected {
 *	Header Color
 */
 header {
-    background-color: #848484;
+    background-color: #2E2E2E;
 }
 
 /*
@@ -8198,7 +8165,7 @@ header {
 */
 #navmenu {
     margin-top: -64px;
-    margin-right: 50px;
+    margin-right: 20px;
 }
 
 .shop-cart {
@@ -8399,8 +8366,12 @@ header {
         }
 
 /* Phân trang */
-.page-nav {
-    text-align: center;
+.page-nav ul {
+    display: table;
+    background: #f7f4f4;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 6px;
 }
 
     .page-nav ul li {
@@ -8409,16 +8380,17 @@ header {
     }
 
         .page-nav ul li a {
-            background-color: #2E2E2E;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            line-height: 34px;
+            color: #0e2a36;
+            display: table;
+            text-align: center;
         }
 
             .page-nav ul li.active a,
             .page-nav ul li a:hover {
-                color: #FFFFFF;
+                color: #fff;
                 background: #2E9AFE;
             }
-            
-#pagination{
-    border-radius: 50%;
-    color: red;
-}

@@ -77,7 +77,8 @@
 #navmenu > ul > li:hover > a,
 #navmenu > ul > li > a:hover,
 #navmenu > ul > li.active > a {
-	color: #2E9AFE;
+	color: #2ECCFA;
+    cursor: pointer;
 }
 
 #navmenu ul ul {
@@ -292,5 +293,4 @@
   #navmenu ul ul .submenu-button:before {
     top: 19.5px;
   }
-
 }

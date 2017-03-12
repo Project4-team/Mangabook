@@ -132,33 +132,6 @@
             <div class="container">
                 <div class="row">
 
-                    <!-- SIDEBAR -->
-                    <div class="col-md-3 sidebar">
-                        <div class="sbar-widget">
-                            <h5>Danh mục</h5>
-                            <div class="toggle1">
-                                <div class="title">
-                                    <a class="toggle-trigger1">Thể loại sách</a>
-                                </div>
-                                <div class="toggle-content1">
-                                    <ul>
-                                        @Html.Action("TheLoaiPartial", "Partial")
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="toggle1">
-                                <div class="title">
-                                    <a class="toggle-trigger1">Nhà xuất bản</a>
-                                </div>
-                                <div class="toggle-content1">
-                                    <ul>
-                                        @Html.Action("NhaXuatBanPartial", "Partial")
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- SHOP CONTENT -->
                     @RenderBody()
 

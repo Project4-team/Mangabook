@@ -38,7 +38,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>Sản phẩm mới</h5>
+                    <h5>Sách mới xuất bản</h5>
                 </div>
             </div>
         </div>
@@ -82,7 +82,7 @@
 
         </div>
         <!-- PAGE NAV -->
-        <div id="pagination">
+        <div class="page-nav">
             @*new PagedListRenderOptions() { LiElementClasses = new List<string>{ "myClass", "yourClass" }})*@
             <ul>
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
