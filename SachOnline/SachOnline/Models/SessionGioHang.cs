@@ -21,12 +21,14 @@ namespace SachOnline.Models
         //        iMaSach = value;
         //    }
         //}
+
         SachOnlineEntities db = new SachOnlineEntities();
          public int iMaSach { get; set; }
         public string iTenSach { get; set; }
         public string iHinhAnh { get; set; }
         public int iSoLuong { get; set; }
         public int iDonGia { get; set; }
+        public int iSach { get; set; }
         public int iTongGia {
             get { return iSoLuong * iDonGia; }
         }

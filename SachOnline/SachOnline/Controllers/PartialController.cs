@@ -22,8 +22,5 @@ namespace SachOnline.Controllers.User
             var ListNhaXuatBan = db.NhaXuatBans.ToList();
             return PartialView(ListNhaXuatBan);
         }
-        public PartialViewResult SliderPartial() {
-            return PartialView();
-        }
     }
 }

@@ -36,6 +36,7 @@ namespace SachOnline.Controllers
             if (gh == null)
             {
                 gh = new SessionGioHang(MaSach);
+                gh.iSach = 1;
                 if (f["Soluong"] != null)
                 {
                     gh.iSoLuong = int.Parse(f["Soluong"]);
@@ -48,7 +49,7 @@ namespace SachOnline.Controllers
                 return Redirect(strurl);
             }
             else
-            {
+            {   
                 if (f["Soluong"] != null)
                 {
                     gh.iSoLuong = gh.iSoLuong+int.Parse(f["Soluong"]);
@@ -91,7 +92,9 @@ namespace SachOnline.Controllers
             }
             if (listGioHang.Count==0)
             {
+                Session.Remove("SessionGioHang");
                 return RedirectToAction("Index", "Home");
+               
             }
             return RedirectToAction("Giohang");
 
@@ -99,11 +102,10 @@ namespace SachOnline.Controllers
         public ActionResult GioHang() {
             if (Session["SessionGioHang"]==null)
             {
-                //return RedirectToAction("Index", "Home");
-                ViewBag.Thongbao = "Giỏ Hàng bạn không có gì :p !";
-                return View();
+                return RedirectToAction("Index", "Home");
             }
             List<SessionGioHang> listHang = ktGioHang();
+            ViewBag.TongGiaTien = TongTien();
             return View(listHang);
         }
         private int TongSoLuong() {
@@ -127,12 +129,23 @@ namespace SachOnline.Controllers
             return iTongTien;
 
         }
+        private int TongSach() {
+            int iTongSach = 0;
+            List<SessionGioHang> listGioHang = Session["SessionGioHang"] as List<SessionGioHang>;
+            if (listGioHang != null)
+            {
+                iTongSach = listGioHang.Sum(n => n.iSach);
+            }
+            return iTongSach;
+
+        }
         public PartialViewResult TongSachPar() {
-            if (TongSoLuong()==0)
+            if (TongSach()<=0)
             {
                 return PartialView();
+                
             }
-            ViewBag.TongSoSach = TongSoLuong().ToString();
+            ViewBag.TongSach = TongSach().ToString();
             return PartialView();
         }
     }

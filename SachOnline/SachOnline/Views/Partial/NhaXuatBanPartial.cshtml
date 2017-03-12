@@ -3,7 +3,7 @@
 @{  
     foreach (var item in Model)
     {
-        <li><a href='@Url.Action("SachTheoNXB","Sach",new { @maNXB=item.MaNXB,page=1})'>@item.TenNXB</a></li>
+        <li><a href='~/NXB/@item.MaNXB-1'>@item.TenNXB</a></li>
     }
 }
   

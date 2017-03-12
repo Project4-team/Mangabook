@@ -29,40 +29,34 @@
         </thead>
         <tbody>
             @{
-                if (Model != null)
+                foreach (var item in Model)
                 {
-                    foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                <img src="@Url.Content("~/Content/img-sp/"+item.iHinhAnh)" alt="" />
-                                <h4><a href="@Url.Action("ChiTietSach","Sach",new { @masach=item.iMaSach})">@item.iTenSach</a></h4>
-                                <div class="clearfix space20"></div>
-                            </td>
-                            <td>
-                                <form>
-                                    <input type="text" value="@item.iSoLuong">
-                                </form>
-                            </td>
-                            <td>
-                                <div class="ps-price">@string.Format("{0:0,0 VNĐ}", item.iDonGia).Replace(",", ".")</div>
-                            </td>
-                            <td>
-                                <i class="fa fa-times close1"></i>
-                            </td>
-                        </tr>
-                    }
-                }
-                else
-                {
-                    <h1>@ViewBag.Thongbao</h1>
+                    <tr>
+                        <td>
+                            <img src="@Url.Content("~/Content/img-sp/"+item.iHinhAnh)" alt="" />
+                            <h4><a href="@Url.Action("ChiTietSach","Sach",new { @masach=item.iMaSach})">@item.iTenSach</a></h4>
+                            <div class="clearfix space20"></div>
+                        </td>
+                        <td>
+                            <form>
+                                <input type="number" value="@item.iSoLuong" class="txtSoLuong">
+                            </form>
+                        </td>
+                        <td>
+                            <div class="ps-price">@string.Format("{0:0,0 VNĐ}", item.iTongGia).Replace(",", ".")</div>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("XoaHang","GioHang",new { @masach=item.iMaSach})"><i class="fa fa-times close1"></i></a>
+                        </td>
+                    </tr>
                 }
             }
+
         </tbody>
     </table>
-
+    
     <div class="space90"></div>
-
+    <button id="btnUpdate" class="btn">Update</button>
     <div class="shop-cart-sub">
         <div class="scs-promo">
             <h5>Promo Code Offer</h5>
@@ -75,7 +69,7 @@
         <div class="scs-checkout">
             <h5>Thông tin thanh toán</h5>
             <ul>
-                <li>Tổng tiền <span></span></li>
+                <li>Tổng tiền <span>@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></li>
                 <li>Wefit Cost <span>$720</span></li>
                 <li>Mã giảm giá <span>$0</span></li>
                 <li>Phí vận chuyển <span>Miễn phí</span></li>

@@ -221,6 +221,7 @@
     <Content Include="Content\User\images\target.png" />
     <Content Include="Content\User\js\bootstrap.min.js" />
     <Content Include="Content\User\js\contact.js" />
+    <Content Include="Content\User\js\GioHang.js" />
     <Content Include="Content\User\js\html5shiv.js" />
     <Content Include="Content\User\js\jquery-ui.js" />
     <Content Include="Content\User\js\jquery.animateNumber.js" />
@@ -367,7 +368,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Partial\TheLoaiPartial.cshtml" />
     <Content Include="Views\Partial\NhaXuatBanPartial.cshtml" />
-    <Content Include="Views\Partial\SliderPartial.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\GioHang\TongSachPar.cshtml" />
     <Content Include="Views\User\DangKy.cshtml" />

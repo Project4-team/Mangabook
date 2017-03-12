@@ -61,7 +61,7 @@
                                 <div class="product-overlay">
                                     <span>
                                         <a href="@Url.Action("ThemGioHang","GioHang",new {@MaSach=item.MaSach, @strurl = Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                                        <a href="@Url.Action("ChiTietSach","Sach",new { @masach=item.MaSach})"><i class="fa fa-paper-plane-o"></i>Xem Chi Tiết</a>
+                                        <a href="~/Sach/@item.MaSach"><i class="fa fa-paper-plane-o"></i>Xem Chi Tiết</a>
                                     </span>
                                 </div>
                             </div>
