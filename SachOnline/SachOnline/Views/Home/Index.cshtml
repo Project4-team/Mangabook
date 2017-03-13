@@ -83,20 +83,10 @@
         </div>
         <!-- PAGE NAV -->
         <div class="page-nav">
-            @*new PagedListRenderOptions() { LiElementClasses = new List<string>{ "myClass", "yourClass" }})*@
             <ul>
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
             </ul>
-            @*<ul>
-                    <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                </ul>*@
         </div>
     </div>
+
 </div>

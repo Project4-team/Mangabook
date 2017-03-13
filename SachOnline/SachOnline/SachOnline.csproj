@@ -221,7 +221,6 @@
     <Content Include="Content\User\images\target.png" />
     <Content Include="Content\User\js\bootstrap.min.js" />
     <Content Include="Content\User\js\contact.js" />
-    <Content Include="Content\User\js\GioHang.js" />
     <Content Include="Content\User\js\html5shiv.js" />
     <Content Include="Content\User\js\jquery-ui.js" />
     <Content Include="Content\User\js\jquery.animateNumber.js" />
@@ -350,7 +349,6 @@
       <DependentUpon>SachOnline.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\SessionGioHang.cs" />
-    <Compile Include="Models\UserDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

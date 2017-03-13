@@ -45,6 +45,18 @@ namespace SachOnline
             namespaces: new[] { "SachOnline.Controllers" }
             );
             routes.MapRoute(
+           name: "GioHang",
+           url: "GioHang",
+           defaults: new { controller = "GioHang", action = "GioHang", masach = UrlParameter.Optional },
+           namespaces: new[] { "SachOnline.Controllers" }
+           );
+            routes.MapRoute(
+          name: "DatHang",
+          url: "dat-hang",
+          defaults: new { controller = "GioHang", action = "DatHang", masach = UrlParameter.Optional },
+          namespaces: new[] { "SachOnline.Controllers" }
+          );
+            routes.MapRoute(
             name: "Default",
             url: "{controller}/{action}/{id}",
             defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

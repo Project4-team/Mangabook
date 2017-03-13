@@ -8,20 +8,6 @@ namespace SachOnline.Models
 {
     public class SessionGioHang
     {
-        //private int iMaSach;
-        //public int IMaSach
-        //{
-        //    get
-        //    {
-        //        return iMaSach;
-        //    }
-
-        //    set
-        //    {
-        //        iMaSach = value;
-        //    }
-        //}
-
         SachOnlineEntities db = new SachOnlineEntities();
          public int iMaSach { get; set; }
         public string iTenSach { get; set; }
@@ -41,5 +27,5 @@ namespace SachOnline.Models
             iSoLuong = 1;
 
         }
-    }
+     }
 }

@@ -4,7 +4,6 @@
     ViewBag.Title = "GioHang";
     Layout = "~/Views/Layout/NoSideBarLayout.cshtml";
 }
-
 <!-- PAGE HEADER -->
 <div class="page_header1">
     <div class="container">
@@ -15,7 +14,6 @@
         </div>
     </div>
 </div>
-
 <!-- CART TABLE CONTENT -->
 <div class="col-md-12">
     <table class="cart-table">
@@ -39,7 +37,7 @@
                         </td>
                         <td>
                             <form>
-                                <input type="number" value="@item.iSoLuong" class="txtSoLuong">
+                                <input type="text" value="@item.iSoLuong" class="Quanlity" id="product+@item.iMaSach"/>
                             </form>
                         </td>
                         <td>
@@ -51,10 +49,9 @@
                     </tr>
                 }
             }
-
         </tbody>
     </table>
-    
+
     <div class="space90"></div>
     <button id="btnUpdate" class="btn">Update</button>
     <div class="shop-cart-sub">
@@ -81,7 +78,20 @@
             <h5>Thanh toán</h5>
             <div class="scs-total">Số tiền thanh toán <span></span></div>
             <div class="ps-discount"><span>$925</span> You Save $205</div>
-            <a href="#">Gửi đơn hàng</a>
+            <a href="~/dat-hang">Gửi đơn hàng</a>
         </div>
     </div>
+    <script type="text/javascript">
+ $(document).ready(function () {
+ $(".Quanlity").change(function () {
+ var quanlity = $(this).val();
+ var proID = $(this).attr("id");
+ $.ajax({
+ url: '@Url.Action("UpdateQuantity")',
+ data: { "proID": proID, "quantity": quanlity}
+ });
+     window.location = '/GioHang';
+ });
+ });
+    </script>
 </div>

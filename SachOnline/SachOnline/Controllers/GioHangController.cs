@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SachOnline.Models;
+using System.Web.Script.Serialization;
 
 namespace SachOnline.Controllers
 {
@@ -13,11 +14,11 @@ namespace SachOnline.Controllers
         SachOnlineEntities db = new SachOnlineEntities();
         public List<SessionGioHang> ktGioHang()
         {
-            List<SessionGioHang> listGioHang = Session["SessionGioHang"] as List<SessionGioHang>;
+            List<SessionGioHang> listGioHang = Session["GioHang"] as List<SessionGioHang>;
             if (listGioHang == null)
             {
                 listGioHang = new List<SessionGioHang>();
-                Session["SessionGioHang"] = listGioHang;
+                Session["GioHang"] = listGioHang;
 
             }
             return listGioHang;
@@ -62,21 +63,6 @@ namespace SachOnline.Controllers
             }
 
         }
-        public ActionResult CapNhapGioHang(int MaSach, FormCollection f) {
-            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == MaSach);
-            if (sach == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            List<SessionGioHang> listGioHang = ktGioHang();
-            SessionGioHang gh = listGioHang.Find(n => n.iMaSach == MaSach);
-            if (gh != null)
-            {
-                gh.iSoLuong = int.Parse(f["txtSoluong"].ToString());
-            }
-            return View();
-        }
         public ActionResult XoaHang(int MaSach) {
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == MaSach);
             if (sach == null)
@@ -92,7 +78,7 @@ namespace SachOnline.Controllers
             }
             if (listGioHang.Count==0)
             {
-                Session.Remove("SessionGioHang");
+                Session.Remove("GioHang");
                 return RedirectToAction("Index", "Home");
                
             }
@@ -100,7 +86,7 @@ namespace SachOnline.Controllers
 
         }
         public ActionResult GioHang() {
-            if (Session["SessionGioHang"]==null)
+            if (Session["GioHang"]==null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -110,7 +96,7 @@ namespace SachOnline.Controllers
         }
         private int TongSoLuong() {
             int iTongSoLuong = 0;
-            List<SessionGioHang> listGioHang = Session["SessionGioHang"] as List<SessionGioHang>;
+            List<SessionGioHang> listGioHang = Session["GioHang"] as List<SessionGioHang>;
             if (listGioHang != null)
             {
                 iTongSoLuong = listGioHang.Sum(n => n.iSoLuong);
@@ -121,7 +107,7 @@ namespace SachOnline.Controllers
         private int TongTien()
         {
             int iTongTien = 0;
-            List<SessionGioHang> listGioHang = Session["SessionGioHang"] as List<SessionGioHang>;
+            List<SessionGioHang> listGioHang = Session["GioHang"] as List<SessionGioHang>;
             if (listGioHang != null)
             {
                 iTongTien = listGioHang.Sum(n => n.iTongGia);
@@ -131,7 +117,7 @@ namespace SachOnline.Controllers
         }
         private int TongSach() {
             int iTongSach = 0;
-            List<SessionGioHang> listGioHang = Session["SessionGioHang"] as List<SessionGioHang>;
+            List<SessionGioHang> listGioHang = Session["GioHang"] as List<SessionGioHang>;
             if (listGioHang != null)
             {
                 iTongSach = listGioHang.Sum(n => n.iSach);
@@ -147,6 +133,70 @@ namespace SachOnline.Controllers
             }
             ViewBag.TongSach = TongSach().ToString();
             return PartialView();
+        }
+
+        public ActionResult UpdateQuantity(string proID, int quantity)
+        {
+            int id = Convert.ToInt32(proID.Substring(7, proID.Length - 7));
+            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == id);
+            if (sach == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            List<SessionGioHang> listGioHang = ktGioHang();
+            SessionGioHang gh = listGioHang.Find(n => n.iMaSach == id);
+            if (gh != null)
+            {
+                gh.iSoLuong = quantity;
+            }
+            return View();
+        }
+        public ActionResult CapNhapGioHang(int MaSach, int SoLuong)
+        {
+            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == MaSach);
+            if (sach == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            List<SessionGioHang> listGioHang = ktGioHang();
+            SessionGioHang gh = listGioHang.Find(n => n.iMaSach == MaSach);
+            if (gh != null)
+            {
+                gh.iSoLuong = SoLuong;
+            }
+            return View();
+        }
+        public ActionResult DatHang() {
+            if (Session["TaiKhoan"]==null)
+            {              
+                return RedirectToAction("DangNhap", "User");
+            }
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            KhachHang kh = (KhachHang)Session["TaiKhoan"];
+            DonHang ddh = new DonHang();
+            List<SessionGioHang> gh = ktGioHang();
+            ddh.MaKH = kh.MaKH;
+            ddh.NgayDat = DateTime.Now;
+            db.DonHangs.Add(ddh);
+            db.SaveChanges();
+            foreach (var item in gh)
+            {
+                ChiTietDonHang ctdh = new ChiTietDonHang();
+                ctdh.MaDonHang = ddh.MaDonHang;
+                ctdh.MaSach = item.iMaSach;
+                ctdh.SoLuong = item.iSoLuong;
+                ctdh.DonGia = item.iDonGia;
+                db.ChiTietDonHangs.Add(ctdh);
+                db.SaveChanges();
+
+
+            }
+                return RedirectToAction("Index","Home");
         }
     }
 }
