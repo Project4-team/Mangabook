@@ -37,7 +37,7 @@
                         </td>
                         <td>
                             <form>
-                                <input type="text" value="@item.iSoLuong" class="Quanlity" id="product+@item.iMaSach"/>
+                                <input type="text" value="@item.iSoLuong" class="Quanlity" id="product+@item.iMaSach" />
                             </form>
                         </td>
                         <td>
@@ -50,48 +50,29 @@
                 }
             }
         </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td><span class="total-text">Tổng tiền thanh toán:</span></td>
+                <td><span class="total-cart">@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></td>
+                <td><div class="scs-cart"><a href="~/dat-hang">Gửi đơn hàng</a></div></td>
+            </tr>
+        </tfoot>
     </table>
 
     <div class="space90"></div>
-    <button id="btnUpdate" class="btn">Update</button>
-    <div class="shop-cart-sub">
-        <div class="scs-promo">
-            <h5>Promo Code Offer</h5>
-            <div class="clearfix space30"></div>
-            <form>
-                <input type="text" placeholder="Enter Your Promo Code">
-                <button>Check</button>
-            </form>
-        </div>
-        <div class="scs-checkout">
-            <h5>Thông tin thanh toán</h5>
-            <ul>
-                <li>Tổng tiền <span>@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></li>
-                <li>Wefit Cost <span>$720</span></li>
-                <li>Mã giảm giá <span>$0</span></li>
-                <li>Phí vận chuyển <span>Miễn phí</span></li>
-                <li>Tổng tiền<span></span></li>
-            </ul>
-            <p>(Đã bao gồm toàn bộ các chi phí khác.)</p>
-        </div>
-        <div class="scs-cart">
-            <h5>Thanh toán</h5>
-            <div class="scs-total">Số tiền thanh toán <span></span></div>
-            <div class="ps-discount"><span>$925</span> You Save $205</div>
-            <a href="~/dat-hang">Gửi đơn hàng</a>
-        </div>
-    </div>
-    <script type="text/javascript">
- $(document).ready(function () {
- $(".Quanlity").change(function () {
- var quanlity = $(this).val();
- var proID = $(this).attr("id");
- $.ajax({
- url: '@Url.Action("UpdateQuantity")',
- data: { "proID": proID, "quantity": quanlity}
- });
-     window.location = '/GioHang';
- });
- });
-    </script>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".Quanlity").change(function () {
+            var quanlity = $(this).val();
+            var proID = $(this).attr("id");
+            $.ajax({
+                url: '@Url.Action("UpdateQuantity")',
+                data: { "proID": proID, "quantity": quanlity }
+            });
+            window.location = '/GioHang';
+        });
+    });
+</script>

@@ -21,13 +21,14 @@
                 <div class="ps-price">@string.Format("{0:0,0 VNĐ}", Model.GiaBan).Replace(",", ".")</div>
                 @if (Model.SoLuong <= 0)
                 {
-                    <div class="ps-discount">Hết Hàng</div>
+                    <div class="soldout-text">Tạm hết hàng</div>
                 }
                 else
                 {
-                    <div class="ps-discount">Còn hàng</div>
+                    <div class="stock-text">Còn hàng</div>
                 }
                 <div class="clearfix space40"></div>
+
                 <ul class="quantity-info">
                     @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaSach = Model.MaSach, @strurl = Request.Url.ToString() }))
                     {
@@ -39,10 +40,14 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            @*<a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>*@
-                            <i class="fa fa-shopping-cart"></i><input id="btnAdd" type="submit" value="Thêm vào giỏ" class="btn btn-default" />
-                        </li>
+                        if (Model.SoLuong <= 0)
+                        {
+                            <li><span class="addcart-text1"><input id="btnAdd" type="submit" value="Thêm vào giỏ" class="btn btn-default" disabled="disabled" /></span></li>
+                        }
+                        else
+                        {
+                            <li><span class="addcart-text"><input id="btnAdd" type="submit" value="Thêm vào giỏ" class="btn btn-default" /></span></li>
+                        }
                     }
                 </ul>
                 <p>Thông tin sách</p>

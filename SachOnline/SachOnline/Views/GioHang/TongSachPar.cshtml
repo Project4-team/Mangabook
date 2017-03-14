@@ -1,11 +1,9 @@
 ﻿<a href="@Url.Content("~/GioHang/GioHang")">
-    <i class="fa fa-shopping-cart"></i><span>Giỏ hàng</span>
+    <i class="fa fa-shopping-cart"></i>
     @{
         if (Session["GioHang"] != null)
         {
-            <span>
-                @ViewBag.TongSach
-            </span>
+            <span>@ViewBag.TongSach</span>
         }
     }
 </a>
