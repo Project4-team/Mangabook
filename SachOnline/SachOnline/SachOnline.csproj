@@ -299,6 +299,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
     <Compile Include="Controllers\SachController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -374,6 +375,7 @@
     <Content Include="Views\Sach\SachTheoTheloai.cshtml" />
     <Content Include="Views\Sach\SachTheoNXB.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\TimKiem\TimKiem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

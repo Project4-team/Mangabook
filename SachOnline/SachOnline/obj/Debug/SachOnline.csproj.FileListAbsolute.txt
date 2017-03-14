@@ -155,4 +155,3 @@ C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Helpers.xm
 C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Mvc.xml
 C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.dll
 C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.pdb
-C:\Users\nghia\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.csprojResolveAssemblyReference.cache

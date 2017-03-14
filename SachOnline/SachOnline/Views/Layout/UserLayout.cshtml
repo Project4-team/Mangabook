@@ -88,10 +88,13 @@
                         </div>
 
                         <div class="col-md-6">
-                            <form class="search-menu">
-                                <input type="text" placeholder="Nhập tên sách cần tìm...">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
+                            
+                                @using (Html.BeginForm("TimKiem", "TimKiem",FormMethod.Post,new { @class= "search-menu" })) {
+
+                                        <input type="text" name="txtTimKiem" placeholder="Nhập tên sách cần tìm...">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                       
+                                }
                         </div>
 
                         <div class="col-md-9">

@@ -72,5 +72,13 @@ namespace SachOnline.Controllers
             int pageNumber = (page ?? 1);
             return View(SachNXB.ToPagedList(pageNumber, pageSize));
         }
+        public JsonResult ListName(string q) {
+            var data = db.Saches.Where(n=>n.TenSach.Contains(q)).Select(x=>x.TenSach).ToList();
+            return Json(new {
+                data = data,
+                status = true
+            },JsonRequestBehavior.AllowGet);
+        }
+       
     }
 }

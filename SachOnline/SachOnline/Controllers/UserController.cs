@@ -60,7 +60,7 @@ namespace SachOnline.Controllers
 
                 return Redirect(Url.Action("Index", "Home"));
             }
-
+            ModelState.AddModelError("", "Tên Đang nhập hoặc tài khoàn không đúng !");
             ViewBag.ThongBao = "Đăng Nhập Không Thành Công!";
             return View();
         }
