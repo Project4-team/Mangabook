@@ -78,6 +78,8 @@
     <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
     <Property Name="NgaySinh" Type="DateTime" Precision="3" />
     <NavigationProperty Name="DonHangs" Relationship="Self.FK_DonHang_KhachHang" FromRole="KhachHang" ToRole="DonHang" />
+    <Property Name="NgayTao" Type="DateTime" Precision="3" />
+    <Property Name="NgaySua" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="NhaXuatBan">
     <Key>

@@ -63,6 +63,8 @@
     <EntitySetMapping Name="KhachHangs">
       <EntityTypeMapping TypeName="SachOnlineModel.KhachHang">
         <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="NgaySua" ColumnName="NgaySua" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
           <ScalarProperty Name="MaKH" ColumnName="MaKH" />
           <ScalarProperty Name="HoTen" ColumnName="HoTen" />
           <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />

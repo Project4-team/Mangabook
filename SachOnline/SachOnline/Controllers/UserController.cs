@@ -28,9 +28,13 @@ namespace SachOnline.Controllers
 
             if (ModelState.IsValid)
             {
-                if (db.KhachHangs.SingleOrDefault(n => n.Email == kh.Email) != null)
+                if (db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == kh.TaiKhoan) != null)
                 {
-                    ModelState.AddModelError("", "Email Đã có người sử dụng");
+                    ModelState.AddModelError("", "Tài khoản đã có người sử dụng");
+                }
+                else if (db.KhachHangs.SingleOrDefault(n => n.Email == kh.Email) != null)
+                {
+                    ModelState.AddModelError("", "Email đã có người sử dụng");
                 }
                 else
                 {
@@ -38,6 +42,7 @@ namespace SachOnline.Controllers
                     {
                         kh.MatKhau = Encryptor.MD5Hash(kh.MatKhau);
                     }
+                    kh.NgayTao = DateTime.Now;
                     db.KhachHangs.Add(kh);
                     db.SaveChanges();
                     Session["TaiKhoan"] = kh;
@@ -46,6 +51,7 @@ namespace SachOnline.Controllers
                     return Redirect(Url.Action("Index", "Home"));
                 }
             }
+
 
             return View();
         }
@@ -107,6 +113,7 @@ namespace SachOnline.Controllers
             user.DiaChi = kh.DiaChi;
             user.Email = kh.Email;
             user.DienThoai = kh.DienThoai;
+            user.NgaySua = DateTime.Now;
             db.Entry(user).State = EntityState.Modified;
             db.SaveChanges();
             return Redirect(Url.Action("Index", "Home"));
@@ -125,6 +132,5 @@ namespace SachOnline.Controllers
 
             return Redirect(Url.Action("Index", "Home"));
         }
-
     }
 }

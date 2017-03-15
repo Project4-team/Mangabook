@@ -67,6 +67,8 @@
     <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
     <Property Name="DienThoai" Type="nvarchar" MaxLength="15" />
     <Property Name="NgaySinh" Type="datetime" />
+    <Property Name="NgayTao" Type="datetime" />
+    <Property Name="NgaySua" Type="datetime" />
   </EntityType>
   <EntityType Name="NhaXuatBan">
     <Key>
