@@ -66,7 +66,6 @@
     <Property Name="Email" Type="nvarchar" MaxLength="100" />
     <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
     <Property Name="DienThoai" Type="nvarchar" MaxLength="15" />
-    <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" />
     <Property Name="NgaySinh" Type="datetime" />
   </EntityType>
   <EntityType Name="NhaXuatBan">
@@ -102,6 +101,7 @@
     <Property Name="MaChuDe" Type="int" />
     <Property Name="TenTacGia" Type="nvarchar" MaxLength="150" />
     <Property Name="MaAdmin" Type="int" />
+    <Property Name="TrangThai" Type="int" />
   </EntityType>
   <Association Name="FK_ChiTietDonHang_DonHang">
     <End Role="DonHang" Type="Self.DonHang" Multiplicity="1" />

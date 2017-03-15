@@ -71,7 +71,6 @@
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
           <Property Name="DienThoai" Type="nvarchar" MaxLength="15" />
-          <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" />
           <Property Name="NgaySinh" Type="datetime" />
         </EntityType>
         <EntityType Name="NhaXuatBan">
@@ -107,6 +106,7 @@
           <Property Name="MaChuDe" Type="int" />
           <Property Name="TenTacGia" Type="nvarchar" MaxLength="150" />
           <Property Name="MaAdmin" Type="int" />
+          <Property Name="TrangThai" Type="int" />
         </EntityType>
         <Association Name="FK_ChiTietDonHang_DonHang">
           <End Role="DonHang" Type="Self.DonHang" Multiplicity="1" />
@@ -328,7 +328,6 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="3" />
           <NavigationProperty Name="DonHangs" Relationship="Self.FK_DonHang_KhachHang" FromRole="KhachHang" ToRole="DonHang" />
         </EntityType>
@@ -366,6 +365,7 @@
           <Property Name="MaChuDe" Type="Int32" />
           <Property Name="TenTacGia" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="MaAdmin" Type="Int32" />
+          <Property Name="TrangThai" Type="Int32" />
           <NavigationProperty Name="Admin" Relationship="Self.FK_Sach_Admin" FromRole="Sach" ToRole="Admin" />
           <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK_ChiTietDonHang_Sach" FromRole="Sach" ToRole="ChiTietDonHang" />
           <NavigationProperty Name="ChuDe" Relationship="Self.FK_Sach_ChuDe" FromRole="Sach" ToRole="ChuDe" />
@@ -585,7 +585,6 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
-                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -624,6 +623,7 @@
                 <ScalarProperty Name="MaChuDe" ColumnName="MaChuDe" />
                 <ScalarProperty Name="TenTacGia" ColumnName="TenTacGia" />
                 <ScalarProperty Name="MaAdmin" ColumnName="MaAdmin" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

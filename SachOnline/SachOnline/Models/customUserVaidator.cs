@@ -16,20 +16,12 @@ namespace SachOnline.Models
             if (value != null)
             {
                 string user = value.ToString();
-                if (db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == user) == null)
+                if (db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == user) != null)
                 {
-                    return ValidationResult.Success;
-                }
-                else
-                {
-
                     return new ValidationResult("Tên đăng nhập đã tồn tại !");
                 }
             }
-            else
-            {
-                return new ValidationResult("" + validationContext.DisplayName + " không được trống !");
-            }
+            return ValidationResult.Success;
 
         }
     }

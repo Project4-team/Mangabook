@@ -70,7 +70,6 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
           <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
-          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
           <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -109,6 +108,7 @@
           <ScalarProperty Name="MaChuDe" ColumnName="MaChuDe" />
           <ScalarProperty Name="TenTacGia" ColumnName="TenTacGia" />
           <ScalarProperty Name="MaAdmin" ColumnName="MaAdmin" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -56,12 +56,6 @@
                 @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
             </div>
-
-            <div class="reg-field-ico">
-                @Html.DropDownListFor(model => model.GioiTinh, new SelectList(new List<Object> { new { value = "Nam", text = "Nam" }, new { value = "Nữ", text = "Nữ" } }, "value", "text", 2), new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
-            </div>
-
             <div class="btnReg">
                 <button id="btnCreate" type="submit" value="Tạo tài khoản">Lưu thông tin</button>
             </div>

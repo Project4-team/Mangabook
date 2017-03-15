@@ -76,7 +76,6 @@
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
     <Property Name="NgaySinh" Type="DateTime" Precision="3" />
     <NavigationProperty Name="DonHangs" Relationship="Self.FK_DonHang_KhachHang" FromRole="KhachHang" ToRole="DonHang" />
   </EntityType>
@@ -114,6 +113,7 @@
     <Property Name="MaChuDe" Type="Int32" />
     <Property Name="TenTacGia" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="MaAdmin" Type="Int32" />
+    <Property Name="TrangThai" Type="Int32" />
     <NavigationProperty Name="Admin" Relationship="Self.FK_Sach_Admin" FromRole="Sach" ToRole="Admin" />
     <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK_ChiTietDonHang_Sach" FromRole="Sach" ToRole="ChiTietDonHang" />
     <NavigationProperty Name="ChuDe" Relationship="Self.FK_Sach_ChuDe" FromRole="Sach" ToRole="ChuDe" />

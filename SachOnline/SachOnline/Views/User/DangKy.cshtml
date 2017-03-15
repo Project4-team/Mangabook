@@ -26,59 +26,137 @@
             {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @*<div class="form-group">
-                    @Html.LabelFor(model => model.MaKH, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.MaKH, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
 
             <div class="reg-field-ico">
                 <i class="fa fa-user-o"></i>
-                <input type="text" name="taikhoan" id="taikhoan" placeholder="Tên tài khoản">
+                <input class="form-control text-box single-line" type="text" name="TaiKhoan" id="TaiKhoan" placeholder="Tên tài khoản">
+                <span id="taikhoan_error"></span>
+                @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
             </div>
 
             <div class="reg-field-ico">
                 <i class="fa fa-lock"></i>
-                <input type="password" name="matkhau" id="matkhau" placeholder="Mật khẩu">
+                <input class="form-control text-box single-line" type="password" name="MatKhau" id="MatKhau" placeholder="Mật khẩu">
+                <span id="matkhau_error"></span>
+                @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+            </div>
+            <div class="reg-field-ico">
+                <i class="fa fa-lock"></i>
+                <input class="form-control text-box single-line" type="password" name="Re_MatKhau" id="Re_MatKhau" placeholder="Nhập lại Mật khẩu">
+                <span id="re_matkhau_error"></span>
             </div>
 
             <div class="reg-field-ico">
                 <i class="fa fa-address-card"></i>
-                <input type="text" name="hoten" id="hoten" placeholder="Họ và tên">
+                <input class="form-control text-box single-line" type="text" name="HoTen" id="HoTen" placeholder="Họ và tên">
+                <span id="hoten_error"></span>
+                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
             </div>
 
             <div class="reg-field-ico">
                 <i class="fa fa-envelope"></i>
-                <input type="email" name="email" id="email" placeholder="Email">
+                <input class="form-control text-box single-line" type="email" name="Email" id="Email" placeholder="Email">
+                <span id="email_error"></span>
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
 
             <div class="reg-field-ico">
                 <i class="fa fa-map-marker"></i>
-                <input type="text" name="diachi" id="diachi" placeholder="Địa chỉ">
+                <input class="form-control text-box single-line" type="text" name="DiaChi" id="DiaChi" placeholder="Địa chỉ">
+                <span id="diachi_error"></span>
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
             </div>
 
             <div class="reg-field-ico">
                 <i class="fa fa-mobile"></i>
-                <input type="number" name="sdt" id="sdt" placeholder="Số điện thoại">
+                <input class="form-control text-box single-line" type="number" name="DienThoai" id="DienThoai" placeholder="Số điện thoại">
+                <span id="phone_err"></span>
+                @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
             </div>
 
             <div class="reg-field-ico">
                 <i class="fa fa-calendar"></i>
-                <input type="text" name="ngaysinh" id="ngaysinh" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Ngày sinh">
+                <input class="form-control text-box single-line" type="text" name="NgaySinh" id="NgaySinh" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Ngày sinh">
+                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
             </div>
-
-            <div class="reg-field-ico">
-                <select class="form-control">
-                    <option value="nam">Nam</option>
-                    <option value="nu">Nữ</option>
-                </select>
-            </div>
-
             <div class="btnReg">
                 <button id="btnCreate" type="submit" value="Tạo tài khoản">Tạo tài khoản</button>
             </div>
         }
     </div>
 </div>
+<script type="text/javascript">
+        $('#btnCreate').click(function () {
+
+            // BƯỚC 1: Lấy dữ liệu từ form
+            var username = $.trim($('#TaiKhoan').val());
+            var password = $.trim($('#MatKhau').val());
+            var re_password = $.trim($('#Re_MatKhau').val());
+            var email = $.trim($('#Email').val());
+            var hoten = $.trim($('#HoTen').val());
+            var address = $.trim($('#DiaChi').val());
+            var phone = $.trim($('#DienThoai').val());
+
+            // BƯỚC 2: Validate dữ liệu
+            // Biến cờ hiệu
+            var flag = true;
+
+            // Username
+            if (username == '' || username.length < 4) {
+                $('#taikhoan_error').text('Tên đăng nhập phải lớn hơn 4 ký tự');
+                flag = false;
+            }
+            else {
+                $('#taikhoan_error').text('');
+            }
+
+            // Password
+            if (password.length <= 5) {
+                $('#matkhau_error').text('Bạn phải nhập mật khẩu có ít nhất 6 kí tự');
+                flag = false;
+            }
+            else {
+                $('#matkhau_error').text('');
+            }
+
+            // Re password
+            if (password != re_password) {
+                $('#re_matkhau_error').text('Mật khẩu nhập lại không đúng');
+                flag = false;
+            }
+            else {
+                $('#re_password_error').text('');
+            }
+
+            // Email
+            if (email=="") {
+                $('#email_error').text('Email không được để trống và phải đúng định dạng');
+                flag = false;
+            }
+            else {
+                $('#email_error').text('');
+            }
+                // Ho Ten
+            if (hoten=="") {
+                $('#hoten_error').text('Họ Tên không được để trống');
+                flag = false;
+            }
+            else {
+                $('#hoten_error').text('');
+            }
+            if (address == "") {
+                $('#diachi_error').text('Địa Chỉ không được để trống');
+                flag = false;
+            }
+            else {
+                $('#diachi_error').text('');
+            }
+            if (phone == "") {
+                $('#phone_err').text('Số Điện Thoại không được để trống');
+                flag = false;
+            } else {
+                $('#phone_err').text('');
+            }
+            return flag;
+        });
+</script>
