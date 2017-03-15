@@ -152,6 +152,5 @@ C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Webpages.
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Webpages.Razor.xml
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Helpers.xml
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\bin\System.Web.Mvc.xml
-C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.csprojResolveAssemblyReference.cache
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.dll
 C:\Users\Truong\Desktop\Mangabook\SachOnline\SachOnline\obj\Debug\SachOnline.pdb

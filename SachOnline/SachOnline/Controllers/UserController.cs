@@ -53,15 +53,15 @@ namespace SachOnline.Controllers
             KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MatKhau == sMatKhau);
             if (kh != null)
             {
-                ViewBag.ThongBao = "Đăng Nhập Thành Công !";
+                ViewBag.ThongBao = "Tên tài khoản hoặc mật khẩu không đúng!";
                 Session["TaiKhoan"] = kh;
                 Session["id"] = kh.MaKH;
                 Session["hoten"] = kh.HoTen;
 
                 return Redirect(Url.Action("Index", "Home"));
             }
-            ModelState.AddModelError("", "Tên Đang nhập hoặc tài khoàn không đúng !");
-            ViewBag.ThongBao = "Đăng Nhập Không Thành Công!";
+            ModelState.AddModelError("", "Tên tài khoản hoặc mật khẩu không đúng!");
+            ViewBag.ThongBao = "Tên tài khoản hoặc mật khẩu không đúng!";
             return View();
         }
         [HttpGet]
@@ -103,15 +103,17 @@ namespace SachOnline.Controllers
             return Redirect(Url.Action("Index", "Home"));
 
         }
-        public ActionResult Logout() {
+        public ActionResult Logout()
+        {
 
 
-            if(Session["id"] != null) {
+            if (Session["id"] != null)
+            {
                 Session.Remove("id");
                 Session.Remove("TaiKhoan");
                 Session.Remove("hoten");
             }
-            
+
             return Redirect(Url.Action("Index", "Home"));
         }
 

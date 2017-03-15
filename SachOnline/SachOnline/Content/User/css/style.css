@@ -170,7 +170,7 @@ header {
 
 #navmenu > ul > li > a {
     transition: .4s;
-    color: #FA8258;
+    color: #FFFFFF;
 }
 
     #navmenu > ul > li > a:hover {
@@ -8179,11 +8179,11 @@ header {
 */
 #navmenu {
     margin-top: -64px;
-    margin-right: 20px;
 }
 
 .shop-cart {
     margin-top: -28px;
+    margin-left: 20px;
 }
 
 .search-menu {
@@ -8387,39 +8387,44 @@ header {
     padding-top: 50px;
 }
 
-    .loginfo form {
-        text-align: center;
+.notify-login {
+    color: #FF0000;
+    margin-bottom: 30px;
+}
+
+.loginfo form {
+    text-align: center;
+}
+
+    .loginfo form input {
+        width: 100%;
+        height: 40px;
+        padding: 5px 5px 5px 50px;
+        margin-bottom: 25px;
+        color: #555;
+        font-weight: 400;
+        border: none;
+        border-bottom: 1px solid #2E9AFE;
     }
 
-        .loginfo form input {
-            width: 100%;
-            height: 40px;
-            padding: 5px 5px 5px 50px;
-            margin-bottom: 25px;
-            color: #555;
-            font-weight: 400;
-            border: none;
-            border-bottom: 1px solid #2E9AFE;
-        }
+    .loginfo form button {
+        width: 200px;
+        height: 40px;
+        border-radius: 8px;
+        background: #2E2E2E;
+        border: none;
+        line-height: 40px;
+        text-align: center;
+        font-size: 14px;
+        color: #fefefe;
+        padding: 0 20px;
+        text-transform: uppercase;
+    }
 
-        .loginfo form button {
-            width: 200px;
-            height: 40px;
-            border-radius: 8px;
-            background: #2E2E2E;
-            border: none;
-            line-height: 40px;
-            text-align: center;
-            font-size: 14px;
-            color: #fefefe;
-            padding: 0 20px;
-            text-transform: uppercase;
+        .loginfo form button:hover {
+            color: #fff;
+            background: #2E64FE;
         }
-
-            .loginfo form button:hover {
-                color: #fff;
-                background: #2E64FE;
-            }
 
 .input-field-ico {
     position: relative;
@@ -8527,3 +8532,8 @@ header {
     .not-active > .fa-shopping-cart {
         color: #BDBDBD;
     }
+
+.user-text {
+    color: #2ECCFA !important;
+    margin-right: 80px !important;
+}

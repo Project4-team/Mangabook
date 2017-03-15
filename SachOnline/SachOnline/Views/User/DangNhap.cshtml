@@ -21,7 +21,7 @@
     <div class="loginfo">
         @using (Html.BeginForm("DangNhap", "User"))
             {
-            @ViewBag.ThongBao
+            <span class="notify-login">@ViewBag.ThongBao</span>
             @*<form method="post">*@
             <div class="input-field-ico">
                 <i class="fa fa-user-o"></i>

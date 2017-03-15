@@ -109,7 +109,7 @@
                                         if (Session["TaiKhoan"] != null)
                                         {
                                             <li>
-                                                <a>@Session["hoten"]</a>
+                                                <a class="user-text">@Session["hoten"]</a>
                                                 <ul>
                                                     <li><a href='@Url.Content("~/dang-ky")'>Xem đơn hàng</a></li>
                                                     <li><a href='@Url.Action("Edit","User",new { @maKH=Session["id"]})'>Thông tin tài khoản</a></li>
