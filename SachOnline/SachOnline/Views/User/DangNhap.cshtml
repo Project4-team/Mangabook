@@ -24,12 +24,12 @@
             @ViewBag.ThongBao
             @*<form method="post">*@
             <div class="input-field-ico">
-                <input type="text" name="username" id="username" placeholder="Tên tài khoản" required="required" />
                 <i class="fa fa-user-o"></i>
+                <input type="text" name="username" id="username" placeholder="Tên tài khoản" required="required" />
             </div>
             <div class="input-field-ico">
-                <input type="password" name="password" id="password" placeholder="Mật khẩu" required="required" />
                 <i class="fa fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="Mật khẩu" required="required" />
             </div>
             <button type="submit">Đăng nhập</button>
             <span>Bạn chưa có tài khoản?<a href="@Url.Content("~/User/Dangky")">Tạo tài khoản</a></span>

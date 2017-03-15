@@ -8255,7 +8255,7 @@ header {
     }
 
 /* 5. Login / Register */
-.reginfo {
+/* .reginfo {
     margin: 50px auto;
 }
 
@@ -8275,9 +8275,87 @@ header {
             border-radius: 1px;
             color: #555;
             font-weight: 400;
+        }*/
+
+.reginfo {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+    .reginfo form {
+        text-align: center;
+    }
+
+        .reginfo form input {
+            width: 100%;
+            height: 40px;
+            padding: 5px 5px 5px 50px;
+            margin-bottom: 25px;
+            color: #555;
+            font-weight: 400;
+            border: none;
+            border-bottom: 1px solid #2E9AFE;
         }
 
-.btnSigin {
+    .reginfo select {
+        border: 1px solid #2E9AFE;
+        margin-bottom: 25px;
+    }
+
+    .reginfo form button {
+        width: 200px;
+        height: 40px;
+        border-radius: 8px;
+        background: #2E2E2E;
+        border: none;
+        line-height: 40px;
+        text-align: center;
+        font-size: 14px;
+        color: #fefefe;
+        padding: 0 20px;
+        text-transform: uppercase;
+    }
+
+        .reginfo form button:hover {
+            color: #fff;
+            background: #2E64FE;
+        }
+
+.input-field-ico {
+    position: relative;
+}
+
+    .input-field-ico i {
+        width: 40px;
+        height: 40px;
+        background-color: #2E9AFE;
+        color: #FFFFFF;
+        position: absolute;
+        top: 0;
+        left: 0;
+        line-height: 40px;
+        font-size: 16px;
+    }
+
+.reg-field-ico {
+    position: relative;
+}
+
+    .reg-field-ico i {
+        width: 40px;
+        height: 40px;
+        background-color: #2E9AFE;
+        color: #FFFFFF;
+        position: absolute;
+        top: 0;
+        left: 0;
+        line-height: 40px;
+        font-size: 16px;
+    }
+
+.btnReg {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 100px;
@@ -8302,64 +8380,6 @@ header {
         background: #2E64FE;
     }
 
-.loginfo h4 {
-    font-size: 30px;
-    text-transform: uppercase;
-    color: #222;
-    font-weight: 400;
-    margin: 0 0 50px;
-}
-
-.loginfo form input {
-    padding: 5px 50px 5px 15px;
-    height: 40px;
-    background-color: #F2F2F2;
-    border: solid 1px #132438;
-    width: 100%;
-    margin-bottom: 17px;
-    border-radius: 1px;
-    color: #555;
-    font-weight: 400;
-}
-
-.loginfo form button {
-    width: 200px;
-    height: 40px;
-    border-radius: 8px;
-    background: #2E2E2E;
-    border: none;
-    line-height: 40px;
-    text-align: center;
-    font-size: 14px;
-    color: #fefefe;
-    padding: 0 20px;
-    text-transform: uppercase;
-}
-
-    .loginfo form button:hover {
-        color: #fff;
-        background: #2E64FE;
-    }
-
-.loginfo .col-md-6 {
-    padding: 45px 115px;
-}
-
-.input-field-ico {
-    position: relative;
-}
-
-    .input-field-ico i {
-        color: #959595;
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 40px;
-        width: 40px;
-        line-height: 40px;
-        font-size: 16px;
-    }
-
 .loginfo {
     width: 100%;
     max-width: 400px;
@@ -8371,21 +8391,67 @@ header {
         text-align: center;
     }
 
-        .loginfo form span {
-            display: block;
-            clear: both;
-            font-size: 16px;
-            margin-top: 10px;
+        .loginfo form input {
+            width: 100%;
+            height: 40px;
+            padding: 5px 5px 5px 50px;
+            margin-bottom: 25px;
+            color: #555;
+            font-weight: 400;
+            border: none;
+            border-bottom: 1px solid #2E9AFE;
         }
 
-            .loginfo form span a {
-                color: #2E2EFE;
-                padding-left: 5px;
+        .loginfo form button {
+            width: 200px;
+            height: 40px;
+            border-radius: 8px;
+            background: #2E2E2E;
+            border: none;
+            line-height: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #fefefe;
+            padding: 0 20px;
+            text-transform: uppercase;
+        }
+
+            .loginfo form button:hover {
+                color: #fff;
+                background: #2E64FE;
             }
 
-        .loginfo form a:hover {
-            text-decoration: underline;
-        }
+.input-field-ico {
+    position: relative;
+}
+
+    .input-field-ico i {
+        width: 40px;
+        height: 40px;
+        background-color: #2E9AFE;
+        color: #FFFFFF;
+        position: absolute;
+        top: 0;
+        left: 0;
+        line-height: 40px;
+        font-size: 16px;
+    }
+
+.loginfo form span {
+    display: block;
+    clear: both;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+    .loginfo form span a {
+        color: #2E2EFE;
+        padding-left: 5px;
+    }
+
+.loginfo form a:hover {
+    text-decoration: underline;
+}
 
 /* Pagination */
 .page-nav ul {
