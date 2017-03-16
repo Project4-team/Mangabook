@@ -37,7 +37,7 @@
                         </td>
                         <td>
                             <form>
-                                <input type="text" value="@item.iSoLuong" class="Quanlity" id="product+@item.iMaSach" />
+                                <input type="number" value="@item.iSoLuong" class="Quanlity" id="product+@item.iMaSach" />
                             </form>
                         </td>
                         <td>
@@ -59,8 +59,9 @@
                 </tr>
             </tfoot> *@
     </table>
-
     <div class="space90"></div>
+<<<<<<< HEAD
+=======
 
     <div class="shop-cart-sub">
         <div class="scs-info">
@@ -93,17 +94,74 @@
         </div>
     </div>
 </div>
+>>>>>>> origin/master
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".Quanlity").change(function () {
-            var quanlity = $(this).val();
-            var proID = $(this).attr("id");
-            $.ajax({
-                url: '@Url.Action("UpdateQuantity")',
-                data: { "proID": proID, "quantity": quanlity }
-            });
-            window.location = '/GioHang';
-        });
-    });
-</script>
+
+    @{  if (Session["TaiKhoan"] != null)
+            {
+                KhachHang kh = (KhachHang)Session["TaiKhoan"];
+                using (Html.BeginForm("DatHang", "GioHang"))
+                {
+                <div class="shop-cart-sub">
+                <div class="scs-info">
+                    <h5>Thông tin người nhận</h5>
+                    <div class="receive-info">
+                       
+                            <label>Tên người nhận</label>
+                            <input type="text" name="hoten" value="@kh.HoTen" />
+                            <label>Địa chỉ</label>
+                            <input type="text" name="diachi" value="@kh.DiaChi" />
+                            <label>Số điện thoại</label>
+                            <input type="tel" name="dienthoai" value="@kh.DienThoai" />
+                            <label>Email</label>
+                            <input type="email" name="email" value="@kh.Email" />
+                            <label>Lời nhắn</label>
+                            <textarea name="nhan"></textarea>
+                       
+                    </div>
+                </div>
+               
+                    <div class="scs-checkout">
+                        <h5>Thanh toán</h5>
+                        <ul>
+                            <li>Tổng giá tiền sách<span>@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></li>
+                            <li>Chiết khấu<span>0%</span></li>
+                            <li>Phí vận chuyển<span>MIỄN PHÍ</span></li>
+                        </ul>
+                        <span class="total-text">Tổng tiền thanh toán</span><span class="total-price">@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span>
+                        <p><button type="submit">GuiDonHang</button></p>
+                    </div>
+                    </div>}
+                    }
+                    else
+                    {
+                    <div class="shop-cart-sub">
+                        <div class="scs-checkout">
+                            <h5>Thanh toán</h5>
+                            <ul>
+                                <li>Tổng giá tiền sách<span>@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></li>
+                                <li>Chiết khấu<span>0%</span></li>
+                                <li>Phí vận chuyển<span>MIỄN PHÍ</span></li>
+                            </ul>
+                            <span class="total-text">Tổng tiền thanh toán</span><span class="total-price">@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span>
+                            <p><a href="~/dang-nhap">Gửi đơn hàng</a></p>
+                        </div>
+                    </div>
+                    }
+                    }
+
+
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $(".Quanlity").change(function () {
+                            var quanlity = $(this).val();
+                            var proID = $(this).attr("id");
+                            $.ajax({
+                                url: '@Url.Action("UpdateQuantity")',
+                                data: { "proID": proID, "quantity": quanlity }
+                            });
+                            window.location = '/GioHang';
+                        });
+                    });
+                </script>

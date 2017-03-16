@@ -168,7 +168,7 @@ namespace SachOnline.Controllers
             }
             return View();
         }
-        public ActionResult DatHang() {
+        public ActionResult DatHang(FormCollection f) {
             if (Session["TaiKhoan"]==null)
             {              
                 return RedirectToAction("DangNhap", "User");
@@ -179,11 +179,21 @@ namespace SachOnline.Controllers
             }
             KhachHang kh = (KhachHang)Session["TaiKhoan"];
             DonHang ddh = new DonHang();
+            GiaoHang giaohang = new GiaoHang();
             List<SessionGioHang> gh = ktGioHang();
+
+            giaohang.TenNguoiNhan = f["hoten"];
+            giaohang.DiaChi = f["diachi"];
+            giaohang.SDT = f["dienthoai"];
+            giaohang.Email = f["email"];
+            giaohang.LoiNhan = f["nhan"];
+            db.GiaoHangs.Add(giaohang);
             ddh.MaKH = kh.MaKH;
+            ddh.MaGiaoHang = giaohang.MaGiaoHang;
             ddh.NgayDat = DateTime.Now;
             db.DonHangs.Add(ddh);
             db.SaveChanges();
+           
             foreach (var item in gh)
             {
                 ChiTietDonHang ctdh = new ChiTietDonHang();
@@ -196,7 +206,8 @@ namespace SachOnline.Controllers
 
 
             }
-                return RedirectToAction("Index","Home");
+                
+                return RedirectToAction("DatHangThanhCong","ThongBao");
         }
     }
 }
