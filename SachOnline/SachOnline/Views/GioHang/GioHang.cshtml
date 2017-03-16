@@ -50,17 +50,48 @@
                 }
             }
         </tbody>
-        <tfoot>
-            <tr>
-                <td></td>
-                <td><span class="total-text">Tổng tiền thanh toán:</span></td>
-                <td><span class="total-cart">@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></td>
-                <td><div class="scs-cart"><a href="~/dat-hang">Gửi đơn hàng</a></div></td>
-            </tr>
-        </tfoot>
+        @* <tfoot>
+                <tr>
+                    <td></td>
+                    <td><span class="total-text">Tổng tiền thanh toán:</span></td>
+                    <td><span class="total-cart">@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></td>
+                    <td><div class="scs-cart"><a href="~/dat-hang">Gửi đơn hàng</a></div></td>
+                </tr>
+            </tfoot> *@
     </table>
 
     <div class="space90"></div>
+
+    <div class="shop-cart-sub">
+        <div class="scs-info">
+            <h5>Thông tin người nhận</h5>
+            <div class="receive-info">
+                <form>
+                    <label>Tên người nhận</label>
+                    <input type="text" value="Nguyễn Văn A" />
+                    <label>Địa chỉ</label>
+                    <input type="text" value="285 Đội Cấn, quận Ba Đình, tp Hà Nội" />
+                    <label>Số điện thoại</label>
+                    <input type="tel" value="0123456789" />
+                    <label>Email</label>
+                    <input type="email" value="nguyenvana@gmail.com" />
+                    <label>Lời nhắn</label>
+                    <textarea>Mình mua quyển sách này tặng bạn. Chúc bạn một ngày vui vẻ.</textarea>
+                </form>
+            </div>
+        </div>
+
+        <div class="scs-checkout">
+            <h5>Thanh toán</h5>
+            <ul>
+                <li>Tổng giá tiền sách<span>@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></li>
+                <li>Chiết khấu<span>0%</span></li>
+                <li>Phí vận chuyển<span>MIỄN PHÍ</span></li>
+            </ul>
+            <span class="total-text">Tổng tiền thanh toán</span><span class="total-price">@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span>
+            <p><a href="#">Gửi đơn hàng</a></p>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">

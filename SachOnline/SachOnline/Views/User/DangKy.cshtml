@@ -69,7 +69,7 @@
 
             <div class="reg-field-ico">
                 <i class="fa fa-mobile"></i>
-                <input class="form-control text-box single-line" type="number" name="DienThoai" id="DienThoai" placeholder="Số điện thoại">
+                <input class="form-control text-box single-line" type="tel" name="DienThoai" id="DienThoai" placeholder="Số điện thoại">
                 <span id="phone_err"></span>
                 @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
             </div>
@@ -85,78 +85,79 @@
         }
     </div>
 </div>
+
 <script type="text/javascript">
-        $('#btnCreate').click(function () {
+    $('#btnCreate').click(function () {
 
-            // BƯỚC 1: Lấy dữ liệu từ form
-            var username = $.trim($('#TaiKhoan').val());
-            var password = $.trim($('#MatKhau').val());
-            var re_password = $.trim($('#Re_MatKhau').val());
-            var email = $.trim($('#Email').val());
-            var hoten = $.trim($('#HoTen').val());
-            var address = $.trim($('#DiaChi').val());
-            var phone = $.trim($('#DienThoai').val());
+        // BƯỚC 1: Lấy dữ liệu từ form
+        var username = $.trim($('#TaiKhoan').val());
+        var password = $.trim($('#MatKhau').val());
+        var re_password = $.trim($('#Re_MatKhau').val());
+        var email = $.trim($('#Email').val());
+        var hoten = $.trim($('#HoTen').val());
+        var address = $.trim($('#DiaChi').val());
+        var phone = $.trim($('#DienThoai').val());
 
-            // BƯỚC 2: Validate dữ liệu
-            // Biến cờ hiệu
-            var flag = true;
+        // BƯỚC 2: Validate dữ liệu
+        // Biến cờ hiệu
+        var flag = true;
 
-            // Username
-            if (username == '' || username.length < 4) {
-                $('#taikhoan_error').text('Tên đăng nhập phải lớn hơn 4 ký tự');
-                flag = false;
-            }
-            else {
-                $('#taikhoan_error').text('');
-            }
+        // Username
+        if (username == '' || username.length < 4) {
+            $('#taikhoan_error').text('Tên tài khoản phải lớn hơn 4 ký tự');
+            flag = false;
+        }
+        else {
+            $('#taikhoan_error').text('');
+        }
 
-            // Password
-            if (password.length <= 5) {
-                $('#matkhau_error').text('Bạn phải nhập mật khẩu có ít nhất 6 kí tự');
-                flag = false;
-            }
-            else {
-                $('#matkhau_error').text('');
-            }
+        // Password
+        if (password.length <= 5) {
+            $('#matkhau_error').text('Mật khẩu phải có ít nhất 6 kí tự');
+            flag = false;
+        }
+        else {
+            $('#matkhau_error').text('');
+        }
 
-            // Re password
-            if (password != re_password) {
-                $('#re_matkhau_error').text('Mật khẩu nhập lại không đúng');
-                flag = false;
-            }
-            else {
-                $('#re_password_error').text('');
-            }
+        // Re password
+        if (password != re_password) {
+            $('#re_matkhau_error').text('Mật khẩu nhập lại không đúng');
+            flag = false;
+        }
+        else {
+            $('#re_password_error').text('');
+        }
 
-            // Email
-            if (email=="") {
-                $('#email_error').text('Email không được để trống và phải đúng định dạng');
-                flag = false;
-            }
-            else {
-                $('#email_error').text('');
-            }
-                // Ho Ten
-            if (hoten=="") {
-                $('#hoten_error').text('Họ Tên không được để trống');
-                flag = false;
-            }
-            else {
-                $('#hoten_error').text('');
-            }
-            if (address == "") {
-                $('#diachi_error').text('Địa Chỉ không được để trống');
-                flag = false;
-            }
-            else {
-                $('#diachi_error').text('');
-            }
-            if (phone == "") {
-                $('#phone_err').text('Số Điện Thoại không được để trống');
-                flag = false;
-            } else {
-                $('#phone_err').text('');
-            }
-            return flag;
-        });
+        // Email
+        if (email == "") {
+            $('#email_error').text('Email không được để trống và phải đúng định dạng');
+            flag = false;
+        }
+        else {
+            $('#email_error').text('');
+        }
+        // Ho Ten
+        if (hoten == "") {
+            $('#hoten_error').text('Họ và tên không được để trống');
+            flag = false;
+        }
+        else {
+            $('#hoten_error').text('');
+        }
+        if (address == "") {
+            $('#diachi_error').text('Địa chỉ không được để trống');
+            flag = false;
+        }
+        else {
+            $('#diachi_error').text('');
+        }
+        if (phone == "") {
+            $('#phone_err').text('Số điện thoại không được để trống');
+            flag = false;
+        } else {
+            $('#phone_err').text('');
+        }
+        return flag;
+    });
 </script>
