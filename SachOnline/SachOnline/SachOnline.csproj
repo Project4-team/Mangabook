@@ -335,6 +335,8 @@
     <Content Include="Views\TimKiem\TimKiem.cshtml" />
     <Content Include="Views\ThongBao\DatHangThanhCong.cshtml" />
     <Content Include="Views\Layout\NoSideBarLayout.cshtml" />
+    <Content Include="Views\User\QuanlyDonHang.cshtml" />
+    <Content Include="Views\User\XemChiTietDonHang.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

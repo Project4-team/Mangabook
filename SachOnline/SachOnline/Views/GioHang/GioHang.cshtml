@@ -55,57 +55,74 @@
     <div class="space90"></div>
 
     <div class="shop-cart-sub">
-        <div class="scs-info">
-            <h5>Thông tin người nhận</h5>
-            <div class="receive-info">
-                @{  if (Session["TaiKhoan"] != null)
+            @{  if (Session["TaiKhoan"] != null)
+                {
+                    KhachHang kh = (KhachHang)Session["TaiKhoan"];
+                    using (Html.BeginForm("DatHang", "GioHang"))
                     {
-                        KhachHang kh = (KhachHang)Session["TaiKhoan"];
-                        using (Html.BeginForm("DatHang", "GioHang"))
-                        {
-                            <form>
-                                <label>Tên người nhận</label>
-                                <input type="text" name="hoten" value="@kh.HoTen" />
-                                <label>Địa chỉ</label>
-                                <input type="text" name="diachi" value="@kh.DiaChi" />
-                                <label>Số điện thoại</label>
-                                <input type="tel" name="dienthoai" value="@kh.DienThoai" />
-                                <label>Email</label>
-                                <input type="email" name="email" value="@kh.Email" />
-                                <label>Lời nhắn</label>
-                                <textarea name="nhan"></textarea>
-                            </form>
-                        }
-                    }
-                    else
-                    {
-                        <form>
-                            <label>Tên người nhận</label>
-                            <input type="text" />
-                            <label>Địa chỉ</label>
-                            <input type="text" />
-                            <label>Số điện thoại</label>
-                            <input type="tel" />
-                            <label>Email</label>
-                            <input type="email" />
-                            <label>Lời nhắn</label>
-                            <textarea></textarea>
-                        </form>
+
+
+                        <div class="scs-info">
+                            <h5>Thông tin người nhận</h5>
+                            <div class="receive-info">
+                                    <label>Tên người nhận</label>
+                                    <input type="text" name="hoten" value="@kh.HoTen" />
+                                    <label>Địa chỉ</label>
+                                    <input type="text" name="diachi" value="@kh.DiaChi" />
+                                    <label>Số điện thoại</label>
+                                    <input type="tel" name="dienthoai" value="@kh.DienThoai" />
+                                    <label>Email</label>
+                                    <input type="email" name="email" value="@kh.Email" />
+                                    <label>Lời nhắn</label>
+                                    <textarea name="nhan"></textarea>
+                                
+                            </div>
+                        </div>
+                        <div class="scs-checkout">
+                            <h5>Thanh toán</h5>
+                            <ul>
+                                <li>Tổng giá tiền sách<span>@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></li>
+                                <li>Chiết khấu<span>0%</span></li>
+                                <li>Phí vận chuyển<span>MIỄN PHÍ</span></li>
+                            </ul>
+                            <span class="total-text">Tổng tiền thanh toán</span><span class="total-price">@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span>
+                            <p><button type="submit">Gửi đơn hàng</button></p>
+                        </div>
                     }
                 }
-            </div>
-        </div>
+                else
+                {
+                    <div class="scs-info">
+                        <h5>Thông tin người nhận</h5>
+                        <div class="receive-info">
+                            <form>
+                                <label>Tên người nhận</label>
+                                <input type="text" />
+                                <label>Địa chỉ</label>
+                                <input type="text" />
+                                <label>Số điện thoại</label>
+                                <input type="tel" />
+                                <label>Email</label>
+                                <input type="email" />
+                                <label>Lời nhắn</label>
+                                <textarea></textarea>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="scs-checkout">
+                        <h5>Thanh toán</h5>
+                        <ul>
+                            <li>Tổng giá tiền sách<span>@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></li>
+                            <li>Chiết khấu<span>0%</span></li>
+                            <li>Phí vận chuyển<span>MIỄN PHÍ</span></li>
+                        </ul>
+                        <span class="total-text">Tổng tiền thanh toán</span><span class="total-price">@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span>
+                        <p><button type="submit">Gửi đơn hàng</button></p>
+                    </div>
+                }
+            }
 
-        <div class="scs-checkout">
-            <h5>Thanh toán</h5>
-            <ul>
-                <li>Tổng giá tiền sách<span>@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></li>
-                <li>Chiết khấu<span>0%</span></li>
-                <li>Phí vận chuyển<span>MIỄN PHÍ</span></li>
-            </ul>
-            <span class="total-text">Tổng tiền thanh toán</span><span class="total-price">@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span>
-            <p><button type="submit">Gửi đơn hàng</button></p>
-        </div>
+       
 
     </div>
 </div>

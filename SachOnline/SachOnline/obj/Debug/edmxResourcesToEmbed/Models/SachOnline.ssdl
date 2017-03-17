@@ -42,6 +42,7 @@
     <Property Name="MaKH" Type="int" />
     <Property Name="MaAdmin" Type="int" />
     <Property Name="MaGiaoHang" Type="int" />
+    <Property Name="TongGia" Type="int" />
   </EntityType>
   <EntityType Name="GiaoHang">
     <Key>

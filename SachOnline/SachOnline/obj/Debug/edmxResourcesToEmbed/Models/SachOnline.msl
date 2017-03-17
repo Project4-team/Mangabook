@@ -36,6 +36,7 @@
     <EntitySetMapping Name="DonHangs">
       <EntityTypeMapping TypeName="SachOnlineModel.DonHang">
         <MappingFragment StoreEntitySet="DonHang">
+          <ScalarProperty Name="TongGia" ColumnName="TongGia" />
           <ScalarProperty Name="MaDonHang" ColumnName="MaDonHang" />
           <ScalarProperty Name="ThanhToan" ColumnName="ThanhToan" />
           <ScalarProperty Name="GiaoHang" ColumnName="GiaoHang" />

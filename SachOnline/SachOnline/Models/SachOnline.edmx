@@ -47,6 +47,7 @@
           <Property Name="MaKH" Type="int" />
           <Property Name="MaAdmin" Type="int" />
           <Property Name="MaGiaoHang" Type="int" />
+          <Property Name="TongGia" Type="int" />
         </EntityType>
         <EntityType Name="GiaoHang">
           <Key>
@@ -304,6 +305,7 @@
           <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK_ChiTietDonHang_DonHang" FromRole="DonHang" ToRole="ChiTietDonHang" />
           <NavigationProperty Name="GiaoHang1" Relationship="Self.FK_DonHang_GiaoHang" FromRole="DonHang" ToRole="GiaoHang" />
           <NavigationProperty Name="KhachHang" Relationship="Self.FK_DonHang_KhachHang" FromRole="DonHang" ToRole="KhachHang" />
+          <Property Name="TongGia" Type="Int32" />
         </EntityType>
         <EntityType Name="GiaoHang">
           <Key>
@@ -554,6 +556,7 @@
           <EntitySetMapping Name="DonHangs">
             <EntityTypeMapping TypeName="SachOnlineModel.DonHang">
               <MappingFragment StoreEntitySet="DonHang">
+                <ScalarProperty Name="TongGia" ColumnName="TongGia" />
                 <ScalarProperty Name="MaDonHang" ColumnName="MaDonHang" />
                 <ScalarProperty Name="ThanhToan" ColumnName="ThanhToan" />
                 <ScalarProperty Name="GiaoHang" ColumnName="GiaoHang" />

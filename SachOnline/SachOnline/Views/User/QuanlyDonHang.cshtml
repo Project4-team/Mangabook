@@ -1,0 +1,16 @@
+﻿@using SachOnline.Models;
+@model List<DonHang>
+@{
+    ViewBag.Title = "QuanlyDonHang";
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+}
+
+<h2>QuanlyDonHang</h2>
+@foreach (var item in Model)
+{
+    @item.MaDonHang
+    @item.NgayDat
+    @item.TongGia
+    <h1>xem chi tiet</h1>
+    <a href="@Url.Action("XemChiTietDonHang","User",new { @maDonHang = item.MaDonHang})"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+}

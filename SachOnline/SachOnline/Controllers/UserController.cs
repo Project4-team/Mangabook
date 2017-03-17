@@ -132,5 +132,34 @@ namespace SachOnline.Controllers
 
             return Redirect(Url.Action("Index", "Home"));
         }
+        public ActionResult QuanlyDonHang() {
+            if (Session["TaiKhoan"]!=null)
+            {
+                KhachHang kh = (KhachHang)Session["TaiKhoan"];
+                if (db.DonHangs.Where(n => n.MaKH == kh.MaKH)==null)
+                {
+                    return Redirect(Url.Action("Index", "Home"));
+                }
+                List<DonHang> lisDonHang = db.DonHangs.Where(n => n.MaKH == kh.MaKH).ToList();
+                return View(lisDonHang);
+            }
+            return Redirect(Url.Action("Index", "Home"));
+        } 
+        public ActionResult XemChiTietDonHang(int maDonHang)
+        {
+            if (Session["TaiKhoan"] != null)
+            {
+                KhachHang kh = (KhachHang)Session["TaiKhoan"];
+                if (db.DonHangs.Where(n => n.MaDonHang == maDonHang).SingleOrDefault(m => m.MaKH == kh.MaKH)!=null)
+                {
+                    List<ChiTietDonHang> listChiTiet = db.ChiTietDonHangs.Where(n => n.MaDonHang == maDonHang).ToList();
+                    ViewBag.maDonHang = maDonHang;
+                    return View(listChiTiet);
+                }
+                return Redirect(Url.Action("Index", "Home"));
+            }
+            return Redirect(Url.Action("Index", "Home"));
+
+        }
     }
 }

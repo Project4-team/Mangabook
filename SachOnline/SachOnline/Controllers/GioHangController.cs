@@ -191,6 +191,7 @@ namespace SachOnline.Controllers
             ddh.MaKH = kh.MaKH;
             ddh.MaGiaoHang = giaohang.MaGiaoHang;
             ddh.NgayDat = DateTime.Now;
+            ddh.TongGia = TongTien();
             db.DonHangs.Add(ddh);
             db.SaveChanges();
            
@@ -207,7 +208,7 @@ namespace SachOnline.Controllers
 
             }
                 
-                return RedirectToAction("DatHangThanhCong","ThongBao");
+                return RedirectToAction("Index","Home");
         }
     }
 }

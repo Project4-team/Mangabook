@@ -51,6 +51,7 @@
     <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK_ChiTietDonHang_DonHang" FromRole="DonHang" ToRole="ChiTietDonHang" />
     <NavigationProperty Name="GiaoHang1" Relationship="Self.FK_DonHang_GiaoHang" FromRole="DonHang" ToRole="GiaoHang" />
     <NavigationProperty Name="KhachHang" Relationship="Self.FK_DonHang_KhachHang" FromRole="DonHang" ToRole="KhachHang" />
+    <Property Name="TongGia" Type="Int32" />
   </EntityType>
   <EntityType Name="GiaoHang">
     <Key>

@@ -1,0 +1,29 @@
+﻿@using SachOnline.Models
+@model List<ChiTietDonHang>
+@{
+    ViewBag.Title = "XemChiTietDonHang";
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+}
+
+<h2>XemChiTietDonHang</h2>
+
+@{ 
+    SachOnlineEntities db = new SachOnlineEntities();
+}
+@{
+    DonHang dh = db.DonHangs.Find(ViewBag.maDonHang);
+    @dh.TongGia;
+    GiaoHang gh = db.GiaoHangs.Find(dh.MaGiaoHang);
+    @gh.TenNguoiNhan;
+    @gh.DiaChi;
+ }
+@foreach (var item in Model)
+{
+    
+    Sach sach = db.Saches.Find(item.MaSach);
+    @sach.TenSach;
+    @item.SoLuong;
+    @item.DonGia;
+
+
+}
