@@ -44,7 +44,7 @@ namespace SachOnline.Controllers
                 return null;
             }
             ViewBag.cd = cd.TenChuDe;
-            List<Sach> SachChuDe = db.Saches.Where(n => n.MaChuDe == matheloai).ToList();
+            List<Sach> SachChuDe = db.Saches.Where(n => n.MaChuDe == matheloai).Where(m => m.TrangThai == 1).ToList();
             if (SachChuDe.Count == 0)
             {
                 ViewBag.ThongBao = "Không có sách nào thuộc thể loại này!";
@@ -63,7 +63,7 @@ namespace SachOnline.Controllers
                 return null;
             }
             ViewBag.nxb = nxb.TenNXB;
-            List<Sach> SachNXB = db.Saches.Where(n => n.MaNXB == maNXB).ToList();
+            List<Sach> SachNXB = db.Saches.Where(n => n.MaNXB == maNXB).Where(m => m.TrangThai == 1).ToList();
             if (SachNXB.Count == 0)
             {
                 ViewBag.ThongBao = "Không có sách nào thuộc nhà xuát bản này!";

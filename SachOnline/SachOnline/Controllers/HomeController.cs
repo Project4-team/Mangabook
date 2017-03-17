@@ -14,7 +14,7 @@ namespace SachOnline.Controllers
         SachOnlineEntities db = new SachOnlineEntities();
         public ActionResult Index(int? page)
         {
-            var ListSach = db.Saches.OrderByDescending(n => n.NgayCapNhat).ToList();
+            var ListSach = db.Saches.OrderByDescending(n => n.NgayCapNhat).Where(m => m.TrangThai == 1).ToList();
 
             int pageSize = 9;
             int pageNumber = (page ?? 1);
