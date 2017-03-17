@@ -29,8 +29,8 @@
     <script src="~/Content/User/js/vendor/flex-slider/jquery.flexslider.js"></script>
     <script src="~/Content/User/js/vendor/flex-slider/main.js"></script>
     <script src="~/Content/User/js/main.js"></script>
-    <script src="~/Content/User/js/GioHang.js"></script>  
-     <!-- CSS -->
+    <script src="~/Content/User/js/GioHang.js"></script>
+    <!-- CSS -->
     <link rel="stylesheet" href="~/Content/User/css/bootstrap.css">
     <link rel="stylesheet" href="~/Content/User/css/menu.css">
     <link rel="stylesheet" href="~/Content/User/css/style.css">
@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="~/Content/User/js/vendor/isotope/isotope.css">
     <link rel="stylesheet" href="~/Content/User/js/vendor/slick/slick.css">
     <link rel="stylesheet" href="~/Content/User/js/vendor/flex-slider/flexslider.css" />
-    
+
     <!-- Icon Fonts -->
     <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -88,13 +88,14 @@
                         </div>
 
                         <div class="col-md-6">
-                            
-                                @using (Html.BeginForm("TimKiem", "TimKiem",FormMethod.Post,new { @class= "search-menu" })) {
 
-                                        <input type="text" name="txtTimKiem" placeholder="Nhập tên sách cần tìm...">
-                                        <button type="submit"><i class="fa fa-search"></i></button>
-                       
-                                }
+                            @using (Html.BeginForm("TimKiem", "TimKiem", FormMethod.Post, new { @class = "search-menu" }))
+                            {
+
+                                <input type="text" name="txtTimKiem" placeholder="Nhập tên sách cần tìm...">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+
+                            }
                         </div>
 
                         <div class="col-md-9">
@@ -160,6 +161,12 @@
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="side-img">
+                            <img src="~/Content/User/images/side-img1.jpg" alt="">
+                            <img src="~/Content/User/images/side-img2.jpg" alt="">
+                            <img src="~/Content/User/images/side-img3.jpg" alt="">
                         </div>
                     </div>
 

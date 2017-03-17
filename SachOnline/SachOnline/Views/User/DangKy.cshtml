@@ -31,14 +31,12 @@
                 <i class="fa fa-user-o"></i>
                 <input class="form-control text-box single-line" type="text" name="TaiKhoan" id="TaiKhoan" placeholder="Tên tài khoản">
                 <span id="taikhoan_error"></span>
-                @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
             </div>
 
             <div class="reg-field-ico">
                 <i class="fa fa-lock"></i>
                 <input class="form-control text-box single-line" type="password" name="MatKhau" id="MatKhau" placeholder="Mật khẩu">
                 <span id="matkhau_error"></span>
-                @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
             </div>
             <div class="reg-field-ico">
                 <i class="fa fa-lock"></i>
@@ -50,34 +48,29 @@
                 <i class="fa fa-address-card"></i>
                 <input class="form-control text-box single-line" type="text" name="HoTen" id="HoTen" placeholder="Họ và tên">
                 <span id="hoten_error"></span>
-                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
             </div>
 
             <div class="reg-field-ico">
                 <i class="fa fa-envelope"></i>
                 <input class="form-control text-box single-line" type="email" name="Email" id="Email" placeholder="Email">
                 <span id="email_error"></span>
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
 
             <div class="reg-field-ico">
                 <i class="fa fa-map-marker"></i>
                 <input class="form-control text-box single-line" type="text" name="DiaChi" id="DiaChi" placeholder="Địa chỉ">
                 <span id="diachi_error"></span>
-                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
             </div>
 
             <div class="reg-field-ico">
                 <i class="fa fa-mobile"></i>
                 <input class="form-control text-box single-line" type="tel" name="DienThoai" id="DienThoai" placeholder="Số điện thoại">
                 <span id="phone_err"></span>
-                @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
             </div>
 
             <div class="reg-field-ico">
                 <i class="fa fa-calendar"></i>
                 <input class="form-control text-box single-line" type="text" name="NgaySinh" id="NgaySinh" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Ngày sinh">
-                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
             </div>
             <div class="btnReg">
                 <button id="btnCreate" type="submit" value="Tạo tài khoản">Tạo tài khoản</button>

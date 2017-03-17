@@ -15,8 +15,8 @@ namespace SachOnline.Controllers
         public ActionResult Index(int? page)
         {
             var ListSach = db.Saches.OrderByDescending(n => n.NgayCapNhat).ToList();
-           
-            int pageSize = 1;
+
+            int pageSize = 9;
             int pageNumber = (page ?? 1);
             return View(ListSach.ToPagedList(pageNumber, pageSize));
         }

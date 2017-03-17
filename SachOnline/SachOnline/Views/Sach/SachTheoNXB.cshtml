@@ -34,7 +34,7 @@
                     <div class="col-md-4">
                         <div class="product-info">
                             <div class="product-thumb">
-                                <img src="@Url.Content("~/Content/img-sp/"+item.AnhBia)" class="img-responsive" alt="" />
+                                <img src="@Url.Content("~/Content/img-sp/"+item.AnhBia)" class="img-responsive" title="@item.TenSach" alt="" />
                                 <div class="product-overlay">
                                     <span>
                                         @{
@@ -69,10 +69,10 @@
                             </div>
                         </div>
                     </div>
-                    @*if (i % 3 ==0)
-                        {
-                            <div style="clear:both"></div>
-                        }*@
+                                        if (i % 3 == 0)
+                                        {
+                                            <div style="clear:both"></div>
+                                            }
                                         }
             }
         </div>
@@ -80,12 +80,8 @@
         <!-- PAGE NAV -->
         <div class="page-nav">
             <ul>
-                @foreach (var item in Model)
-                {
-                    @Html.PagedListPager(Model, page => Url.Action("SachTheoNXB", "Sach", new { @maNXB = item.MaNXB, page = page }))
-                }
+                @Html.PagedListPager(Model, page => Url.Action("SachTheoNXB", "Sach", new { page }))
             </ul>
         </div>
-
     </div>
 </div>

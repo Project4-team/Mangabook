@@ -49,7 +49,7 @@ namespace SachOnline.Controllers
             {
                 ViewBag.ThongBao = "Không có sách nào thuộc thể loại này!";
             }
-            int pageSize = 1;
+            int pageSize = 12;
             int pageNumber = (page ?? 1);
             return View(SachChuDe.ToPagedList(pageNumber, pageSize));
             //return View(SachChuDe);
@@ -68,7 +68,7 @@ namespace SachOnline.Controllers
             {
                 ViewBag.ThongBao = "Không có sách nào thuộc nhà xuát bản này!";
             }
-            int pageSize = 1;
+            int pageSize = 12;
             int pageNumber = (page ?? 1);
             return View(SachNXB.ToPagedList(pageNumber, pageSize));
         }

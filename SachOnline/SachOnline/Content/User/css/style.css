@@ -5104,6 +5104,9 @@ span.selected {
     color: #222;
     font-weight: 400;
     padding: 0 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
     .pi-inner h4 a {
@@ -5158,6 +5161,7 @@ span.selected {
 
     .product-thumb img {
         width: 100%;
+        height: 400px;
     }
 
 .product-overlay {
@@ -5683,16 +5687,21 @@ span.selected {
     margin-top: 30px;
 }
 
-.scs-checkout a {
-    display: inline-block;
-    background: #132438;
-    color: #FFFFFF;
-    font-size: 16px;
+.scs-checkout button {
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    background: #2E2E2E;
+    border: none;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #fefefe;
+    padding: 0 20px;
     text-transform: uppercase;
-    padding: 10px 15px;
 }
 
-    .scs-checkout a:hover {
+    .scs-checkout button:hover {
         background: #2E64FE;
         color: #FFFFFF;
     }
@@ -6921,20 +6930,6 @@ span.selected {
     margin-top: -63px;
 }
 
-    #main-slider1 .container.caption2 {
-        text-align: right;
-        top: 65%;
-    }
-
-    #main-slider1 .container .caption3 {
-        display: table;
-        text-align: right;
-    }
-
-        #main-slider1 .container .caption3 span {
-            text-transform: uppercase;
-        }
-
 #index_3 #main-slider1 .container {
     position: absolute;
     top: 38%;
@@ -6949,19 +6944,18 @@ span.selected {
     margin-top: 10px;
     text-align: center;
     position: absolute;
-    bottom: 25px;
-    left: 0;
     right: 0;
+    bottom: 0;
+    left: 0;
     width: 100%;
 }
 
     #main-slider1 .owl-controls .owl-page span {
         filter: Alpha(Opacity=40);
-        opacity: 0.4;
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
         border-radius: 20px;
-        background: #fff;
+        background: #000000;
     }
 
     #main-slider1 .owl-controls .owl-page.active span,
@@ -8215,27 +8209,6 @@ header {
     }
 
 /* 5. Login / Register */
-/* .reginfo {
-    margin: 50px auto;
-}
-
-    .reginfo form {
-        width: 100%;
-        max-width: 550px;
-        margin: 0 auto;
-    }
-
-        .reginfo form input, .form-control {
-            padding: 5px 15px;
-            height: 40px;
-            background-color: #ececec;
-            border: solid 1px #132438;
-            width: 100%;
-            margin-bottom: 8px;
-            border-radius: 1px;
-            color: #555;
-            font-weight: 400;
-        }*/
 
 .reginfo {
     width: 100%;
@@ -8252,7 +8225,7 @@ header {
             width: 100%;
             height: 40px;
             padding: 5px 5px 5px 50px;
-            margin-bottom: 25px;
+            margin: 20px auto;
             color: #555;
             font-weight: 400;
             border: none;
@@ -8282,6 +8255,11 @@ header {
             color: #fff;
             background: #2E64FE;
         }
+
+    .reginfo span {
+        color: #FF0000;
+        font-size: 16px;
+    }
 
 .input-field-ico {
     position: relative;
@@ -8496,4 +8474,12 @@ header {
 .user-text {
     color: #2ECCFA !important;
     margin-right: 80px !important;
+}
+
+
+.side-img img {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 8px 8px #888888;
+    margin: 20px auto;
 }
