@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using SachOnline.Models;
 using System.Web.Script.Serialization;
+using System.Data.Entity;
 
 namespace SachOnline.Controllers
 {
@@ -204,8 +205,20 @@ namespace SachOnline.Controllers
                 ctdh.DonGia = item.iDonGia;
                 db.ChiTietDonHangs.Add(ctdh);
                 db.SaveChanges();
-
-
+            }
+            foreach (var item in gh)
+            {
+                Sach sach = db.Saches.Find(item.iMaSach);
+                if (sach.SoLuong - item.iSoLuong<=0)
+                {
+                    sach.SoLuong = 0;
+                }
+                else
+                {
+                    sach.SoLuong = sach.SoLuong - item.iSoLuong;
+                }
+                db.Entry(sach).State = EntityState.Modified;
+                db.SaveChanges();
             }
                 
                 return RedirectToAction("Index","Home");
