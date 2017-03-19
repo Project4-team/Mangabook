@@ -1,0 +1,8 @@
+﻿@using Model.EF;
+@model List<ChuDe>
+  @{
+      foreach (var item in Model)
+      {
+        <li><a href='~/the-loai/@item.MaChuDe-1'>@item.TenChuDe</a></li>
+      }
+}  

@@ -1,0 +1,113 @@
+﻿@model KhachHang
+@using Model.EF;
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+}
+<!-- FILTER -->
+<div class="col-md-9">
+
+    <!-- PAGE HEADER -->
+    <div class="page_header1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Thông tin tài khoản</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!-- REGISTER INFO -->
+    <div class="reginfo">
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="reg-field-ico">
+                <i class="fa fa-address-card"></i>
+                @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="hoten_error"></span>
+                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="reg-field-ico">
+                <i class="fa fa-envelope"></i>
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="email_error"></span>
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="reg-field-ico">
+                <i class="fa fa-map-marker"></i>
+                @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="diachi_error"></span>
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="reg-field-ico">
+                <i class="fa fa-mobile"></i>
+                @Html.EditorFor(model => model.DienThoai, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="phone_err"></span>
+                @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="reg-field-ico">
+                <i class="fa fa-calendar"></i>
+                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+            </div>
+            <div class="btnReg">
+                <button id="btnCreate" type="submit" value="Tạo tài khoản">Lưu thông tin</button>
+            </div>
+        }
+    </div>
+</div>
+<script type="text/javascript">
+        $('#btnCreate').click(function () {
+
+            // BƯỚC 1: Lấy dữ liệu từ form
+            var email = $.trim($('#Email').val());
+            var hoten = $.trim($('#HoTen').val());
+            var address = $.trim($('#DiaChi').val());
+            var phone = $.trim($('#DienThoai').val());
+
+            // BƯỚC 2: Validate dữ liệu
+            // Biến cờ hiệu
+            var flag = true;
+
+            // Email
+            if (email=="") {
+                $('#email_error').text('Email không được để trống và phải đúng định dạng');
+                flag = false;
+            }
+            else {
+                $('#email_error').text('');
+            }
+                // Ho Ten
+            if (hoten=="") {
+                $('#hoten_error').text('Họ Tên không được để trống');
+                flag = false;
+            }
+            else {
+                $('#hoten_error').text('');
+            }
+            if (address == "") {
+                $('#diachi_error').text('Địa Chỉ không được để trống');
+                flag = false;
+            }
+            else {
+                $('#diachi_error').text('');
+            }
+            if (phone == "") {
+                $('#phone_err').text('Số Điện Thoại không được để trống');
+                flag = false;
+            } else {
+                $('#phone_err').text('');
+            }
+            return flag;
+        });
+</script>

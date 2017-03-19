@@ -1,0 +1,9 @@
+C:\Users\nghia\Desktop\SachOnline\SachOnline\Model\bin\Debug\Models.dll.config
+C:\Users\nghia\Desktop\SachOnline\SachOnline\Model\bin\Debug\Models.dll
+C:\Users\nghia\Desktop\SachOnline\SachOnline\Model\bin\Debug\Models.pdb
+C:\Users\nghia\Desktop\SachOnline\SachOnline\Model\bin\Debug\EntityFramework.dll
+C:\Users\nghia\Desktop\SachOnline\SachOnline\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nghia\Desktop\SachOnline\SachOnline\Model\bin\Debug\EntityFramework.xml
+C:\Users\nghia\Desktop\SachOnline\SachOnline\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nghia\Desktop\SachOnline\SachOnline\Model\obj\Debug\Models.dll
+C:\Users\nghia\Desktop\SachOnline\SachOnline\Model\obj\Debug\Models.pdb

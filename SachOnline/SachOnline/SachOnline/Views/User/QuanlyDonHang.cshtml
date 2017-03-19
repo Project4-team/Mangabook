@@ -1,0 +1,44 @@
+﻿@using Model.EF;
+@model List<DonHang>
+@{
+    ViewBag.Title = "QuanlyDonHang";
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+}
+
+<!-- FILTER -->
+<div class="col-md-9">
+
+    <!-- PAGE HEADER -->
+    <div class="page_header1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Xem đơn hàng</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <table class="order-view">
+        <tr>
+            <th>Mã đơn hàng</th>
+            <th>Ngày đặt hàng</th>
+            <th>Số tiền thanh toán</th>
+            <th>Tình trạng</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.MaDonHang</td>
+                <td>@item.NgayDat</td>
+                <td>@string.Format("{0:0,0 VNĐ}", item.TongGia).Replace(",", ".")</td>
+                <td>Đang chờ xác nhận</td>
+                <td><a href="@Url.Action("XemChiTietDonHang","User",new { @maDonHang = item.MaDonHang})">Xem chi tiết</a></td>
+            </tr>
+        }
+    </table>
+
+</div>
