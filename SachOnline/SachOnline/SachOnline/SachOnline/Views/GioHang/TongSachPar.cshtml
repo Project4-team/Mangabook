@@ -1,0 +1,13 @@
+﻿<a href="/gio-hang">
+    <i class="fa fa-shopping-cart"></i>
+    @{
+        if (Session["GioHang"] != null)
+        {
+            <span>@ViewBag.TongSach</span>
+        }
+        else
+        {
+            <span>0</span>
+        }
+    }
+</a>

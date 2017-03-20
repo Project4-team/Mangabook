@@ -1,0 +1,128 @@
+﻿@using Model.EF;
+@using SachOnline.Models
+@model List<SessionGioHang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Layout/NoSideBarLayout.cshtml";
+}
+<!-- PAGE HEADER -->
+<div class="page_header1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Giỏ hàng</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- CART TABLE CONTENT -->
+<div class="col-md-12">
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Thông tin sách</th>
+                <th>Số lượng</th>
+                <th>Giá tiền</th>
+                <th>Xoá</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="@Url.Content("~/Content/img-sp/"+item.iHinhAnh)" alt="" />
+                            <h4><a href="@Url.Action("ChiTietSach","Sach",new { @masach=item.iMaSach})">@item.iTenSach</a></h4>
+                            <div class="clearfix space20"></div>
+                        </td>
+                        <td>
+                            <form>
+                                <input type="number" value="@item.iSoLuong" class="Quanlity" id="product+@item.iMaSach" />
+                            </form>
+                        </td>
+                        <td>
+                            <div class="ps-price">@string.Format("{0:0,0 VNĐ}", item.iTongGia).Replace(",", ".")</div>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("XoaHang","GioHang",new { @masach=item.iMaSach})"><i class="fa fa-times close1"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <div class="space90"></div>
+
+    <div class="shop-cart-sub">
+        @{  if (Session["TaiKhoan"] != null)
+            {
+                KhachHang kh = (KhachHang)Session["TaiKhoan"];
+                using (Html.BeginForm("DatHang", "GioHang"))
+                {
+                    <div class="scs-info">
+                        <h5>Thông tin người nhận</h5>
+                        <div class="receive-info">
+                            <label>Tên người nhận</label>
+                            <input type="text" name="hoten" value="@kh.HoTen" />
+                            <label>Địa chỉ</label>
+                            <input type="text" name="diachi" value="@kh.DiaChi" />
+                            <label>Số điện thoại</label>
+                            <input type="tel" name="dienthoai" value="@kh.DienThoai" />
+                            <label>Email</label>
+                            <input type="email" name="email" value="@kh.Email" />
+                            <label>Lời nhắn</label>
+                            <textarea name="nhan"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="scs-checkout">
+                        <h5>Thanh toán</h5>
+                        <ul>
+                            <li>Tổng giá tiền sách<span>@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></li>
+                            <li>Chiết khấu<span>0%</span></li>
+                            <li>Phí vận chuyển<span>MIỄN PHÍ</span></li>
+                        </ul>
+                        <span class="total-text">Tổng tiền thanh toán</span><span class="total-price">@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span>
+                        <p><button type="submit">Gửi đơn hàng</button></p>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="scs-info">
+                    <h5>Bạn phải đăng nhập để đặt hàng</h5>
+                    <p><a href="/dang-nhap">Đăng nhập</a></p>
+                </div>
+                <div class="scs-checkout">
+                    <h5>Thanh toán</h5>
+                    <ul>
+                        <li>Tổng giá tiền sách<span>@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span></li>
+                        <li>Chiết khấu<span>0%</span></li>
+                        <li>Phí vận chuyển<span>MIỄN PHÍ</span></li>
+                    </ul>
+                    <span class="total-text">Tổng tiền thanh toán</span><span class="total-price">@string.Format("{0:0,0 VNĐ}", ViewBag.TongGiaTien).Replace(",", ".")</span>
+                    <p><button type="submit" disabled>Gửi đơn hàng</button></p>
+                </div>
+            }
+        }
+
+
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".Quanlity").change(function () {
+            var quanlity = $(this).val();
+            var proID = $(this).attr("id");
+            $.ajax({
+                url: '@Url.Action("UpdateQuantity")',
+                data: { "proID": proID, "quantity": quanlity }
+            });
+            window.location = '/GioHang';
+        });
+    });
+</script>

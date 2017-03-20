@@ -1,0 +1,85 @@
+﻿@using Model.EF;
+@using PagedList.Mvc;
+@model  PagedList.IPagedList<Sach>
+@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+}
+
+<!-- FILTER -->
+<div class="col-md-9">
+    <!-- PAGE HEADER -->
+    <div class="page_header1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Tìm kiếm: @ViewBag.TuKhoa</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!-- SHOP CONTENT -->
+    <div class="product-main">
+        <div class="row">
+            @{int i = 0; }
+            @{
+                foreach (var item in Model)
+                {
+                    i++;
+                    <div class="col-md-4">
+                        <div class="product-info">
+                            <div class="product-thumb">
+                                <img src="@Url.Content("~/Content/img-sp/"+item.AnhBia)" class="img-responsive" alt="" />
+                                <div class="product-overlay">
+                                    <span>
+                                        @{
+                                            if (item.SoLuong <= 0)
+                                            {
+                                                <a href="@Url.Action("ThemGioHang","GioHang",new {@MaSach=item.MaSach, @strurl = Request.Url.ToString() })" class="not-active"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                <a href="~/Sach/@item.MaSach"><i class="fa fa-paper-plane-o"></i>Xem Chi Tiết</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("ThemGioHang","GioHang",new {@MaSach=item.MaSach, @strurl = Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                <a href="~/Sach/@item.MaSach"><i class="fa fa-paper-plane-o"></i>Xem Chi Tiết</a>
+                                            }
+                                        }
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="pi-inner">
+                                <h4><a href="~/Sach/@item.MaSach">@item.TenSach</a></h4>
+                                <div class="product-price">
+                                    @{
+                                        if (item.SoLuong <= 0)
+                                        {
+                                            <div class="price-text1"><span>Tạm hết hàng</span>@string.Format("{0:0,0 VNĐ}", item.GiaBan).Replace(",", ".")</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="price-text"><span>Còn hàng</span>@string.Format("{0:0,0 VNĐ}", item.GiaBan).Replace(",", ".")</div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*if (i % 3 ==0)
+                        {
+                            <div style="clear:both"></div>
+                        }*@
+                                        }
+            }
+        </div>
+
+        <!-- PAGE NAV -->
+        <div class="page-nav">
+            <ul>
+                @Html.PagedListPager(Model, page => Url.Action("TimKiem", "TimKiem", new { @sTukhoa = ViewBag.TuKhoa, page = page }))
+            </ul>
+        </div>
+    </div>
+</div>

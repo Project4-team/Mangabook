@@ -1,0 +1,156 @@
+﻿@model KhachHang
+@using Model.EF;
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+}
+<!-- FILTER -->
+<div class="col-md-9">
+
+    <!-- PAGE HEADER -->
+    <div class="page_header1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Tạo tài khoản</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!-- REGISTER INFO -->
+    <div class="reginfo">
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="reg-field-ico">
+                <i class="fa fa-user-o"></i>
+                <input class="form-control text-box single-line" type="text" name="TaiKhoan" id="TaiKhoan" placeholder="Tên tài khoản">
+                <span id="taikhoan_error"></span>
+            </div>
+
+            <div class="reg-field-ico">
+                <i class="fa fa-lock"></i>
+                <input class="form-control text-box single-line" type="password" name="MatKhau" id="MatKhau" placeholder="Mật khẩu">
+                <span id="matkhau_error"></span>
+            </div>
+            <div class="reg-field-ico">
+                <i class="fa fa-lock"></i>
+                <input class="form-control text-box single-line" type="password" name="Re_MatKhau" id="Re_MatKhau" placeholder="Nhập lại Mật khẩu">
+                <span id="re_matkhau_error"></span>
+            </div>
+
+            <div class="reg-field-ico">
+                <i class="fa fa-address-card"></i>
+                <input class="form-control text-box single-line" type="text" name="HoTen" id="HoTen" placeholder="Họ và tên">
+                <span id="hoten_error"></span>
+            </div>
+
+            <div class="reg-field-ico">
+                <i class="fa fa-envelope"></i>
+                <input class="form-control text-box single-line" type="email" name="Email" id="Email" placeholder="Email">
+                <span id="email_error"></span>
+            </div>
+
+            <div class="reg-field-ico">
+                <i class="fa fa-map-marker"></i>
+                <input class="form-control text-box single-line" type="text" name="DiaChi" id="DiaChi" placeholder="Địa chỉ">
+                <span id="diachi_error"></span>
+            </div>
+
+            <div class="reg-field-ico">
+                <i class="fa fa-mobile"></i>
+                <input class="form-control text-box single-line" type="tel" name="DienThoai" id="DienThoai" placeholder="Số điện thoại">
+                <span id="phone_err"></span>
+            </div>
+
+            <div class="reg-field-ico">
+                <i class="fa fa-calendar"></i>
+                <input class="form-control text-box single-line" type="text" name="NgaySinh" id="NgaySinh" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Ngày sinh">
+            </div>
+            <div class="btnReg">
+                <button id="btnCreate" type="submit" value="Tạo tài khoản">Tạo tài khoản</button>
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#btnCreate').click(function () {
+
+        // BƯỚC 1: Lấy dữ liệu từ form
+        var username = $.trim($('#TaiKhoan').val());
+        var password = $.trim($('#MatKhau').val());
+        var re_password = $.trim($('#Re_MatKhau').val());
+        var email = $.trim($('#Email').val());
+        var hoten = $.trim($('#HoTen').val());
+        var address = $.trim($('#DiaChi').val());
+        var phone = $.trim($('#DienThoai').val());
+
+        // BƯỚC 2: Validate dữ liệu
+        // Biến cờ hiệu
+        var flag = true;
+
+        // Username
+        if (username == '' || username.length < 4) {
+            $('#taikhoan_error').text('Tên tài khoản phải lớn hơn 4 ký tự');
+            flag = false;
+        }
+        else {
+            $('#taikhoan_error').text('');
+        }
+
+        // Password
+        if (password.length <= 5) {
+            $('#matkhau_error').text('Mật khẩu phải có ít nhất 6 kí tự');
+            flag = false;
+        }
+        else {
+            $('#matkhau_error').text('');
+        }
+
+        // Re password
+        if (password != re_password) {
+            $('#re_matkhau_error').text('Mật khẩu nhập lại không đúng');
+            flag = false;
+        }
+        else {
+            $('#re_password_error').text('');
+        }
+
+        // Email
+        if (email == "") {
+            $('#email_error').text('Email không được để trống và phải đúng định dạng');
+            flag = false;
+        }
+        else {
+            $('#email_error').text('');
+        }
+        // Ho Ten
+        if (hoten == "") {
+            $('#hoten_error').text('Họ và tên không được để trống');
+            flag = false;
+        }
+        else {
+            $('#hoten_error').text('');
+        }
+        if (address == "") {
+            $('#diachi_error').text('Địa chỉ không được để trống');
+            flag = false;
+        }
+        else {
+            $('#diachi_error').text('');
+        }
+        if (phone == "") {
+            $('#phone_err').text('Số điện thoại không được để trống');
+            flag = false;
+        } else {
+            $('#phone_err').text('');
+        }
+        return flag;
+    });
+</script>

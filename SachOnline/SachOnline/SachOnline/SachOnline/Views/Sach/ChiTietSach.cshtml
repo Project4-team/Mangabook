@@ -1,0 +1,125 @@
+﻿@using Model.EF;
+@using Model.ClientDAO;
+@model Sach
+@{
+    ViewBag.Title = "ChiTietSachView";
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+}
+@{  
+    SachOnlineDbContext db = new SachOnlineDbContext();
+    SachDAO SachDAO = new SachDAO();
+    NhaXuatBan nxb = db.NhaXuatBans.Find(Model.MaNXB);
+    ChuDe cd = db.ChuDes.Find(Model.MaChuDe);
+    List<Sach> sach2 = db.Saches.Where(m => m.MaChuDe == Model.MaChuDe).Take(3).OrderByDescending(t => t.NgayCapNhat).ToList();
+}
+<!-- PRODUCT SINGLE INFO -->
+<div class="col-md-9 product-single">
+    <div class="ps-inner-main">
+        <h2>@Model.TenSach</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="@Url.Content("~/Content/img-sp/" + Model.AnhBia)" class="ps-img img-responsive" alt="" />
+            </div>
+            <div class="col-md-6">
+                <div class="ps-price">@string.Format("{0:0,0 VNĐ}", Model.GiaBan).Replace(",", ".")</div>
+                @if (Model.SoLuong <= 0)
+                {
+                    <div class="soldout-text">Tạm hết hàng</div>
+                }
+                else
+                {
+                    <div class="stock-text">Còn hàng</div>
+                }
+                <div class="clearfix space40"></div>
+
+                <ul class="quantity-info">
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaSach = Model.MaSach, @strurl = Request.Url.ToString() }))
+                    {
+                        <li>
+                            <div class="quantity">
+                                Số lượng<br>
+                                <div id="quantity">
+                                    <input type="number" name="Soluong" id="qty" maxlength="10" value="1" class="input-text qty" />
+                                </div>
+                            </div>
+                        </li>
+                        if (Model.SoLuong <= 0)
+                        {
+                            <li><span class="addcart-text1"><input id="btnAdd" type="submit" value="Thêm vào giỏ" class="btn btn-default" disabled="disabled" /></span></li>
+                        }
+                        else
+                        {
+                            <li><span class="addcart-text"><input id="btnAdd" type="submit" value="Thêm vào giỏ" class="btn btn-default" /></span></li>
+                        }
+                    }
+                </ul>
+                <p>Thông tin sách</p>
+                <ul class="product-features">
+                    <li>Tác giả: @Model.TenTacGia</li>
+                    <li>Nhà xuất bản: @nxb.TenNXB</li>
+                    <li>Thể loại: @cd.TenChuDe</li>
+                </ul>
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix space50"></div>
+
+    <div class="ps-inner">
+        <h3>Giới thiệu sách</h3>
+        <p>@Model.MoTa</p>
+    </div>
+
+    <div class="space80"></div>
+
+    <div class="product-main">
+        <h3>Có thể bạn thích</h3>
+        <div class="row">
+            @{
+                foreach (var item in sach2)
+                {
+                    <div class="col-md-4">
+                        <div class="product-info">
+                            <div class="product-thumb">
+                                <img src="@Url.Content("~/Content/img-sp/"+item.AnhBia)" class="img-responsive" title="@item.TenSach" alt="" />
+                                <div class="product-overlay">
+                                    <span>
+                                        @{
+                                            if (item.SoLuong <= 0)
+                                            {
+                                                <a href="@Url.Action("ThemGioHang","GioHang",new {@MaSach=item.MaSach, @strurl = Request.Url.ToString() })" class="not-active"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                <a href="~/Sach/@item.MaSach"><i class="fa fa-paper-plane-o"></i>Xem Chi Tiết</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("ThemGioHang","GioHang",new {@MaSach=item.MaSach, @strurl = Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                <a href="~/Sach/@item.MaSach"><i class="fa fa-paper-plane-o"></i>Xem Chi Tiết</a>
+                                            }
+                                        }
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="pi-inner">
+                                <h4><a href="~/Sach/@item.MaSach">@item.TenSach</a></h4>
+                                <div class="product-price">
+                                    @{
+                                        if (item.SoLuong <= 0)
+                                        {
+                                            <div class="price-text1"><span>Tạm hết hàng</span>@string.Format("{0:0,0 VNĐ}", item.GiaBan).Replace(",", ".")</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="price-text"><span>Còn hàng</span>@string.Format("{0:0,0 VNĐ}", item.GiaBan).Replace(",", ".")</div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        }
+            }
+        </div>
+    </div>
+</div>

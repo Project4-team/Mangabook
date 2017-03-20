@@ -1,0 +1,91 @@
+﻿@using Model.EF;
+@using SachOnline.Models
+@model List<ChiTietDonHang>
+@{
+    ViewBag.Title = "XemChiTietDonHang";
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+}
+
+<!-- FILTER -->
+<div class="col-md-9">
+
+    <!-- PAGE HEADER -->
+    <div class="page_header1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Chi tiết đơn hàng</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    @{
+        SachOnlineDbContext db = new SachOnlineDbContext();
+    }
+
+    <h4 class="order-info-title">Thông tin người nhận</h4>
+    <table class="order-info">
+        @{
+            DonHang dh = db.DonHangs.Find(ViewBag.maDonHang);
+            GiaoHang gh = db.GiaoHangs.Find(dh.MaGiaoHang);
+            <tr>
+                <th>Tên người nhận</th>
+                <td>@gh.TenNguoiNhan</td>
+            </tr>
+            <tr>
+                <th>Địa chỉ</th>
+                <td>@gh.DiaChi</td>
+            </tr>
+            <tr>
+                <th>Số điện thoại</th>
+                <td>@gh.SDT</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>@gh.Email</td>
+            </tr>
+            <tr>
+                <th>Lời nhắn</th>
+                <td>@gh.LoiNhan</td>
+            </tr>
+        }
+    </table>
+
+    <div class="order-checkout">
+        <ul>
+            <li>Tổng giá tiền sách<span>@string.Format("{0:0,0 VNĐ}", dh.TongGia).Replace(",", ".")</span></li>
+            <li>Chiết khấu<span>0%</span></li>
+            <li>Phí vận chuyển<span>MIỄN PHÍ</span></li>
+        </ul>
+        <span class="total-text">Tổng tiền thanh toán</span><span class="total-price">@string.Format("{0:0,0 VNĐ}", dh.TongGia).Replace(",", ".")</span>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <h4 class="order-info-title">Sách đã đặt</h4>
+    <table class="order-info-book">
+        <tr>
+            <th colspan="2">Tên sách</th>
+            <th>Số lượng</th>
+            <th>Giá tiền</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @{
+                    Sach sach = db.Saches.Find(item.MaSach);
+                    <td colspan="2">
+                        <img src="@Url.Content("~/Content/img-sp/"+sach.AnhBia)" class="img-responsive" alt="" />
+                        <h4><a href="@Url.Action("ChiTietSach","Sach",new { @masach=sach.MaSach})">@sach.TenSach</a></h4>
+                    </td>
+                    <td>@item.SoLuong</td>
+                    <td><span>@string.Format("{0:0,0 VNĐ}", item.DonGia).Replace(",", ".")</span></td>
+                }
+            </tr>
+                    }
+    </table>
+
+</div>

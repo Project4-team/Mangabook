@@ -1,0 +1,296 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+#navmenu,
+#navmenu ul,
+#navmenu ul li,
+#navmenu ul li a,
+#navmenu #menu-button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+	line-height: 1;
+	display: block;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#navmenu:after,
+#navmenu > ul:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+#navmenu #menu-button {
+	display: none;
+}
+
+#navmenu {
+	width: auto;
+}
+
+#navmenu.align-center > ul {
+	font-size: 0;
+	text-align: center;
+}
+
+#navmenu.align-center ul ul {
+	text-align: left;
+}
+
+#navmenu.align-center > ul > li {
+	display: inline-block;
+	float: none;
+}
+
+#navmenu.align-right > ul > li {
+	float: right;
+}
+
+#navmenu.align-right ul ul {
+	text-align: right;
+}
+
+#navmenu > ul > li {
+	float: left;
+}
+
+#navmenu > ul > li > a {
+	padding: 43px 15px;
+	font-size: 14px;
+	color: #feffff;
+	text-transform: uppercase;
+	font-weight: 400;
+	text-decoration: none;
+	-webkit-transition: color .2s ease;
+	-moz-transition: color .2s ease;
+	-ms-transition: color .2s ease;
+	-o-transition: color .2s ease;
+	transition: color .2s ease;
+}
+
+#navmenu > ul > li:hover > a,
+#navmenu > ul > li > a:hover,
+#navmenu > ul > li.active > a {
+	color: #2ECCFA;
+    cursor: pointer;
+}
+
+#navmenu ul ul {
+	background: #132438;
+	padding: 10px 35px 30px;
+	width: 220px;
+	position: absolute;
+	left: -9999px;
+	opacity: 0;
+	-webkit-transition: top .2s ease, opacity .2s ease;
+	-moz-transition: top .2s ease, opacity .2s ease;
+	-ms-transition: top .2s ease, opacity .2s ease;
+	-o-transition: top .2s ease, opacity .2s ease;
+	transition: top .2s ease, opacity .2s ease;
+	z-index: 9999;
+}
+
+#navmenu > ul > li > ul {
+	top: 120px;
+}
+
+#navmenu > ul > li:hover > ul {
+	left: auto;
+	top: 100px;
+	opacity: 1;
+}
+
+.header-sticky #navmenu > ul > li > ul {
+	top: 70px;
+}
+
+#navmenu.align-right > ul > li:hover > ul {
+	right: 0;
+}
+
+#navmenu ul ul ul {
+	top: 40px;
+}
+
+#navmenu ul ul > li:hover > ul {
+	top: 0;
+	left: 178px;
+	padding-left: 10px;
+	opacity: 1;
+}
+
+#navmenu.align-right ul ul > li:hover > ul {
+	left: auto;
+	right: 178px;
+	padding-left: 0;
+	padding-right: 10px;
+	opacity: 1;
+}
+
+#navmenu ul ul li a {
+	width: 100%;
+	padding: 12px 0px;
+	font-size: 15px;
+	text-transform: none;
+	letter-spacing: 0.05em;
+	font-weight: 300;
+	color: #ffffff;
+	text-decoration: none;
+	-webkit-transition: color .2s ease;
+	-moz-transition: color .2s ease;
+	-ms-transition: color .2s ease;
+	-o-transition: color .2s ease;
+	transition: color .2s ease;
+	border-bottom: 0px solid #233e5f;
+}
+
+#navmenu ul ul li:last-child a {
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+#navmenu ul ul li:hover > a,
+#navmenu ul ul li > a:hover,
+#navmenu ul ul li.active > a {
+	color: #2E9AFE;
+}
+
+@media all and (max-width: 768px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+  #navmenu {
+    width: 100%;
+  }
+  #navmenu ul,
+  #navmenu ul ul,
+  #navmenu ul ul ul,
+  #navmenu > ul,
+  #navmenu.align-center > ul,
+  #navmenu > ul > li > ul,
+  #navmenu > ul > li:hover > ul,
+  #navmenu ul ul li:hover > ul,
+  #navmenu ul ul ul li:hover > ul,
+  #navmenu.align-right ul ul,
+  #navmenu.align-right ul ul li:hover > ul,
+  #navmenu.align-right ul ul ul li:hover > ul {
+    position: relative;
+    left: 0;
+    right: auto;
+    top: 0;
+    width: 100%;
+    display: none;
+    padding: 0;
+    opacity: 1;
+    text-align: left;
+  }
+  #navmenu ul li {
+    width: 100%;
+    border-top: 1px solid rgba(120, 120, 120, 0.2);
+  }
+  #navmenu > ul > li > a,
+  #navmenu ul ul li a,
+  #navmenu ul ul li:first-child > a,
+  #navmenu ul ul li:last-child > a {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+  }
+  #navmenu ul li a {
+    padding-left: 12.5px;
+  }
+  #navmenu ul ul li a {
+    padding: 14px 25px 14px 27.5px;
+  }
+  #navmenu ul ul ul li a {
+    padding-left: 42.5px;
+  }
+  #navmenu ul ul ul ul li a {
+    padding-left: 57.5px;
+  }
+  #navmenu > ul > li.has-sub > a:after,
+  #navmenu > ul > li.has-sub > a:before,
+  #navmenu ul ul li.has-sub > a:after,
+  #navmenu ul ul li.has-sub > a:before {
+    display: none;
+  }
+  #navmenu #menu-button {
+    position: relative;
+    display: block;
+    padding: 20px;
+    padding-left: 12.5px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #ffffff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  #navmenu .submenu-button {
+    position: absolute;
+    right: 0;
+    display: block;
+    width: 53px;
+    height: 53px;
+    border-left: 1px solid rgba(120, 120, 120, 0.2);
+    z-index: 10;
+    cursor: pointer;
+  }
+  #navmenu ul ul .submenu-button {
+    height: 41px;
+  }
+  #navmenu #menu-button:after {
+  content: "\f0c9";
+  font-family: 'FontAwesome';
+    position: absolute;
+    right: 12.5px;
+    top: 18px;
+	font-size:19px;
+    display: block;
+    width: 28px;
+    height: 28px;
+    -webkit-transition: all 0.1s ease-out;
+    -moz-transition: all 0.1s ease-out;
+    -ms-transition: all 0.1s ease-out;
+    -o-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+  }
+
+#navmenu > ul > li > a {
+    padding: 20px 10px !important;
+}
+
+#navmenu ul ul li:last-child a {
+    padding-bottom: 15px;
+    border-bottom: medium none;
+}
+
+#navmenu ul .submenu-button.submenu-opened:after,
+  #navmenu #menu-button.menu-opened:after {
+    background-position: 0 -28px;
+  }
+  #navmenu ul ul .submenu-button:after {
+    top: 6.5px;
+  }
+
+  #navmenu .submenu-button:before {
+    content: '';
+    position: absolute;
+    right: 22.5px;
+    top: 25.5px;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+    border-top-color: #ffffff;
+    z-index: 99;
+  }
+  #navmenu ul ul .submenu-button:before {
+    top: 19.5px;
+  }
+}
