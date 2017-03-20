@@ -65,7 +65,7 @@ namespace SachOnline.Controllers
         [HttpPost]
         public ActionResult DangNhap(FormCollection f)
         {
-            System.Threading.Thread.Sleep(4000);
+            System.Threading.Thread.Sleep(1000);
             string sTaiKhoan = f.Get("username").ToString();
             string sMatKhau = Encryptor.MD5Hash(f.Get("password").ToString());
             KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MatKhau == sMatKhau);
